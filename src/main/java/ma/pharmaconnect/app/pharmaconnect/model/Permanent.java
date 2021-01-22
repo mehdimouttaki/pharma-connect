@@ -1,8 +1,16 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Permanent {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Date startDate;
     private Date endDate;
@@ -15,8 +23,9 @@ public class Permanent {
         this.endDate = endDate;
         this.type = type;
     }
+
     // Constructor without Parameters
-    public Permanent(){
+    public Permanent() {
     }
     //getters and setters
 

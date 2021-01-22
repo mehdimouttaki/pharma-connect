@@ -1,10 +1,21 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Admin {
-    private  Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String lastName;
+
     private String firstName;
+
+    @Column(unique = true)
     private String username;
+
     private String password;
 
     //Constructor with Parameters
@@ -15,8 +26,9 @@ public class Admin {
         this.username = username;
         this.password = password;
     }
+
     //Constructor without Parameters
-    public Admin(){
+    public Admin() {
 
     }
     //getters and setters

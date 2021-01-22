@@ -1,23 +1,32 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pharmacy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String address;
     private String pharmacist;
-    private String product;
-    // Constructor with Parameters
+    private Double lat;
+    private Double lng;
 
-    public Pharmacy(Integer id, String name, String address, String pharmacist, String product) {
+    public Pharmacy(Integer id, String name, String address, String pharmacist, Double lat, Double lng) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.pharmacist = pharmacist;
-        this.product = product;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     // Constructor without Parameters
-    public Pharmacy(){
+    public Pharmacy() {
 
     }
     //getters and setters
@@ -55,12 +64,20 @@ public class Pharmacy {
         this.pharmacist = pharmacist;
     }
 
-    public String getProduct() {
-        return product;
+    public Double getLat() {
+        return lat;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
     }
 }
 

@@ -1,25 +1,32 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Product {
-    private Integer id ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private Double price;
-    private Integer coded;
-    private Boolean  prescription;
+    private String code;
+    private Boolean prescription;
+    @ManyToOne
     private Pharmacy pharmacy;
     // Constructor with Parameters
 
-    public Product(Integer id, String name, Double price, Integer coded, Boolean prescription, Pharmacy pharmacy) {
+    public Product(Integer id, String name, Double price, String code, Boolean prescription,
+                   Pharmacy pharmacy) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.coded = coded;
+        this.code = code;
         this.prescription = prescription;
         this.pharmacy = pharmacy;
     }
 
     //Constructor without  Parameters
-    public Product(){
+    public Product() {
 
     }
     //getters and setters
@@ -49,12 +56,12 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getCoded() {
-        return coded;
+    public String getCode() {
+        return code;
     }
 
-    public void setCoded(Integer coded) {
-        this.coded = coded;
+    public void setCode(String coded) {
+        this.code = coded;
     }
 
     public Boolean getPrescription() {

@@ -1,17 +1,26 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
-public class Review {
-    private Integer id ;
-    private String review ;
-    private Integer rate;
+import javax.persistence.*;
 
+@Entity
+public class Review {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String review;
+    private Integer rate;
+    @ManyToOne
     private Client client;
+    @ManyToOne
+    @JoinColumn(name = "delivery_id")
     private DeliveryMan deliveryMan;
+    @ManyToOne
     private Order order;
 
     // Constructor with Parameters
 
-    public Review(Integer id, String review, Integer rate, Client client, DeliveryMan deliveryMan, Order order) {
+    public Review(Integer id, String review, Integer rate, Client client, DeliveryMan deliveryMan,
+                  Order order) {
         this.id = id;
         this.review = review;
         this.rate = rate;
@@ -21,7 +30,7 @@ public class Review {
     }
 
     // Constructor without  Parameters
-    public Review(){
+    public Review() {
 
     }
     //getters and setters

@@ -1,17 +1,26 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Client {
-    private  Integer id ;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String lastName;
     private String firstName;
+    @Column(unique = true)
     private String phone;
+    @Column(unique = true)
     private String username;
     private String password;
 
     //Constructor with Parameters
 
 
-    public Client(Integer id, String lastName, String firstName, String phone, String username, String password) {
+    public Client(Integer id, String lastName, String firstName, String phone, String username,
+                  String password) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -21,7 +30,7 @@ public class Client {
     }
 
     // Constructor without Parameters
-    public Client(){
+    public Client() {
 
     }
     //getters and setters

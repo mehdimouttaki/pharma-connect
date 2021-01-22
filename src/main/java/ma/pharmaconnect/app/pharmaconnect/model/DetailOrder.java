@@ -1,20 +1,26 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
+
+@Entity
 public class DetailOrder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String productCode;
-    private int orderId;
+    @ManyToOne
+    private Order order;
     //Constructor  with Parameters
 
 
-    public DetailOrder(Integer id, String productCode, int orderId) {
+    public DetailOrder(Integer id, String productCode, Order order) {
         this.id = id;
         this.productCode = productCode;
-        this.orderId = orderId;
+        this.order = order;
     }
 
     // Constructor without Parameters
-    public DetailOrder(){
+    public DetailOrder() {
 
     }
     //getters and setters
@@ -36,11 +42,11 @@ public class DetailOrder {
         this.productCode = productCode;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

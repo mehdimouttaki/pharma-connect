@@ -1,12 +1,20 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import org.hibernate.annotations.ForeignKey;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class HistoricalAddress {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String address;
     private Date lastModifiedDate;
-    private Client client ;
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client;
     // Constructor with Parameters
 
     public HistoricalAddress(Integer id, String address, Date lastModifiedDate, Client client) {
@@ -17,7 +25,7 @@ public class HistoricalAddress {
     }
 
     // Constructor without Parameters
-    public HistoricalAddress(){
+    public HistoricalAddress() {
 
     }
     //getters and setters

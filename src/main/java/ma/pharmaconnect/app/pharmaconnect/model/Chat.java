@@ -1,30 +1,37 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
 public class Chat {
-    private Integer id ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String message;
-    private Date date;
+    private Date createdAt;
+    @ManyToOne
     private Client client;
+    @ManyToOne
+    @JoinColumn(name = "delivery_id")
     private DeliveryMan deliveryMan;
-    private Order order ;
-    
+    @ManyToOne
+    private Order order;
 
     //Constructor with Parameters
 
 
-    public Chat(Integer id, String message, Date date, Client client, DeliveryMan deliveryMan, Order order) {
+    public Chat(Integer id, String message, Date date, Client client, DeliveryMan deliveryMan,
+                Order order) {
         this.id = id;
         this.message = message;
-        this.date = date;
+        this.createdAt = date;
         this.client = client;
         this.deliveryMan = deliveryMan;
         this.order = order;
     }
 
     // Constructor without Parameters
-    public Chat(){
+    public Chat() {
 
     }
 
@@ -47,12 +54,12 @@ public class Chat {
         this.message = message;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreatedAt(Date date) {
+        this.createdAt = date;
     }
 
     public Client getClient() {

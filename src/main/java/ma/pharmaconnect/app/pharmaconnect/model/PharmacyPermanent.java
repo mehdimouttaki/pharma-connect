@@ -1,7 +1,8 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
 public class PharmacyPermanent {
-    private  Integer id;
+
+    private Integer id;
     private Integer pharmacyId;
     private Integer permanentId;
 
@@ -12,8 +13,9 @@ public class PharmacyPermanent {
         this.pharmacyId = pharmacyId;
         this.permanentId = permanentId;
     }
+
     // Constructor  without Parameters
-    public PharmacyPermanent(){
+    public PharmacyPermanent() {
 
     }
     ////getters and setters

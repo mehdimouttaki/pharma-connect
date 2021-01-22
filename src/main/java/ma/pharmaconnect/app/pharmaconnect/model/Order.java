@@ -1,19 +1,31 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
-public class Order {
-     private  Integer id ;
-     private String nbrProduct;
-     private Double price;
-     private Client client;
-     private DeliveryMan deliveryMan;
-     private Payment payment;
-     private Product product;
-     private Pharmacy pharmacy;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "orders")
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private Integer nbrProduct;
+    private Double price;
+    @ManyToOne
+    private Client client;
+    @ManyToOne
+    @JoinColumn(name = "delivery_id")
+    private DeliveryMan deliveryMan;
+    @ManyToOne
+    private Payment payment;
+    @ManyToOne
+    private Product product;
+    @ManyToOne
+    private Pharmacy pharmacy;
 
     // Constructor with Parameters
 
-    public Order(Integer id, String nbrProduct, Double price, Client client, DeliveryMan deliveryMan, Payment payment, Product product, Pharmacy pharmacy) {
+    public Order(Integer id, Integer nbrProduct, Double price, Client client, DeliveryMan deliveryMan,
+                 Payment payment, Product product, Pharmacy pharmacy) {
         this.id = id;
         this.nbrProduct = nbrProduct;
         this.price = price;
@@ -25,7 +37,7 @@ public class Order {
     }
 
     // Constructor without Parameters
-    public Order(){
+    public Order() {
 
     }
 
@@ -40,11 +52,11 @@ public class Order {
         this.id = id;
     }
 
-    public String getNbrProduct() {
+    public Integer getNbrProduct() {
         return nbrProduct;
     }
 
-    public void setNbrProduct(String nbrProduct) {
+    public void setNbrProduct(Integer nbrProduct) {
         this.nbrProduct = nbrProduct;
     }
 

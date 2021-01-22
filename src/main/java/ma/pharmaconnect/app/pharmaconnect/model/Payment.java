@@ -1,12 +1,19 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String statu;
     private String method;
+    @ManyToOne
     private Client client;
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
-
 
     // Constructor  with Parameters
 
@@ -19,7 +26,7 @@ public class Payment {
     }
 
     // Constructor without Parameters
-    public Payment(){
+    public Payment() {
 
     }
     //getters and setters
