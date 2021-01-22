@@ -1,19 +1,19 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
-public class PharmacyKeep {
+public class PharmacyPermanent {
     private  Integer id;
     private Integer pharmacyId;
-    private Integer keepId;
+    private Integer permanentId;
 
     // Constructor  with Parameters
 
-    public PharmacyKeep(Integer id, Integer pharmacyId, Integer keepId) {
+    public PharmacyPermanent(Integer id, Integer pharmacyId, Integer permanentId) {
         this.id = id;
         this.pharmacyId = pharmacyId;
-        this.keepId = keepId;
+        this.permanentId = permanentId;
     }
     // Constructor  without Parameters
-    public PharmacyKeep(){
+    public PharmacyPermanent(){
 
     }
     ////getters and setters
@@ -34,11 +34,11 @@ public class PharmacyKeep {
         this.pharmacyId = pharmacyId;
     }
 
-    public Integer getKeepId() {
-        return keepId;
+    public Integer getPermanentId() {
+        return permanentId;
     }
 
-    public void setKeepId(Integer keepId) {
-        this.keepId = keepId;
+    public void setPermanentId(Integer permanentId) {
+        this.permanentId = permanentId;
     }
 }

@@ -2,22 +2,21 @@ package ma.pharmaconnect.app.pharmaconnect.model;
 
 import java.util.Date;
 
-public class Keep {
+public class Permanent {
     private Integer id;
     private Date startDate;
     private Date endDate;
     private String type;
 
     // Constructor with Parameters
-    public Keep(Integer id, Date startDate, Date endDate, String type) {
+    public Permanent(Integer id, Date startDate, Date endDate, String type) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
     }
     // Constructor without Parameters
-    public Keep(){
-
+    public Permanent(){
     }
     //getters and setters
 
