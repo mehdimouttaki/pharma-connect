@@ -1,8 +1,13 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Setter
+@Getter
 public class DetailOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,43 +15,5 @@ public class DetailOrder {
     private String productCode;
     @ManyToOne
     private Order order;
-    //Constructor  with Parameters
 
-
-    public DetailOrder(Integer id, String productCode, Order order) {
-        this.id = id;
-        this.productCode = productCode;
-        this.order = order;
-    }
-
-    // Constructor without Parameters
-    public DetailOrder() {
-
-    }
-    //getters and setters
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 }
