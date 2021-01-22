@@ -1,9 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Pharmacy {
@@ -15,6 +13,14 @@ public class Pharmacy {
     private String pharmacist;
     private Double lat;
     private Double lng;
+
+    @ManyToMany
+    @JoinTable(
+            name = "lk_pharmacy_permanent",
+            joinColumns = { @JoinColumn(name = "pharmacy_id") },
+            inverseJoinColumns = { @JoinColumn(name = "keep_id") }
+    )
+    private List<Permanent> permanents;
 
     public Pharmacy(Integer id, String name, String address, String pharmacist, Double lat, Double lng) {
         this.id = id;
@@ -78,6 +84,14 @@ public class Pharmacy {
 
     public void setLng(Double lng) {
         this.lng = lng;
+    }
+
+    public List<Permanent> getPermanents() {
+        return permanents;
+    }
+
+    public void setPermanents(List<Permanent> permanents) {
+        this.permanents = permanents;
     }
 }
 

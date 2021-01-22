@@ -1,10 +1,8 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Permanent {
@@ -16,18 +14,9 @@ public class Permanent {
     private Date endDate;
     private String type;
 
-    // Constructor with Parameters
-    public Permanent(Integer id, Date startDate, Date endDate, String type) {
-        this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.type = type;
-    }
+    @ManyToMany(mappedBy = "permanents")
+    private List<Pharmacy> pharmacies;
 
-    // Constructor without Parameters
-    public Permanent() {
-    }
-    //getters and setters
 
     public Integer getId() {
         return id;
@@ -59,5 +48,13 @@ public class Permanent {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Pharmacy> getPharmacies() {
+        return pharmacies;
+    }
+
+    public void setPharmacies(List<Pharmacy> pharmacies) {
+        this.pharmacies = pharmacies;
     }
 }
