@@ -1,5 +1,6 @@
 package ma.pharmaconnect.app.pharmaconnect.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,7 @@ public class Pharmacy {
             joinColumns = { @JoinColumn(name = "pharmacy_id") },
             inverseJoinColumns = { @JoinColumn(name = "keep_id") }
     )
+    @JsonIgnore
     private List<Permanent> permanents;
 
 }

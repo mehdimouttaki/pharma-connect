@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.controller;
+package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import org.springframework.stereotype.Controller;
 
