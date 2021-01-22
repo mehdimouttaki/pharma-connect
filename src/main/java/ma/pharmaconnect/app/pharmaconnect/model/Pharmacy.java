@@ -24,7 +24,7 @@ public class Pharmacy {
     @JoinTable(
             name = "lk_pharmacy_permanent",
             joinColumns = { @JoinColumn(name = "pharmacy_id") },
-            inverseJoinColumns = { @JoinColumn(name = "keep_id") }
+            inverseJoinColumns = { @JoinColumn(name = "permanent_id") }
     )
     @JsonIgnore
     private List<Permanent> permanents;
