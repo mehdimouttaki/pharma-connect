@@ -15,12 +15,12 @@ public class PermanentRestController {
     private PermanentService permanentService;
 
     @GetMapping("/api/permanents")
-    public List<Permanent> getAll(){
+    public List<Permanent> getAll() {
         return permanentService.getAll();
     }
 
     @GetMapping("/api/permanents/current")
-    public List<Permanent> getCurrentPermanent(){
+    public List<Permanent> getCurrentPermanent() {
         return permanentService.getCurrentPermanent();
     }
 }
