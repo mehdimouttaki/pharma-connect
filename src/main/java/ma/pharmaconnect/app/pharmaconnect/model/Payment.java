@@ -12,11 +12,11 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String statu;
+    private String status;
     private String method;
     @ManyToOne
     private Client client;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
 

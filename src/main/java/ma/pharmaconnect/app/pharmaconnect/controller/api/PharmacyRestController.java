@@ -24,4 +24,5 @@ public class PharmacyRestController {
     public Pharmacy getOne(@PathVariable Integer id) {
         return pharmacyService.getOne(id);
     }
+
 }

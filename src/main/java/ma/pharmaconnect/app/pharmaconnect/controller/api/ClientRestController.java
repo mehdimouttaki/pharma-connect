@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ClientRestController {
-
     @Autowired
     private ClientService clientService;
 
@@ -19,5 +18,10 @@ public class ClientRestController {
     @DeleteMapping("/api/clients/{id}")
     public void deleteClient(@PathVariable Integer id){
         clientService.delete(id);
+    }
+
+    @PutMapping("/api/clients")
+    public  Client updateClient(@RequestBody Client client) {
+        return clientService.update(client);
     }
 }

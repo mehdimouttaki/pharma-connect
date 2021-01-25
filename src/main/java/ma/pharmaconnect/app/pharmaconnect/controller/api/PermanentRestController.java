@@ -3,8 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.controller.api;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
 import ma.pharmaconnect.app.pharmaconnect.service.PermanentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,6 +12,21 @@ public class PermanentRestController {
 
     @Autowired
     private PermanentService permanentService;
+
+    @PostMapping("/api/permanents")
+    public Permanent addDPermanent(@RequestBody Permanent permanent){
+        return permanentService.save(permanent);
+    }
+
+    @DeleteMapping("/api/permanents/{id}")
+    public void deletePermanent(@PathVariable Integer id){
+        permanentService.delete(id);
+    }
+
+    @PutMapping("/api/permanents")
+    public  Permanent updatePermanent(@RequestBody Permanent permanent) {
+        return permanentService.update(permanent);
+    }
 
     @GetMapping("/api/permanents")
     public List<Permanent> getAll() {

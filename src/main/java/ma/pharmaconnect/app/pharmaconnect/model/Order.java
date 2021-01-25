@@ -20,7 +20,7 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "delivery_id")
     private DeliveryMan deliveryMan;
-    @ManyToOne
+    @OneToOne
     private Payment payment;
     @ManyToOne
     private Product product;

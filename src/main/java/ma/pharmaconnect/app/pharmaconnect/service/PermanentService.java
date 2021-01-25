@@ -13,11 +13,26 @@ public class PermanentService {
     @Autowired
     private PermanentRepository permanentRepository;
 
+    public Permanent save(Permanent permanent) {
+        return permanentRepository.save(permanent);
+    }
+
+    public void delete(Integer id) {
+
+        permanentRepository.deleteById(id);
+    }
+    public Permanent update(Permanent permanent){
+
+        return permanentRepository.save(permanent);
+    }
+
     public List<Permanent> getAll() {
+
         return (List<Permanent>) permanentRepository.findAll();
     }
 
-    public List<Permanent> getCurrentPermanent() {
+    public List<Permanent> getCurrentPermanent()
+    {
         return permanentRepository.getCurrentPermanent();
     }
 }

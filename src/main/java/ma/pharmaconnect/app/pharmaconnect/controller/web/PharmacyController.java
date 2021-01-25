@@ -13,10 +13,12 @@ public class PharmacyController {
     private PharmacyService pharmacyService;
 
     public List<Pharmacy> getAll() {
+
         return pharmacyService.getAll();
     }
 
-    public List<Pharmacy> addPharmacy() {
+    public List<Pharmacy> addPharmacy()
+    {
         return pharmacyService.getAll();
     }
 }

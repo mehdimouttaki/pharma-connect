@@ -13,6 +13,7 @@ public class PharmacyService {
     private PharmacyRepository pharmacyRepository;
 
     public List<Pharmacy> getAll() {
+
         return (List<Pharmacy>) pharmacyRepository.findAll();
     }
 
