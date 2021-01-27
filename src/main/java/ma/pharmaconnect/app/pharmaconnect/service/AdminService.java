@@ -24,4 +24,7 @@ public class AdminService {
         return adminRepository.save(admin);
     }
 
+    public boolean existByUsername(String username) {
+        return adminRepository.existsByUsername(username);
+    }
 }

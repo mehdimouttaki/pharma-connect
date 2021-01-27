@@ -5,13 +5,16 @@ import ma.pharmaconnect.app.pharmaconnect.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 public class AdminRestController {
+
     @Autowired
     public AdminService adminService;
+
     @PostMapping("/api/admins")
     public Admin createAdmin(@RequestBody Admin admin){
-
         return adminService.save(admin);
     }
 
@@ -23,5 +26,21 @@ public class AdminRestController {
     @PutMapping("/api/admins")
     public Admin updateAdmin(@RequestBody Admin admin) {
         return adminService.update(admin);
+    }
+
+
+
+    @PostConstruct
+    public void init(){
+        boolean existed= adminService.existByUsername("admin");
+        if (!existed){
+            Admin admin =new Admin();
+            admin.setFirstName("Mehdi");
+            admin.setLastName("Mouttaki");
+            admin.setUsername("admin");
+            admin.setPassword("123456");
+            adminService.save(admin);
+        }
+
     }
 }

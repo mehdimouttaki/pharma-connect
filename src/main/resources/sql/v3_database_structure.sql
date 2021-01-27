@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Dumping structure for table pharma_connect.payment
 CREATE TABLE IF NOT EXISTS `payment` (
                                          `id` int(11) NOT NULL AUTO_INCREMENT,
-                                         `statu` varchar(200) NOT NULL,
+                                         `status` varchar(200) NOT NULL,
                                          `method` varchar(200) NOT NULL,
                                          `client_id` int(11) NOT NULL,
                                          `order_id` int(11) NOT NULL,
