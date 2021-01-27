@@ -14,7 +14,8 @@ public class Payment {
     private Integer id;
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
-    private String method;
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod method;
 
 
 }
