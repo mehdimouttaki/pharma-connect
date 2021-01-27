@@ -12,13 +12,15 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     public Client save(Client client) {
+
         return clientRepository.save(client);
     }
 
     public void delete(Integer id) {
         clientRepository.deleteById(id);
     }
-    public Client update(Client client){
+
+    public Client update(Client client) {
         return clientRepository.save(client);
     }
 }

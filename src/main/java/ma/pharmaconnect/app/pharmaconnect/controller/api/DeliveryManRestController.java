@@ -17,6 +17,7 @@ public class DeliveryManRestController {
 
     @DeleteMapping("/api/deliverymans/{id}")
     public void deleteDeliveryMan(@PathVariable Integer id){
+
         deliveryManService.delete(id);
     }
 

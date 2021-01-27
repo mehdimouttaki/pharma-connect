@@ -11,13 +11,16 @@ public class AdminService {
     private AdminRepository adminRepository;
 
     public Admin save(Admin admin) {
+
         return adminRepository.save(admin);
     }
 
     public void delete(Integer id) {
+
         adminRepository.deleteById(id);
     }
     public Admin update(Admin admin){
+
         return adminRepository.save(admin);
     }
 

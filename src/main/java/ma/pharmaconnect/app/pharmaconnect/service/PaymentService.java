@@ -12,19 +12,16 @@ public class PaymentService {
     @Autowired
     private PaymentRepository paymentRepository;
 
-    public Payment save(Payment payment) {
+    public Payment add(Payment payment) {
         return paymentRepository.save(payment);
     }
 
     public void delete(Integer id) {
         paymentRepository.deleteById(id);
     }
-    /*public Order update(Order order){
-        return orderRepository.save(order);
-    }*/
+
 
     public List<Payment> getAll() {
-
         return (List<Payment>) paymentRepository.findAll();
     }
 

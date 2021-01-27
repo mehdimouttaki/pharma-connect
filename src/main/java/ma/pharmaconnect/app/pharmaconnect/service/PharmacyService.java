@@ -18,6 +18,7 @@ public class PharmacyService {
     }
 
     public Pharmacy getOne(Integer id) {
-       return pharmacyRepository.findById(id).get();
+
+        return pharmacyRepository.findById(id).get();
     }
 }

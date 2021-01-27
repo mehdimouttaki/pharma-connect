@@ -15,19 +15,20 @@ public class OrderRestController {
 
 
     @PostMapping("/api/orders")
-    public Order addOrder(@RequestBody Order order){
+    public Order addOrder(@RequestBody Order order) {
         return orderService.save(order);
     }
 
     @DeleteMapping("/api/orders/{id}")
-    public void deleteOrder(@PathVariable Integer id){
+    public void deleteOrder(@PathVariable Integer id) {
         orderService.delete(id);
     }
 
     @PutMapping("/api/orders")
-    public  Order updateOrder(@RequestBody Order order) {
+    public Order updateOrder(@RequestBody Order order) {
         return orderService.update(order);
     }
+
     @GetMapping("/api/orders")
     public List<Order> getAll() {
         return orderService.getAll();

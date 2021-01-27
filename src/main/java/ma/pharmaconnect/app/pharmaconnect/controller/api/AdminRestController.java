@@ -21,7 +21,7 @@ public class AdminRestController {
     }
 
     @PutMapping("/api/admins")
-    public  Admin updateAdmin(@RequestBody Admin admin) {
+    public Admin updateAdmin(@RequestBody Admin admin) {
         return adminService.update(admin);
     }
 }

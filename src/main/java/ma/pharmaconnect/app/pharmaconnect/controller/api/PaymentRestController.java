@@ -11,18 +11,18 @@ public class PaymentRestController {
     private PaymentService paymentService;
 
     @PostMapping("api/payments")
-    public Payment addPayment(@RequestBody Payment payment){
-        return paymentService.save(payment);
+    public Payment addPayment(@RequestBody Payment payment) {
+        return paymentService.add(payment);
     }
 
     @DeleteMapping("/api/payments/{id}")
-    public void deletePayment(@PathVariable Integer id){
+    public void deletePayment(@PathVariable Integer id) {
         paymentService.delete(id);
     }
 
-    /*@PutMapping("/api/orders")
-    public  Order updateOrder(@RequestBody Order order) {
-        return orderService.update(order);
+    /*@PutMapping("/api/payments")
+    public  Payment updatePayment(@RequestBody Payment payment) {
+        return paymentService.update(payment);
     }*/
     @GetMapping("/api/payments")
     public List<Payment> getAll() {
