@@ -9,12 +9,12 @@ import java.util.List;
 
 @RestController
 public class ChatRestController {
+
     @Autowired
     public ChatService chatService;
 
     @PostMapping("/api/chats")
     public Chat createChat(@RequestBody Chat chat) {
-
         return chatService.save(chat);
     }
 
@@ -30,7 +30,6 @@ public class ChatRestController {
 
     @GetMapping("/api/chats/{id}")
     public Chat getOne(@PathVariable Integer id) {
-
         return chatService.getOne(id);
     }
 

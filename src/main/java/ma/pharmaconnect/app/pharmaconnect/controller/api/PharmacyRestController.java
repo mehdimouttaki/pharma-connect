@@ -22,7 +22,6 @@ public class PharmacyRestController {
 
     @GetMapping("/api/pharmacies/{id}")
     public Pharmacy getOne(@PathVariable Integer id) {
-
         return pharmacyService.getOne(id);
     }
 

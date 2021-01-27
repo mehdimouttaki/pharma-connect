@@ -10,18 +10,18 @@ public class DeliveryManRestController {
     @Autowired
     private DeliveryManService deliveryManService;
 
-    @PostMapping("/api/deliverymans")
+    @PostMapping("/api/delivery-men")
     public DeliveryMan addDeliveryMan(@RequestBody DeliveryMan deliveryMan){
         return deliveryManService.save(deliveryMan);
     }
 
-    @DeleteMapping("/api/deliverymans/{id}")
+    @DeleteMapping("/api/delivery-men/{id}")
     public void deleteDeliveryMan(@PathVariable Integer id){
 
         deliveryManService.delete(id);
     }
 
-    @PutMapping("/api/deliverymans")
+    @PutMapping("/api/delivery-men")
     public  DeliveryMan updateDeliveryMan(@RequestBody DeliveryMan deliveryMan) {
         return deliveryManService.update(deliveryMan);
     }

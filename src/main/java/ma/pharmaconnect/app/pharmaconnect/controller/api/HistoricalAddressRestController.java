@@ -14,14 +14,13 @@ public class HistoricalAddressRestController {
     @Autowired
     private HistoricalAddressService historicalAddressService;
 
-    @GetMapping("/api/historicaladdress")
+    @GetMapping("/api/historical-address")
     public List<HistoricalAddress> getAll() {
         return historicalAddressService.getAll();
     }
 
-    @GetMapping("/api/historicaladdress/{id}")
+    @GetMapping("/api/historical-address/{id}")
     public HistoricalAddress getOne(@PathVariable Integer id) {
-
         return historicalAddressService.getOne(id);
     }
 }
