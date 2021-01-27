@@ -12,12 +12,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status;
     private String method;
-    @ManyToOne
-    private Client client;
-    @OneToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
+
 
 }

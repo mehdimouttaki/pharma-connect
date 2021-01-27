@@ -13,18 +13,29 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Integer nbrProduct;
+
     private Double price;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+
     @ManyToOne
-    @JoinColumn(name = "delivery_id")
+    @JoinColumn(name = "delivery_id", nullable = true)
     private DeliveryMan deliveryMan;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payment_id", referencedColumnName = "id", nullable = false)
     private Payment payment;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+
     @ManyToOne
+    @JoinColumn(name = "pharmacy_id", nullable = true)
     private Pharmacy pharmacy;
 
 }
