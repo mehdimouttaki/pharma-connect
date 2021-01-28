@@ -10,4 +10,9 @@ public class ClientController {
     public String allClients() {
         return "all_clients";
     }
+
+    @GetMapping("/client/delete")
+    public String deleteClient() {
+        return "delete_clients";
+    }
 }

@@ -20,4 +20,9 @@ public class DeliveryManController {
     public String editDeliveryMan() {
         return "edit_delivery_men";
     }
+
+    @GetMapping("/delivery-men/delete")
+    public String deleteDeliveryMan() {
+        return "delete_delivery_men";
+    }
 }

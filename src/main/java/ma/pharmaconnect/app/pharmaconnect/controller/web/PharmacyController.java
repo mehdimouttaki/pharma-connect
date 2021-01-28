@@ -1,24 +1,27 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
-import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
-import ma.pharmaconnect.app.pharmaconnect.service.PharmacyService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PharmacyController {
-    @Autowired
-    private PharmacyService pharmacyService;
-
-    public List<Pharmacy> getAll() {
-
-        return pharmacyService.getAll();
+    @GetMapping("/pharmacies/add")
+    public String addPharmacy() {
+        return "add_pharmacies";
     }
 
-    public List<Pharmacy> addPharmacy()
-    {
-        return pharmacyService.getAll();
+    @GetMapping("/pharmacies")
+    public String allPharmacy() {
+        return "all_pharmacies";
+    }
+
+    @GetMapping("/pharmacies/edit")
+    public String editPharmacy() {
+        return "edit_pharmacies";
+    }
+
+    @GetMapping("/pharmacies/delete")
+    public String deletePharmacy() {
+        return "delete_pharmacies";
     }
 }
