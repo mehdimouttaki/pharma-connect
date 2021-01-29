@@ -18,11 +18,11 @@
   </style>
 
   <!-- Font Awesome Icons -->
-  <link href="admin-lte/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link th:href="@{/admin-lte/plugins/fontawesome-free/css/all.min.css}" rel="stylesheet">
   <!-- IonIcons -->
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   <!-- Theme style -->
-  <link href="admin-lte/dist/css/adminlte.min.css" rel="stylesheet">
+  <link th:href="@{/admin-lte/dist/css/adminlte.min.css}" rel="stylesheet">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -53,7 +53,7 @@ to get the desired effect
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a class="brand-link" href="dashboard.html">
-    <img alt="Pharma Connect" class="brand-image img-circle elevation-3" src="img/web_logo.png"
+    <img alt="Pharma Connect" class="brand-image img-circle elevation-3" th:src="@{/img/web_logo.png}"
          style="opacity: .8">
     <span class="Connect1">Pharma </span>
     <span class="Connect">Connect </span>
@@ -65,7 +65,7 @@ to get the desired effect
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img alt="User Image" class="img-circle elevation-2" src="img/avatar.png">
+        <img alt="User Image" class="img-circle elevation-2" th:src="@{/img/avatar.png}">
       </div>
       <div class="info">
         <a class="d-block" href="#">ELMehdi ELMouttaki</a>
@@ -86,7 +86,7 @@ to get the desired effect
         </li>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/clients}">
             <i class="nav-icon fas fa-copy"></i>
             <p>
               Client
@@ -116,15 +116,13 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/examples/blank.html">
-
-
+              <a class="nav-link" th:href="@{/delivery-men/add}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ajouter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/flot.html">
+              <a class="nav-link" th:href="@{/delivery-men}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>list</p>
               </a>
@@ -263,13 +261,13 @@ to get the desired effect
 </div>
 <!-- /.content-wrapper -->
 <!-- jQuery -->
-<script src="admin-lte/plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/admin-lte/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap -->
-<script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- AdminLTE -->
-<script src="admin-lte/dist/js/adminlte.js"></script>
+<script th:src="@{/admin-lte/dist/js/adminlte.js}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="admin-lte/plugins/chart.js/Chart.min.js"></script>
+<script th:src="@{/admin-lte/plugins/chart.js/Chart.min.js}"></script>
 </body>
 </html>
