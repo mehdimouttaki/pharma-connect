@@ -5,6 +5,8 @@ import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DeliveryManService {
     @Autowired
@@ -23,4 +25,7 @@ public class DeliveryManService {
         return deliveryManRepository.save(deliveryMan);
     }
 
+    public List<DeliveryMan> getAll() {
+        return (List<DeliveryMan>) deliveryManRepository.findAll();
+    }
 }
