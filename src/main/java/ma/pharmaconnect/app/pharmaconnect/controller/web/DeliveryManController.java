@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DeliveryManController {
 
-    @GetMapping("/delivery-man/add")
+    @GetMapping("/delivery-men/add")
     public String addDeliveryMan() {
         return "add_delivery_men";
     }
