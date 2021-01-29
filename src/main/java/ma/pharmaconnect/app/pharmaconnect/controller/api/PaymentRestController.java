@@ -21,12 +21,13 @@ public class PaymentRestController {
     public void deletePayment(@PathVariable Integer id) {
         paymentService.delete(id);
     }
-
+    //To delete
     @GetMapping("/api/payments")
     public List<Payment> getAll() {
         return paymentService.getAll();
     }
 
+    //To delete
     @GetMapping("/api/payments/{id}")
     public Payment getOne(@PathVariable Integer id) {
         return paymentService.getOne(id);

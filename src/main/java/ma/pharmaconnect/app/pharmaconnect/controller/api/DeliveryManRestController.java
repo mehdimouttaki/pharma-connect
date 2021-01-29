@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 public class DeliveryManRestController {
     @Autowired
     private DeliveryManService deliveryManService;
-
+    //To delete
     @PostMapping("/api/delivery-men")
     public DeliveryMan addDeliveryMan(@RequestBody DeliveryMan deliveryMan){
         return deliveryManService.save(deliveryMan);
     }
 
+    //To delete
     @DeleteMapping("/api/delivery-men/{id}")
     public void deleteDeliveryMan(@PathVariable Integer id){
 
