@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      layout:decorate="~{layout}"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Pharma Connect - All Reviews</title>
 </head>
@@ -11,10 +11,56 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>All Reviews</p>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">List of Reviews</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input class="form-control float-right" name="table_search" placeholder="Search" type="text">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Rate</th>
+                  <th>Review</th>
+                  <th>Client-Id</th>
+                  <th>Delivery-Id</th>
+                  <th>Order-Id</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="review: ${reviews}">
+                  <td th:text="${review.id}"></td>
+                  <td th:text="${review.rate}"></td>
+                  <td th:text="${review.review}"></td>
+                  <td th:text="${review.client}"></td>
+                  <td th:text="${review.deliveryMan}"></td>
+                  <td th:text="${review.order}"></td>
+
+                  <td>
+                    <ion-icon name="fa fa-user"></ion-icon>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
+
       </div>
     </div>
   </section>

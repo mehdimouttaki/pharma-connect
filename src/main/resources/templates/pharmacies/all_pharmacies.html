@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      layout:decorate="~{layout}"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Pharma Connect - All Pharmacies</title>
 </head>
@@ -11,10 +11,56 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>All Pharmacies</p>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">List of Pharmacies</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input class="form-control float-right" name="table_search" placeholder="Search" type="text">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Address</th>
+                  <th>Lat</th>
+                  <th>Lng</th>
+                  <th>Name</th>
+                  <th>Pharmacist</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pharmacy: ${pharmacies}">
+                  <td th:text="${pharmacy.id}"></td>
+                  <td th:text="${pharmacy.address}"></td>
+                  <td th:text="${pharmacy.lat}"></td>
+                  <td th:text="${pharmacy.lng}"></td>
+                  <td th:text="${pharmacy.name}"></td>
+                  <td th:text="${pharmacy.pharmacist}"></td>
+
+                  <td>
+                    <ion-icon name="fa fa-user"></ion-icon>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
+
       </div>
     </div>
   </section>

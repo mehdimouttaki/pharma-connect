@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"
-      layout:decorate="~{layout}"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - All Permanents</title>
+    <title>Pharma Connect - Permanent</title>
 </head>
 <body>
 
@@ -11,10 +11,54 @@
     <section class="my-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1>Welcome to Our Site</h1>
-                    <p>All Permanents</p>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">List of Permanent</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input class="form-control float-right" name="table_search" placeholder="Search"
+                                           type="text">
+
+                                    <div class="input-group-append">
+                                        <button class="btn btn-default" type="submit"><i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Start-Date</th>
+                                    <th>End-Date</th>
+                                    <th>Type</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="permanent: ${permanents}">
+                                    <td th:text="${permanent.id}"></td>
+                                    <td th:text="${permanent.startDate}"></td>
+                                    <td th:text="${permanent.endDate}"></td>
+                                    <td th:text="${permanent.type}"></td>
+
+                                    <td>
+                                        <ion-icon name="fa fa-user"></ion-icon>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
+
             </div>
         </div>
     </section>
