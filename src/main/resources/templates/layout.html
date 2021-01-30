@@ -52,7 +52,7 @@ to get the desired effect
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a class="brand-link" href="dashboard.html">
+  <a class="brand-link" th:href="@{/dashboard}">
     <img alt="Pharma Connect" class="brand-image img-circle elevation-3" th:src="@{/img/web_logo.png}"
          style="opacity: .8">
     <span class="Connect1">Pharma </span>
@@ -68,7 +68,7 @@ to get the desired effect
         <img alt="User Image" class="img-circle elevation-2" th:src="@{/img/avatar.png}">
       </div>
       <div class="info">
-        <a class="d-block" href="#">ELMehdi ELMouttaki</a>
+        <a class="d-block" th:href="@{/profile}">ELMehdi ELMouttaki</a>
       </div>
     </div>
 
@@ -107,7 +107,7 @@ to get the desired effect
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" th:href="@{/delivery_men}">
+          <a class="nav-link" th:href="@{/delivery-men}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               DeliveryMan
