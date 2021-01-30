@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -35,6 +36,12 @@ public class PharmacyController {
     @PostMapping("/pharmacies/add")
     public String savePharmacy(Pharmacy pharmacy) {
         pharmacyService.save(pharmacy);
+        return "redirect:/pharmacies";
+    }
+
+    @GetMapping("/pharmacies/delete/{id}")
+    public String deletePharmacy(@PathVariable Integer id){
+        pharmacyService.delete(id);
         return "redirect:/pharmacies";
     }
 }

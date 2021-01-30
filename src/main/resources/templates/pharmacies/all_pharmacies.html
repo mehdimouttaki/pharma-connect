@@ -37,6 +37,7 @@
                   <th>Lng</th>
                   <th>Name</th>
                   <th>Pharmacist</th>
+                  <th></th>
 
                 </tr>
                 </thead>
@@ -48,10 +49,16 @@
                   <td th:text="${pharmacy.lng}"></td>
                   <td th:text="${pharmacy.name}"></td>
                   <td th:text="${pharmacy.pharmacist}"></td>
-
                   <td>
-                    <ion-icon name="fa fa-user"></ion-icon>
+                    <a th:href="@{'/pharmacies/edit/'+${pharmacy.id}}">
+                      <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit pharmacy"></i>
+                    </a>
+
+                    <a th:href="@{'/pharmacies/delete/'+${pharmacy.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove pharmacy"></i>
+                    </a>
                   </td>
+
                 </tr>
                 </tbody>
               </table>

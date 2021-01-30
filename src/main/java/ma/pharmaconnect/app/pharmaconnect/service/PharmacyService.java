@@ -25,4 +25,8 @@ public class PharmacyService {
     public Pharmacy save(Pharmacy pharmacy) {
         return pharmacyRepository.save(pharmacy);
     }
+
+    public void delete(Integer id) {
+        pharmacyRepository.deleteById(id);
+    }
 }
