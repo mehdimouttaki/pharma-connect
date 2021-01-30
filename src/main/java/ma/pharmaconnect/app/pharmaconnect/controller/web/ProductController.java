@@ -17,7 +17,12 @@ import java.util.List;
 @Controller
 public class ProductController {
     @Autowired
-    ProductService productService;
+    private ProductService productService;
+
+    @GetMapping("/products/add")
+    public String addProduct() {
+        return "/products/add_products";
+    }
     @GetMapping("/products")
     public String allProduct(Model model) {
         List<Product> list = productService.getAll();
@@ -27,7 +32,7 @@ public class ProductController {
     @PostMapping("/products/add")
     public String saveProduct(Product product) {
         productService.save(product);
-        return "redirect:/products";
+        return "redirect:/products/add";
     }
 
     @GetMapping("/products/delete/{id}")

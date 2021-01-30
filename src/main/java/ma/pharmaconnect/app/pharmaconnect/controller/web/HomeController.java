@@ -20,4 +20,10 @@ public class HomeController {
         return "dashboard";
     }
 
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
+
+
 }

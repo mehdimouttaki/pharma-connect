@@ -36,7 +36,7 @@ public class DeliveryManController {
     @PostMapping("/delivery-men/add")
     public String saveDeliveryMan(DeliveryMan deliveryMan) {
         deliveryManService.save(deliveryMan);
-        return "redirect:/delivery-men";
+        return "redirect:/delivery-men/add";
     }
 
     @GetMapping("/delivery-men/delete/{id}")
