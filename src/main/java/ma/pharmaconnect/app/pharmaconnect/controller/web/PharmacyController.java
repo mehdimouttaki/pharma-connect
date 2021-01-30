@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -31,5 +32,9 @@ public class PharmacyController {
         return "/pharmacies/edit_pharmacies";
     }
 
-
+    @PostMapping("/pharmacies/add")
+    public String savePharmacy(Pharmacy pharmacy) {
+        pharmacyService.save(pharmacy);
+        return "redirect:/pharmacies";
+    }
 }

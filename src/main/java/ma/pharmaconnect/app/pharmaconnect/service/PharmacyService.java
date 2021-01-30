@@ -21,4 +21,8 @@ public class PharmacyService {
 
         return pharmacyRepository.findById(id).get();
     }
+
+    public Pharmacy save(Pharmacy pharmacy) {
+        return pharmacyRepository.save(pharmacy);
+    }
 }
