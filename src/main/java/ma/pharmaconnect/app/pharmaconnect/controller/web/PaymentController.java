@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PaymentController {
     @GetMapping("/payments")
     public String allPayment() {
-        return "all_payment";
+        return "/payments/all_payment";
     }
 }

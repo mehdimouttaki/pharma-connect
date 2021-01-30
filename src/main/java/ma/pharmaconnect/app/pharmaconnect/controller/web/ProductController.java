@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProductController {
     @GetMapping("/products")
     public String allProducts() {
-        return "all_products";
+        return "/products/all_products";
     }
 }

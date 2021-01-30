@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="ie=edge" http-equiv="x-ua-compatible">
 
-  <title>Pharma Connect - Add Delivery Man</title>
+  <title>Pharma Connect</title>
   <style>
     .Connect1 {
       color: green;
@@ -17,11 +18,11 @@
   </style>
 
   <!-- Font Awesome Icons -->
-  <link href="admin-lte/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/admin-lte/plugins/fontawesome-free/css/all.min.css}">
   <!-- IonIcons -->
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   <!-- Theme style -->
-  <link href="admin-lte/dist/css/adminlte.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/admin-lte/dist/css/adminlte.min.css}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -39,15 +40,20 @@ to get the desired effect
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3"></form>
+    <form class="form-inline ml-3">
+
+
+    </form>
+
   </nav>
 </div>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a class="brand-link" href="dashboard.html">
-    <img alt="Pharma Connect" class="brand-image img-circle elevation-3" src="img/web_logo.png"
+    <img alt="Pharma Connect" class="brand-image img-circle elevation-3" th:src="@{/img/web_logo.png}"
          style="opacity: .8">
     <span class="Connect1">Pharma </span>
     <span class="Connect">Connect </span>
@@ -59,7 +65,7 @@ to get the desired effect
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img alt="User Image" class="img-circle elevation-2" src="img/avatar.png">
+        <img alt="User Image" class="img-circle elevation-2" th:src="@{/img/avatar.png}">
       </div>
       <div class="info">
         <a class="d-block" href="#">ELMehdi ELMouttaki</a>
@@ -80,7 +86,7 @@ to get the desired effect
         </li>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/clients}">
             <i class="nav-icon fas fa-copy"></i>
             <p>
               Client
@@ -92,17 +98,16 @@ to get the desired effect
             <li class="nav-item">
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/layout/top-nav-sidebar.html">
+              <a class="nav-link" th:href="@{/clients}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>list</p>
               </a>
             </li>
             </li>
-
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/delivery_men}">
             <i class="nav-icon fas fa-chart-pie"></i>
             <p>
               DeliveryMan
@@ -111,15 +116,13 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/examples/blank.html">
-
-
+              <a class="nav-link" th:href="@{/delivery-men/add}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ajouter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/flot.html">
+              <a class="nav-link" th:href="@{/delivery-men}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>list</p>
               </a>
@@ -127,7 +130,7 @@ to get the desired effect
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/orders}">
             <i class="nav-icon fas fa-tree"></i>
             <p>
               Orders
@@ -136,7 +139,7 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/UI/general.html">
+              <a class="nav-link" th:href="@{/orders}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>List</p>
               </a>
@@ -144,7 +147,7 @@ to get the desired effect
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/pharmacies}">
             <i class="nav-icon fas fa-edit"></i>
             <p>
               Pharmacy
@@ -153,13 +156,13 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/general.html">
+              <a class="nav-link" th:href="@{/pharmacies/add}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ajouter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/advanced.html">
+              <a class="nav-link" th:href="@{/pharmacies}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>list</p>
               </a>
@@ -167,7 +170,7 @@ to get the desired effect
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/permanents}">
             <i class="nav-icon fas fa-table"></i>
             <p>
               Permanent
@@ -176,13 +179,13 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/simple.html">
+              <a class="nav-link" th:href="@{/permanents/add}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Ajouter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/data.html">
+              <a class="nav-link" th:href="@{/permanents}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>list</p>
               </a>
@@ -192,7 +195,7 @@ to get the desired effect
 
 
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/reviews}">
             <i class="nav-icon fas fa-table"></i>
             <p>
               Review
@@ -201,7 +204,7 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/simple.html">
+              <a class="nav-link" th:href="@{/reviews}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>List</p>
               </a>
@@ -210,7 +213,7 @@ to get the desired effect
           </ul>
         </li>
         <li class="nav-item has-treeview">
-          <a class="nav-link" href="#">
+          <a class="nav-link" th:href="@{/chats}">
             <i class="nav-icon fas fa-table"></i>
             <p>
               Chat
@@ -219,7 +222,7 @@ to get the desired effect
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/simple.html">
+              <a class="nav-link" th:href="@{/chats}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>List</p>
               </a>
@@ -231,15 +234,40 @@ to get the desired effect
     </nav>
   </div>
 </aside>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <!--<div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Blank Page</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Blank Page</li>
+          </ol>
+        </div>
+      </div>
+    </div>--><!-- /.container-fluid -->
+  </section>
 
+  <!-- Main content -->
+  <section class="content" layout:fragment="content">
+
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 <!-- jQuery -->
-<script src="admin-lte/plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/admin-lte/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap -->
-<script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- AdminLTE -->
-<script src="admin-lte/dist/js/adminlte.js"></script>
+<script th:src="@{/admin-lte/dist/js/adminlte.js}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="admin-lte/plugins/chart.js/Chart.min.js"></script>
+<script th:src="@{/admin-lte/plugins/chart.js/Chart.min.js}"></script>
 </body>
 </html>

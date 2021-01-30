@@ -8,11 +8,7 @@ public class ClientController {
 
     @GetMapping("/clients")
     public String allClients() {
-        return "all_clients";
+        return "/clients/all_clients";
     }
 
-    @GetMapping("/client/delete")
-    public String deleteClient() {
-        return "delete_clients";
-    }
 }

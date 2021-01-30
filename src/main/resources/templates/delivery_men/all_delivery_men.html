@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Pharma Connect - All Delivery men</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+  <section class="my-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">List of Delivery men</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input class="form-control float-right" name="table_search" placeholder="Search" type="text">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Date Creation</th>
+                  <th>Status</th>
+                  <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="deliveryMan: ${deliveryMen}">
+                  <td th:text="${deliveryMan.id}"></td>
+                  <td th:text="${deliveryMan.username}"></td>
+                  <td th:text="${deliveryMan.firstName + ' ' + deliveryMan.lastName}"></td>
+                  <td th:text="${deliveryMan.phone}"></td>
+                  <td>11-7-2014</td>
+                  <td><span class="tag tag-success">Approved</span></td>
+                  <td>
+                    <ion-icon name="fa fa-user"></ion-icon>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

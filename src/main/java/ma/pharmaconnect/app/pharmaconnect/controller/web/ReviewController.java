@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ReviewController {
     @GetMapping("/reviews")
     public String allReviews() {
-        return "all_reviews";
+        return "/reviews/all_reviews";
     }
 }

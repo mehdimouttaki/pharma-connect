@@ -7,21 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PharmacyController {
     @GetMapping("/pharmacies/add")
     public String addPharmacy() {
-        return "add_pharmacies";
+        return "/pharmacies/add_pharmacies";
     }
 
     @GetMapping("/pharmacies")
     public String allPharmacy() {
-        return "all_pharmacies";
+        return "/pharmacies/all_pharmacies";
     }
 
     @GetMapping("/pharmacies/edit")
     public String editPharmacy() {
-        return "edit_pharmacies";
+        return "/pharmacies/edit_pharmacies";
     }
 
-    @GetMapping("/pharmacies/delete")
-    public String deletePharmacy() {
-        return "delete_pharmacies";
-    }
+
 }

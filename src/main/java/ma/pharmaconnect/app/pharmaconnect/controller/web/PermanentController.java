@@ -5,23 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PermanentController {
-    @GetMapping("/permanent/add")
+    @GetMapping("/permanents/add")
     public String addPermanent() {
-        return "add_permanent";
+        return "/permanents/add_permanents";
     }
 
-    @GetMapping("/permanent")
+    @GetMapping("/permanents")
     public String allPermanent() {
-        return "all_permanent";
+        return "/permanents/all_permanents";
     }
 
-    @GetMapping("/permanent/edit")
+    @GetMapping("/permanents/edit")
     public String editPermanent() {
-        return "edit_permanent";
+        return "/permanents/edit_permanents";
     }
 
-    @GetMapping("/permanent/delete")
-    public String deletePermanent() {
-        return "delete_permanent";
-    }
+
 }

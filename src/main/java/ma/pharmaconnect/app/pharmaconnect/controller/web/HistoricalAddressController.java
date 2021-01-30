@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HistoricalAddressController {
     @GetMapping("/historical-address")
     public String allHistoricalAddress() {
-        return "all_historical_address";
+        return "/historical_adress/all_historical_address";
     }
 }
