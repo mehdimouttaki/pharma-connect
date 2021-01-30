@@ -1,23 +1,70 @@
 <!DOCTYPE html>
-<html lang="en"
-      layout:decorate="~{layout}"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Pharma Connect - All Clients</title>
+    <title>Pharma Connect - All Clients</title>
 </head>
 <body>
 
 <div layout:fragment="content">
-  <section class="my-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>All Clients</p>
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">List of Clients</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input class="form-control float-right" name="table_search" placeholder="Search"
+                                           type="text">
+
+                                    <div class="input-group-append">
+                                        <button class="btn btn-default" type="submit"><i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Date Creation</th>
+                                    <th>Status</th>
+                                    <th>Options</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="client: ${clients}">
+                                    <td th:text="${client.id}"></td>
+                                    <td th:text="${client.username}"></td>
+                                    <td th:text="${client.firstName + ' ' + client.lastName}"></td>
+                                    <td th:text="${client.phone}"></td>
+                                    <td>11-7-2014</td>
+                                    <td><span class="tag tag-success">Approved</span></td>
+                                    <td>
+                                        <ion-icon name="fa fa-user"></ion-icon>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
 
 </body>

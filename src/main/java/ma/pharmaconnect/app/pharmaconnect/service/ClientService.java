@@ -5,6 +5,8 @@ import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClientService {
 
@@ -22,5 +24,9 @@ public class ClientService {
 
     public Client update(Client client) {
         return clientRepository.save(client);
+    }
+
+    public List<Client> getAll() {
+        return (List<Client>) clientRepository.findAll();
     }
 }
