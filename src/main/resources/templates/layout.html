@@ -168,6 +168,32 @@ to get the desired effect
               </a>
             </li>
           </ul>
+
+        <li class="nav-item has-treeview">
+          <a class="nav-link" th:href="@{/products}">
+            <i class="nav-icon fas fa-tree"></i>
+            <p>
+              Product
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/products/add}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ajouter</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/products}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>List</p>
+              </a>
+            </li>
+          </ul>
+        </li>
         </li>
         <li class="nav-item has-treeview">
           <a class="nav-link" th:href="@{/permanents}">

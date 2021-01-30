@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      layout:decorate="~{layout}"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Pharma Connect - All Products</title>
 </head>
@@ -11,10 +11,62 @@
   <section class="my-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>All Products</p>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">List of Products</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input class="form-control float-right" name="table_search" placeholder="Search" type="text">
+
+                  <div class="input-group-append">
+                    <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Code</th>
+                  <th>prescription</th>
+                  <th>Pharmacy</th>
+                  <th></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product: ${products}">
+                  <td th:text="${product.id}"></td>
+                  <td th:text="${product.name}"></td>
+                  <td th:text="${product.price}"></td>
+                  <td th:text="${product.code }"></td>
+                  <td th:text="${product.prescription}"></td>
+                  <td th:text="${product.pharmacy}"></td>
+                  <td>
+                    <a th:href="@{'/products/edit/'+${product.id}}">
+                      <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit product"></i>
+                    </a>
+
+                    <a th:href="@{'/products/delete/'+${product.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove product"></i>
+                    </a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
+
       </div>
     </div>
   </section>
