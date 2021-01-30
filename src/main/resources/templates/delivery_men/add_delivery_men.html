@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <title>Pharma Connect - Add Delivery Men</title>
+  <title>Pharma Connect - Add DeliveryMan</title>
 </head>
 <body>
 
@@ -12,12 +13,53 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>Add Delivery Men</p>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Add Delivery Man</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post" role="form" th:action="@{/delivery-men/add}">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="firstname">DeliveryMan FirstName</label>
+                  <input class="form-control" id="firstName" name="firstName" placeholder="First Name"
+                         required="required" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="lastname">DeliveryMan LastName</label>
+                  <input class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="required"
+                         type="text">
+                </div>
+                <div class="form-group">
+                  <label for="phone">DeliverMan phone </label>
+                  <input class="form-control" id="phone" name="phone" placeholder="Phone" required="required"
+                         type="tel">
+                </div>
+                <div class="form-group">
+                  <label for="username">username</label>
+                  <input class="form-control" id="username" name="username" placeholder="Username" required="required"
+                         type="text">
+                </div>
+                <div class="form-group">
+                  <label for="password">password</label>
+                  <input class="form-control" id="password" name="password" placeholder="Password" required="required"
+                         type="password">
+                </div>
+
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button class="btn btn-primary" type="submit">Add</button>
+              </div>
+            </form>
+
+          </div>
         </div>
       </div>
-    </div>
   </section>
+
 </div>
 
 </body>

@@ -33,19 +33,22 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
+
                                     <th>ID</th>
-                                    <th>Start-Date</th>
-                                    <th>End-Date</th>
                                     <th>Type</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="permanent: ${permanents}">
                                     <td th:text="${permanent.id}"></td>
+                                    <td th:text="${permanent.type}"></td>
                                     <td th:text="${permanent.startDate}"></td>
                                     <td th:text="${permanent.endDate}"></td>
-                                    <td th:text="${permanent.type}"></td>
+
 
                                     <td>
                                         <ion-icon name="fa fa-user"></ion-icon>

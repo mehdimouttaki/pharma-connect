@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -30,4 +32,17 @@ public class DeliveryManController {
     public String editDeliveryMan() {
         return "/delivery_men/edit_delivery_men";
     }
+
+    @PostMapping("/delivery-men/add")
+    public String saveDeliveryMan(DeliveryMan deliveryMan) {
+        deliveryManService.save(deliveryMan);
+        return "redirect:/delivery-men";
+    }
+
+    @GetMapping("/delivery-men/delete/{id}")
+    public String deleteDeliveryMan(@PathVariable Integer id) {
+        deliveryManService.delete(id);
+        return "redirect:/delivery-men";
+    }
+
 }

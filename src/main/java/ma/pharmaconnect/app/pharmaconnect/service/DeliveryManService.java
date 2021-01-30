@@ -29,4 +29,5 @@ public class DeliveryManService {
     public List<DeliveryMan> getAll() {
         return (List<DeliveryMan>) deliveryManRepository.findAll();
     }
+
 }
