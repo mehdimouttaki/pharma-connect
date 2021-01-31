@@ -30,5 +30,3 @@ public class Pharmacy {
     private List<Permanent> permanents;
 
 }
-
-

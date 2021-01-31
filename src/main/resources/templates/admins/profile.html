@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
       xmlns:th="http://www.thymeleaf.org">
@@ -13,8 +14,8 @@
 <div layout:fragment="content">
   <section class="my-5">
   <div class="card-body box-profile">
-    <div class="image">
-      <img alt="User Image" class="img-circle elevation-2" src="">
+    <div class="image text-center">
+      <img alt="User Image" class="img-circle elevation-2" th:src="@{/img/avatar.png}" height="50px" width="50px">
 
     </div>
 

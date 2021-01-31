@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/profile")
     public String profile() {
-        return "profile";
+        return "admins/profile";
     }
 
 }
