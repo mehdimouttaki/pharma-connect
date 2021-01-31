@@ -13,6 +13,11 @@ public class PermanentService {
     @Autowired
     private PermanentRepository permanentRepository;
 
+    public List<Permanent> getAll() {
+
+        return (List<Permanent>) permanentRepository.findAll();
+    }
+
     public Permanent save(Permanent permanent) {
         return permanentRepository.save(permanent);
     }
@@ -26,10 +31,7 @@ public class PermanentService {
         return permanentRepository.save(permanent);
     }
 
-    public List<Permanent> getAll() {
 
-        return (List<Permanent>) permanentRepository.findAll();
-    }
 
     public List<Permanent> getCurrentPermanent()
     {
