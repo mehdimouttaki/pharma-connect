@@ -53,6 +53,16 @@
                                     <td>
                                         <ion-icon name="fa fa-user"></ion-icon>
                                     </td>
+                                    <td>
+
+
+                                        <a th:href="@{'/pharmacies/delete/'+${client.id}}">
+                                            <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove client"></i>
+                                        </a>
+                                        <a th:href="@{'/clients'+${client.id}}">
+                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw client"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

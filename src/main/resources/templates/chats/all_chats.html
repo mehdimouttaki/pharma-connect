@@ -55,6 +55,15 @@
                   <td>
                     <ion-icon name="fa fa-user"></ion-icon>
                   </td>
+
+
+                    <a th:href="@{'/chats/delete/'+${chat.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove chat"></i>
+                    </a>
+                  <a th:href="@{'/chats'+${chat.id}}">
+                    <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw chat"></i>
+                  </a>
+                  </td>
                 </tr>
                 </tbody>
               </table>

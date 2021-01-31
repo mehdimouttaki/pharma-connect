@@ -57,6 +57,10 @@
                     <a th:href="@{'/pharmacies/delete/'+${pharmacy.id}}">
                       <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove pharmacy"></i>
                     </a>
+                    <a th:href="@{'/pharmacies/view'+${pharmacy.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw pharmacy"></i>
+                    </a>
+
                   </td>
 
                 </tr>

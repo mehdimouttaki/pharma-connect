@@ -57,6 +57,9 @@
                     <a th:href="@{'/products/delete/'+${product.id}}">
                       <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove product"></i>
                     </a>
+                    <a th:href="@{'/products'+${product.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw product"></i>
+                    </a>
                   </td>
                 </tr>
                 </body>

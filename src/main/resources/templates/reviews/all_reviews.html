@@ -52,6 +52,18 @@
                   <td>
                     <ion-icon name="fa fa-user"></ion-icon>
                   </td>
+                  <td>
+                    <a th:href="@{'/reviews/edit/'+${review.id}}">
+                      <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit review"></i>
+                    </a>
+
+                    <a th:href="@{'/reviews/delete/'+${review.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove review"></i>
+                    </a>
+                    <a th:href="@{'/reviews'+${review.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw review"></i>
+                    </a>
+                  </td>
                 </tr>
                 </tbody>
               </table>
