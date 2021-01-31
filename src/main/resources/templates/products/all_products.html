@@ -36,7 +36,7 @@
                   <th>Price</th>
                   <th>Code</th>
                   <th >prescription</th>
-                  <th>Pharmacy</th>
+
                   <th></th>
 
                 </tr>
@@ -51,7 +51,7 @@
                     <i th:if="${product.prescription}" class="fas fa-clipboard-check text-success"></i>
                     <i th:if="${!product.prescription}" class="fas fa-times text-danger"></i>
                   </td>
-                  <td th:text="${product.pharmacy.name}"></td>
+
                   <td>
                     <a th:href="@{'/products'+${product.id}}">
                       <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw product"></i>

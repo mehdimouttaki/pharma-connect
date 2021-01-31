@@ -2,6 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,6 +10,7 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
+@ToString
 public class HistoricalAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
