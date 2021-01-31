@@ -17,7 +17,8 @@ public class Permanent {
     private Integer id;
     private Date startDate;
     private Date endDate;
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private PermanentType type;
 
     @ManyToMany(mappedBy = "permanents")
     private List<Pharmacy> pharmacies;
