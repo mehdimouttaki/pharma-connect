@@ -30,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-nowrap text-center">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -50,18 +50,16 @@
                                     <td th:text="${client.phone}"></td>
                                     <td>11-7-2014</td>
                                     <td><span class="tag tag-success">Approved</span></td>
-                                    <td>
-                                        <ion-icon name="fa fa-user"></ion-icon>
-                                    </td>
+
                                     <td>
 
-
-                                        <a th:href="@{'/pharmacies/delete/'+${client.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove client"></i>
-                                        </a>
                                         <a th:href="@{'/clients'+${client.id}}">
                                             <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw client"></i>
                                         </a>
+                                        <a th:href="@{'/clients/delete/'+${client.id}}">
+                                            <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove client"></i>
+                                        </a>
+
                                     </td>
                                 </tr>
                                 </tbody>

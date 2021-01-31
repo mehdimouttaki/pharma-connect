@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,6 +20,11 @@ public class ClientController {
         List<Client> list = clientService.getAll();
         model.addAttribute("clients", list);
         return "/clients/all_clients";
+    }
+    @GetMapping("/clients/delete/{id}")
+    public String deleteClients(@PathVariable Integer id) {
+        clientService.delete(id);
+        return "redirect:/clients";
     }
 
 }

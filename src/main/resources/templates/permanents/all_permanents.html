@@ -30,7 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-nowrap text-center">
                                 <thead>
                                 <tr>
 
@@ -51,6 +51,9 @@
                                     <td th:text="${#dates.format(permanent.endDate, 'dd-MM-yyyy HH:mm')}"></td>
 
                                     <td>
+                                        <a th:href="@{'/permanents'+${permanent.id}}">
+                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw permanent"></i>
+                                        </a>
                                         <a th:href="@{'/permanents/edit/'+${permanent.id}}">
                                             <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit permanent"></i>
                                         </a>
@@ -58,9 +61,7 @@
                                         <a th:href="@{'/permanents/delete/'+${permanent.id}}">
                                             <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove permanent"></i>
                                         </a>
-                                        <a th:href="@{'/permanents'+${permanent.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw permanent"></i>
-                                        </a>
+
                                     </td>
                                 </tr>
                                 </tbody>

@@ -28,7 +28,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+              <table class="table table-hover text-nowrap text-center">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -40,17 +40,22 @@
                   <th>Options</th>
                 </tr>
                 </thead>
-                <tbody>
+                <body>
                 <tr th:each="deliveryMan: ${deliveryMen}">
                   <td th:text="${deliveryMan.id}"></td>
                   <td th:text="${deliveryMan.username}"></td>
                   <td th:text="${deliveryMan.firstName + ' ' + deliveryMan.lastName}"></td>
                   <td th:text="${deliveryMan.phone}"></td>
                   <td>11-7-2014</td>
-                  <td><span class="tag tag-success">Approved</span></td>
+                  <td>Approved</td>
                   <td>
-                    <ion-icon name="fa fa-user"></ion-icon>
-                  <td>
+
+
+
+                  <a th:href="@{'/delivery-men'+${deliveryMan.id}}">
+                    <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw delivery"></i>
+                  </a>
+
                     <a th:href="@{'/delivery-men/edit/'+${deliveryMan.id}}">
                       <i class="far fa-edit" style="color: coral; margin: 0 5px" title="Edit DeliveryMan"></i>
                     </a>
@@ -58,13 +63,11 @@
                     <a th:href="@{'/delivery-men/delete/'+${deliveryMan.id}}">
                       <i class="far fa-trash-alt" style="color: darkred; margin: 0 5px" title="Remove DeliveryMan"></i>
                     </a>
-                  <a th:href="@{'/delivery-men'+${deliveryMan.id}}">
-                    <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw delivery"></i>
-                  </a>
-                  </td>
+
+
                   </td>
                 </tr>
-                </tbody>
+                </body>
               </table>
             </div>
             <!-- /.card-body -->

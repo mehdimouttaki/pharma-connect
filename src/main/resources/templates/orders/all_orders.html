@@ -28,7 +28,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+              <table class="table table-hover text-nowrap text-center">
                 <thead>
                 <tr>
                   <th>ID</th>
@@ -52,17 +52,15 @@
                   <td th:text="${order.pharmacy}"></td>
                   <td th:text="${order.product}"></td>
 
-                  <td>
-                    <ion-icon name="fa fa-user"></ion-icon>
-                  </td>
-                  <td>
 
-                    <a th:href="@{'/orders/delete/'+${order.id}}">
-                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove order"></i>
-                    </a>
+                  <td>
                     <a th:href="@{'/orders'+${order.id}}">
                       <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw order"></i>
                     </a>
+                    <a th:href="@{'/orders/delete/'+${order.id}}">
+                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove order"></i>
+                    </a>
+
                   </td>
                 </tr>
                 </tbody>
