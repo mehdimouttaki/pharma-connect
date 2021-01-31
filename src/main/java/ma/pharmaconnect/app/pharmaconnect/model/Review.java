@@ -17,9 +17,10 @@ public class Review {
     private String review;
     private Integer rate;
     @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @ManyToOne
-    @JoinColumn(name = "delivery_id")
+    @JoinColumn(name = "delivery_id",nullable = false)
     private DeliveryMan deliveryMan;
     @ManyToOne
     private Order order;

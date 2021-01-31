@@ -18,11 +18,13 @@ public class Chat {
     private String message;
     private Date createdAt;
     @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
     @ManyToOne
-    @JoinColumn(name = "delivery_id")
+    @JoinColumn(name = "delivery_id", nullable = false)
     private DeliveryMan deliveryMan;
     @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
 }
