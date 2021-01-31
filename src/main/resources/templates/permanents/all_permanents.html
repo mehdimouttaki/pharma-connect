@@ -38,6 +38,7 @@
                                     <th>Type</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
+                                    <th></th>
 
 
                                 </tr>
@@ -46,13 +47,9 @@
                                 <tr th:each="permanent: ${permanents}">
                                     <td th:text="${permanent.id}"></td>
                                     <td th:text="${permanent.type}"></td>
-                                    <td th:text="${permanent.startDate}"></td>
-                                    <td th:text="${permanent.endDate}"></td>
+                                    <td th:text="${#dates.format(permanent.startDate, 'dd-MM-yyyy HH:mm')}"></td>
+                                    <td th:text="${#dates.format(permanent.endDate, 'dd-MM-yyyy HH:mm')}"></td>
 
-
-                                    <td>
-                                        <ion-icon name="fa fa-user"></ion-icon>
-                                    </td>
                                     <td>
                                         <a th:href="@{'/permanents/edit/'+${permanent.id}}">
                                             <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit permanent"></i>
