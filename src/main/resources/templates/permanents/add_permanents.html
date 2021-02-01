@@ -25,12 +25,23 @@
                   <div class="form-check">
                     <label>Permanent Type</label>
                     <p></p>
-                    <input class="form-check-input" type="radio" name="radio1">
-                    <label class="form-check-label">Day</label>
+                    <input class="form-check-input" type="radio"
+                           th:value="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).DAY}"
+                           th:id="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).DAY}"
+                           name="type">
+                    <label th:for="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).DAY}"
+                           class="form-check-label">DAY</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio1" checked>
-                    <label class="form-check-label">Night</label>
+                    <input class="form-check-input"
+                           type="radio"
+                           name="type"
+                           th:value="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).NIGHT}"
+                           th:id="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).NIGHT}"
+                           checked>
+                    <label
+                            th:for="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).NIGHT}"
+                            class="form-check-label">NIGHT</label>
                   </div>
 
                 </div>
