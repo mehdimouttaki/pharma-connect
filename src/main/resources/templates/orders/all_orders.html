@@ -36,7 +36,7 @@
                   <th>Price</th>
                   <th>Client-Id</th>
                   <th>Delivery-Id</th>
-                  <th>Payment</th>
+             <!--    <th>Payment</th>  -->
                   <th>Pharmacy-Id</th>
                   <th>Product-Id</th>
                 </tr>
@@ -46,27 +46,27 @@
                   <td th:text="${order.id}"></td>
                   <td th:text="${order.nbrProduct}"></td>
                   <td th:text="${order.price}"></td>
-                  <td th:text="${order.client}"></td>
-                  <td th:text="${order.deliveryMan}"></td>
-                  <td th:text="${order.payment}"></td>
-                  <td th:text="${order.pharmacy}"></td>
-                  <td th:text="${order.product}"></td>
+                  <td th:text="${order.client.username}"></td>
+                  <td th:text="${order.deliveryMan.username}"></td>
+                  <!--     <td th:text="${order.payment}"></td>-->
+                       <td th:text="${order.pharmacy.name}"></td>
+                       <td th:text="${order.product.name}"></td>
 
 
-                  <td>
-                    <a th:href="@{'/orders'+${order.id}}">
-                      <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw order"></i>
-                    </a>
-                    <a th:href="@{'/orders/delete/'+${order.id}}">
-                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove order"></i>
-                    </a>
+                       <td>
+                         <a th:href="@{'/orders'+${order.id}}">
+                           <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw order"></i>
+                         </a>
+                         <a th:href="@{'/orders/delete/'+${order.id}}">
+                           <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove order"></i>
+                         </a>
 
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
+                       </td>
+                     </tr>
+                     </tbody>
+                   </table>
+                 </div>
+                 <!-- /.card-body -->
           </div>
           <!-- /.card -->
         </div>

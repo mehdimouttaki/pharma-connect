@@ -28,9 +28,9 @@ public class Order {
     @JoinColumn(name = "delivery_id", nullable = true)
     private DeliveryMan deliveryMan;
 
-    @OneToOne(cascade = CascadeType.ALL)
+   /* @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id", referencedColumnName = "id", nullable = false)
-    private Payment payment;
+    private Payment payment;*/
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)

@@ -21,10 +21,10 @@ public class OrderService {
 
 
     public Order save(Order order) {
-        Payment payment =new Payment();
+       /* Payment payment =new Payment();
         payment.setStatus(PaymentStatus.NOT_PAYED);
         payment.setMethod(PaymentMethod.NOTHING);
-        order.setPayment(payment);
+        order.setPayment(payment);*/
 
         Client client = clientRepository.findById(order.getClient().getId()).orElseThrow(NoSuchElementException::new);
         order.setClient(client);
@@ -49,5 +49,9 @@ public class OrderService {
 
     public Order getOne(Integer id) {
         return orderRepository.findById(id).get();
+    }
+    public Client update(Client client) {
+
+        return clientRepository.save(client);
     }
 }

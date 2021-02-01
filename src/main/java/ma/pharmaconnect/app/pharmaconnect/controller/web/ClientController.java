@@ -22,7 +22,7 @@ public class ClientController {
         return "/clients/all_clients";
     }
     @GetMapping("/clients/delete/{id}")
-    public String deleteClients(@PathVariable Integer id) {
+    public String deleteClient(@PathVariable Integer id) {
         clientService.delete(id);
         return "redirect:/clients";
     }

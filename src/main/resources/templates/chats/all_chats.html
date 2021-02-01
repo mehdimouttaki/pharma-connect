@@ -35,21 +35,20 @@
                 <tr>
                   <th>ID</th>
                   <th>Created-At</th>
-                  <th></th>
                   <th>Client-Id</th>
                   <th>Delivery-Man</th>
                   <th>Order-Id</th>
                   <th></th>
                 </tr>
                 </thead>
-                <tbody>
+                <body>
                 <tr th:each="chat: ${chats}">
                   <td th:text="${chat.id}"></td>
                   <td th:text="${chat.createdAt}"></td>
-                  <td th:text="${chat.client}"></td>
-                  <td th:text="${chat.deliveryMan}"></td>
-                  <td th:text="${chat.order}"></td>
-
+                  <td th:text="${chat.client.username}"></td>
+                  <td th:text="${chat.deliveryMan.username}"></td>
+                  <td th:text="${chat.order.id}"></td>
+                  <td>
 
 
                   <a th:href="@{'/chats'+${chat.id}}">
@@ -61,7 +60,7 @@
 
                   </td>
                 </tr>
-                </tbody>
+                </body>
               </table>
             </div>
             <!-- /.card-body -->
