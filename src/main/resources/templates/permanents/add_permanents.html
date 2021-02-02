@@ -45,19 +45,26 @@
                   </div>
 
                 </div>
+
                 <div class="form-group">
-                  <label>Date Start && Date End:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-clock"></i></span>
+                  <label>Date Start:</label>
+                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
-                    <input type="text" class="form-control float-right" id="reservationtime">
                   </div>
-                  <!-- /.input group -->
                 </div>
-
               <!-- /.card-body -->
+                <div class="form-group">
+                  <label>Date End</label>
+                  <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                  </div>
+                </div>
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Add</button>

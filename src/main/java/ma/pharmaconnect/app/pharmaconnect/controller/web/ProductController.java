@@ -32,7 +32,7 @@ public class ProductController {
     @PostMapping("/products/add")
     public String saveProduct(Product product) {
         productService.save(product);
-        return "redirect:/products/add";
+        return "redirect:/products/all_products";
     }
 
     @GetMapping("/products/delete/{id}")

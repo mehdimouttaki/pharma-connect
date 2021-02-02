@@ -21,9 +21,5 @@ public class ReviewController {
         model.addAttribute("reviews", list);
         return "/reviews/all_reviews";
     }
-    @GetMapping("/reviews/delete/{id}")
-    public String deleteReviews(@PathVariable Integer id) {
-        reviewService.delete(id);
-        return "redirect:/reviews";
-    }
+
 }

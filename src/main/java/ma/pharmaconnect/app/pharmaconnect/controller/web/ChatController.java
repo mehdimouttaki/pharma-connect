@@ -21,9 +21,5 @@ public class ChatController {
         model.addAttribute("chats", list);
         return "/chats/all_chats";
     }
-    @GetMapping("/chats/delete/{id}")
-    public String deleteChat(@PathVariable Integer id) {
-        chatService.delete(id);
-        return "redirect:/chats";
-    }
+
 }

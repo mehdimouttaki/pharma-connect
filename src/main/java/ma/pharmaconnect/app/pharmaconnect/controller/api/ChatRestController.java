@@ -18,10 +18,7 @@ public class ChatRestController {
         return chatService.save(chat);
     }
 
-    @DeleteMapping("/api/chats/{id}")
-    public void deleteChat(@PathVariable Integer id) {
-        chatService.delete(id);
-    }
+
 
     @GetMapping("/api/chats")
     public List<Chat> getAll() {

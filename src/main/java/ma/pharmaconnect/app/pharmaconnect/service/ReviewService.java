@@ -16,14 +16,9 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
-    public void delete(Integer id) {
 
-        reviewRepository.deleteById(id);
-    }
 
-    public Review update(Review review) {
-        return reviewRepository.save(review);
-    }
+
 
     public List<Review> getAll() {
 

@@ -17,10 +17,7 @@ public class ChatService {
         return chatRepository.save(chat);
     }
 
-    public void delete(Integer id) {
 
-        chatRepository.deleteById(id);
-    }
 
     public List<Chat> getAll() {
 

@@ -16,13 +16,7 @@ public class ReviewRestController {
         return reviewService.save(review);
     }
 
-    @DeleteMapping("/api/reviews/{id}")
-    public void deleteReview(@PathVariable Integer id){
-        reviewService.delete(id);
-    }
 
-    @PutMapping("/api/reviews")
-    public  Review updateReview(@RequestBody Review review) {
-        return reviewService.update(review);
-    }
+
+
 }
