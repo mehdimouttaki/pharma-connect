@@ -29,4 +29,8 @@ public class ClientService {
     public List<Client> getAll() {
         return (List<Client>) clientRepository.findAll();
     }
+
+    public Client getByUsername(String username) {
+        return clientRepository.findByUsername(username);
+    }
 }
