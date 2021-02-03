@@ -10,17 +10,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
-public class Client {
+@PrimaryKeyJoinColumn(name = "id")
+public class Client extends User{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String lastName;
-    private String firstName;
     @Column(unique = true)
     private String phone;
-    @Column(unique = true)
-    private String username;
-    private String password;
 
 }

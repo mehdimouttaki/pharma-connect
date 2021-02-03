@@ -10,19 +10,8 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
-public class Admin {
+@PrimaryKeyJoinColumn(name = "id")
+public class Admin extends User{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String lastName;
-
-    private String firstName;
-
-    @Column(unique = true)
-    private String username;
-
-    private String password;
 
 }

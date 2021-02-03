@@ -10,16 +10,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
-public class DeliveryMan {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String lastName;
-    private String firstName;
+@PrimaryKeyJoinColumn(name = "id")
+public class DeliveryMan extends User {
+
     @Column(unique = true)
     private String phone;
-    @Column(unique = true)
-    private String username;
-    private String password;
 
 }
