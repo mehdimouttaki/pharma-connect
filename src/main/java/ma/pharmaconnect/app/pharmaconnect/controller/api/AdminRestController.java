@@ -13,15 +13,6 @@ public class AdminRestController {
     @Autowired
     public AdminService adminService;
 
-
-
-    @PutMapping("/api/admins")
-    public Admin updateAdmin(@RequestBody Admin admin) {
-        return adminService.update(admin);
-    }
-
-
-
     @PostConstruct
     public void init(){
         boolean existed= adminService.existByUsername("admin");
