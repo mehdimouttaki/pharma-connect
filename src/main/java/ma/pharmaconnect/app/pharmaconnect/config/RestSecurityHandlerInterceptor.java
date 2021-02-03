@@ -2,7 +2,10 @@ package ma.pharmaconnect.app.pharmaconnect.config;
 
 import lombok.extern.slf4j.Slf4j;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
+import ma.pharmaconnect.app.pharmaconnect.model.User;
+import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
+import ma.pharmaconnect.app.pharmaconnect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -17,7 +20,7 @@ import java.io.IOException;
 @Slf4j
 public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
     @Autowired
-    private ClientService clientService;
+    private UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -29,11 +32,11 @@ public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
         }
 
         String username = httpServletRequest.getHeader("username");
-        Client client = clientService.getByUsername(username);
+        User user = userService.getByUsername(username);
         String password = httpServletRequest.getHeader("password");
 
-        if (client != null) {
-            boolean matchedPassword = passwordEncoder.matches(password, client.getPassword());
+        if (user != null) {
+            boolean matchedPassword = passwordEncoder.matches(password, user.getPassword());
             if (matchedPassword) {
                 return true;
             } else {

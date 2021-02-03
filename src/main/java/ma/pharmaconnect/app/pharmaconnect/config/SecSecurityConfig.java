@@ -1,5 +1,8 @@
 package ma.pharmaconnect.app.pharmaconnect.config;
 
+import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
+import ma.pharmaconnect.app.pharmaconnect.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,7 +19,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admino").password(passwordEncoder().encode("admino")).roles("ADMIN");
+                .withUser("admino").password(passwordEncoder().encode("admino")).roles(UserRole.ADMIN.name());
     }
 
     @Override
