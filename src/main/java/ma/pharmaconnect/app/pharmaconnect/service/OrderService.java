@@ -21,16 +21,12 @@ public class OrderService {
 
 
     public Order save(Order order) {
-       /* Payment payment =new Payment();
-        payment.setStatus(PaymentStatus.NOT_PAYED);
-        payment.setMethod(PaymentMethod.NOTHING);
-        order.setPayment(payment);*/
+
 
         Client client = clientRepository.findById(order.getClient().getId()).orElseThrow(NoSuchElementException::new);
         order.setClient(client);
 
-        Product product = productRepository.findById(order.getProduct().getId()).orElseThrow(NoSuchElementException::new);
-        order.setProduct(product);
+
 
         return orderRepository.save(order);
     }
