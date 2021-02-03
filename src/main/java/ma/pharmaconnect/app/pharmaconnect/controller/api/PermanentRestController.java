@@ -12,23 +12,8 @@ public class PermanentRestController {
 
     @Autowired
     private PermanentService permanentService;
-    //To delete
-    @PostMapping("/api/permanents")
-    public Permanent addDPermanent(@RequestBody Permanent permanent){
-        return permanentService.save(permanent);
-    }
 
-    //To delete
-    @DeleteMapping("/api/permanents/{id}")
-    public void deletePermanent(@PathVariable Integer id){
-        permanentService.delete(id);
-    }
 
-    //To delete
-    @PutMapping("/api/permanents")
-    public  Permanent updatePermanent(@RequestBody Permanent permanent) {
-        return permanentService.update(permanent);
-    }
 
     @GetMapping("/api/permanents")
     public List<Permanent> getAll() {

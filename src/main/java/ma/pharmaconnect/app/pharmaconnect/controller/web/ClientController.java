@@ -28,10 +28,6 @@ public class ClientController {
         clientService.delete(id);
         return "redirect:/clients";
     }
-    @PostMapping("/clients/add")
-    public String saveClient(Client client) {
-        clientService.save(client);
-        return "redirect:/clients";
-    }
+
 
 }

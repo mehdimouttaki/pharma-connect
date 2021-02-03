@@ -13,15 +13,7 @@ public class AdminRestController {
     @Autowired
     public AdminService adminService;
 
-    @PostMapping("/api/admins")
-    public Admin createAdmin(@RequestBody Admin admin){
-        return adminService.save(admin);
-    }
 
-    @DeleteMapping("/api/admins/{id}")
-    public void deleteAdmin(@PathVariable Integer id) {
-        adminService.delete(id);
-    }
 
     @PutMapping("/api/admins")
     public Admin updateAdmin(@RequestBody Admin admin) {

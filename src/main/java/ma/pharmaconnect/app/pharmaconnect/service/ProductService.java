@@ -1,5 +1,6 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import ma.pharmaconnect.app.pharmaconnect.model.Chat;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.Product;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
@@ -27,5 +28,10 @@ public class ProductService {
     public List<Product> getAll() {
         return (List<Product>) productRepository.findAll();
 
+    }
+
+    public Product getOne(Integer id) {
+
+        return productRepository.findById(id).get();
     }
 }
