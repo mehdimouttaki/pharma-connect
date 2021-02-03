@@ -3,6 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +12,16 @@ import java.util.List;
 public class DeliveryManService {
     @Autowired
     private DeliveryManRepository deliveryManRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public DeliveryMan save(DeliveryMan deliveryMan) {
+
+        deliveryMan.setPassword(
+                passwordEncoder.encode(
+                        deliveryMan.getPassword()
+                )
+        );
         return deliveryManRepository.save(deliveryMan);
     }
 

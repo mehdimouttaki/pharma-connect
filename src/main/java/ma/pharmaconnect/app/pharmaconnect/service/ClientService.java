@@ -3,6 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +13,16 @@ public class ClientService {
 
     @Autowired
     private ClientRepository clientRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public Client save(Client client) {
+
+        String normalPassword = client.getPassword();
+
+        String passwordEncoded = passwordEncoder.encode(normalPassword);
+
+        client.setPassword(passwordEncoded);
 
         return clientRepository.save(client);
     }
