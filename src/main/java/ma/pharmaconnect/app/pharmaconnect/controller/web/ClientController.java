@@ -1,12 +1,14 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
+import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -24,6 +26,11 @@ public class ClientController {
     @GetMapping("/clients/delete/{id}")
     public String deleteClient(@PathVariable Integer id) {
         clientService.delete(id);
+        return "redirect:/clients";
+    }
+    @PostMapping("/clients/add")
+    public String saveClient(Client client) {
+        clientService.save(client);
         return "redirect:/clients";
     }
 
