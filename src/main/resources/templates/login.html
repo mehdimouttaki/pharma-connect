@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0079)file:///C:/Users/DELL/OneDrive/Desktop/AdminLTE-3.0.5/pages/examples/login.html -->
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
@@ -20,13 +19,13 @@
 
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="admin-lte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/admin-lte/plugins/fontawesome-free/css/all.min.css}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="admin-lte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" th:href="@{/admin-lte/dist/css/adminlte.min.css}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -41,9 +40,9 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in </p>
 
-            <form action="file:///C:/Users/DELL/OneDrive/Desktop/AdminLTE-3.0.5/index3.html" method="post">
+            <form th:action="@{/login}" method="post">
                 <div class="input-group mb-3">
-                    <input class="form-control" placeholder="Username" type="username">
+                    <input class="form-control" placeholder="Username" name="username" type="text">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -51,7 +50,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input class="form-control" placeholder="Password" type="password">
+                    <input class="form-control" placeholder="Password" name="password" type="password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -80,11 +79,11 @@
     </div>
     <!-- /.login-box -->
     <!-- jQuery -->
-    <script src="admin-lte/plugins/jquery/jquery.min.js"></script>
+    <script th:src="@{/admin-lte/plugins/jquery/jquery.min.js}"></script>
     <!-- Bootstrap 4 -->
-    <script src="admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <!-- AdminLTE App -->
-    <script src="admin-lte/dist/js/adminlte.min.js"></script>
+    <script th:src="@{/admin-lte/dist/js/adminlte.min.js}"></script>
 
 </div>
 </body>
