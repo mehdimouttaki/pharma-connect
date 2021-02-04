@@ -81,6 +81,7 @@
                         <exclude>**/*.map</exclude>
                         <exclude>**/*.sql</exclude>
                         <exclude>**/*.uxf</exclude>
+                        <exclude>**/*.drawio</exclude>
                     </excludes>
                 </configuration>
             </plugin>
