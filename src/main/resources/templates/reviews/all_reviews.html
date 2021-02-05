@@ -12,7 +12,13 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="callout callout-warning" th:if="${#lists.isEmpty(reviews)}">
+            <h5>No Message found!</h5>
+
+
+          </div>
+          <div class="card" th:if="${not #lists.isEmpty(reviews)}">
+
             <div class="card-header">
               <h3 class="card-title">List of Reviews</h3>
 
@@ -64,11 +70,12 @@
               </table>
             </div>
             <!-- /.card-body -->
-          </div>
+
           <!-- /.card -->
         </div>
 
       </div>
+    </div>
     </div>
   </section>
 </div>

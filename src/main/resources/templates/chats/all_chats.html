@@ -12,7 +12,13 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="callout callout-warning" th:if="${#lists.isEmpty(chats)}">
+            <h5>No Message found!</h5>
+
+
+          </div>
+          <div class="card" th:if="${not #lists.isEmpty(chats)}">
+
             <div class="card-header">
               <h3 class="card-title">List of chats</h3>
 
@@ -27,7 +33,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
               <table class="table table-hover text-nowrap text-center">
@@ -68,6 +74,7 @@
 
       </div>
     </div>
+      </div>
   </section>
 </div>
 
