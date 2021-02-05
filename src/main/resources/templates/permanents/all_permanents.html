@@ -12,7 +12,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="callout callout-warning" th:if="${#lists.isEmpty(permanents)}">
+                        <h5>No Permanent found!</h5>
+
+                        <p>There is no permanent in our database, you can <a class="text-info" th:href="@{/permanents/add}">add one</a> .</p>
+                    </div>
+                    <div class="card" th:if="${not #lists.isEmpty(permanents)}">
                         <div class="card-header">
                             <h3 class="card-title">List of Permanent</h3>
 
