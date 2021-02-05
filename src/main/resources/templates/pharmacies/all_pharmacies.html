@@ -12,7 +12,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="callout callout-warning" th:if="${#lists.isEmpty(pharmacies)}">
+            <h5>No Pharmacy found!</h5>
+
+            <p>There is no Pharmacy in our database, you can <a class="text-info" th:href="@{/pharmacies/add}">add one</a> .</p>
+          </div>
+          <div class="card" th:if="${not #lists.isEmpty(pharmacies)}">
             <div class="card-header">
               <h3 class="card-title">List of Pharmacies</h3>
 
@@ -69,11 +74,12 @@
               </table>
             </div>
             <!-- /.card-body -->
-          </div>
+
           <!-- /.card -->
         </div>
 
       </div>
+    </div>
     </div>
   </section>
 </div>

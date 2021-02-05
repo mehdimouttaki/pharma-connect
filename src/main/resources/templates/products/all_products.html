@@ -12,7 +12,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <div class="callout callout-warning" th:if="${#lists.isEmpty(products)}">
+            <h5>No Product found!</h5>
+
+            <p>There is no product in our database, you can <a class="text-info" th:href="@{/products/add}">add one</a> .</p>
+          </div>
+          <div class="card" th:if="${not #lists.isEmpty(products)}">
             <div class="card-header">
               <h3 class="card-title">List of Products</h3>
 
@@ -71,11 +76,11 @@
               </table>
             </div>
             <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
+
         </div>
 
       </div>
+    </div>
     </div>
   </section>
 </div>

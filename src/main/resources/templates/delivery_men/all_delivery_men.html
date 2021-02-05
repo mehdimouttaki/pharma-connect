@@ -16,7 +16,7 @@
           <div class="callout callout-warning" th:if="${#lists.isEmpty(deliveryMen)}">
             <h5>No DeliveryMan found!</h5>
 
-            <p>There is no permanent in our database, you can <a class="text-info" th:href="@{/delivery-men/add}">add one</a> .</p>
+            <p>There is no DeliveryMan in our database, you can <a class="text-info" th:href="@{/delivery-men/add}">add one</a> .</p>
           </div>
           <div class="card" th:if="${not #lists.isEmpty(deliveryMen)}">
 

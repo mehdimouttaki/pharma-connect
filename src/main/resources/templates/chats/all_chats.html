@@ -14,7 +14,7 @@
         <div class="col-12">
           <div class="callout callout-warning" th:if="${#lists.isEmpty(chats)}">
             <h5>No Message found!</h5>
-
+            <p>There is no Chat in our database</p>
 
           </div>
           <div class="card" th:if="${not #lists.isEmpty(chats)}">

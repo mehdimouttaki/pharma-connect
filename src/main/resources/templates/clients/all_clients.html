@@ -12,7 +12,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="callout callout-warning" th:if="${#lists.isEmpty(clients)}">
+                        <h5>No Client found!</h5>
+
+                        <p>There is no Client in our database</p>
+                    </div>
+                    <div class="card" th:if="${not #lists.isEmpty(clients)}">
                         <div class="card-header">
                             <h3 class="card-title">List of Clients</h3>
 
@@ -66,11 +71,12 @@
                             </table>
                         </div>
                         <!-- /.card-body -->
-                    </div>
+
                     <!-- /.card -->
                 </div>
 
             </div>
+        </div>
         </div>
     </section>
 </div>
