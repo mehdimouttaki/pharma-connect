@@ -60,22 +60,18 @@ to get the desired effect
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-
-      <li class="nav-item d-none d-sm-inline-block">
-        <a th:href="@{/dashboard}" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a th:href="@{/exit}" class="nav-link text-center" style="color:#337ab7" >LogOut</a>
-      </li>
     </ul>
 
 
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
-
-
+      <!-- logout menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" th:href="@{/exit}">
+          <i class="fas fa-sign-out-alt" title="Logout"></i> Logout
+        </a>
+      </li>
     </ul>
   </nav>
 </div>
