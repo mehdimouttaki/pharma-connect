@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
+import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +18,7 @@ public class ClientService {
     private PasswordEncoder passwordEncoder;
 
     public Client save(Client client) {
-
+        client.setRole(UserRole.CLIENT);
         String normalPassword = client.getPassword();
 
         String passwordEncoded = passwordEncoder.encode(normalPassword);

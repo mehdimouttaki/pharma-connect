@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
+import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,6 +17,7 @@ public class DeliveryManService {
     private PasswordEncoder passwordEncoder;
 
     public DeliveryMan save(DeliveryMan deliveryMan) {
+        deliveryMan.setRole(UserRole.DELIVERY);
 
         deliveryMan.setPassword(
                 passwordEncoder.encode(
