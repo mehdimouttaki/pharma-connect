@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
+@Table(name = "client")
 @PrimaryKeyJoinColumn(name = "id")
 public class Client extends User{
 

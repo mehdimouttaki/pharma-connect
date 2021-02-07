@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
+@Table(name = "user")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 

@@ -11,6 +11,7 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
+@Table(name = "historical_address")
 public class HistoricalAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

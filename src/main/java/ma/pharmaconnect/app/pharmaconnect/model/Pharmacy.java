@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
+@Table(name = "pharmacy")
 public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

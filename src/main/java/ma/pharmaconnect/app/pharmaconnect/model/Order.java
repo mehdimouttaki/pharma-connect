@@ -7,10 +7,10 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders")
 @Setter
 @Getter
 @ToString
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
