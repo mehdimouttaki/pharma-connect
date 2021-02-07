@@ -1,7 +1,6 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
-import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.service.PermanentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,11 +1,10 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 
-import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
+
 import ma.pharmaconnect.app.pharmaconnect.model.Product;
 import ma.pharmaconnect.app.pharmaconnect.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
