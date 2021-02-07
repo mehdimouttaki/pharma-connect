@@ -1,15 +1,16 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @CrossOrigin("*")
 public class ClientRestController {
-    @Autowired
-    private ClientService clientService;
+
+    private final ClientService clientService;
 
     @PostMapping("/api/clients")
     public Client createClient(@RequestBody Client client){

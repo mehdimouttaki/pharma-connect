@@ -1,26 +1,27 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
 import ma.pharmaconnect.app.pharmaconnect.service.PermanentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-
 @Controller
+@RequiredArgsConstructor
 public class PermanentController {
-    @Autowired
-    PermanentService permanentService;
+
+    private final PermanentService permanentService;
 
     @GetMapping("/permanents/add")
     public String addPermanent() {
         return "/permanents/add_permanents";
     }
-
+    @ModelAttribute
     @GetMapping("/permanents")
     public String allPermanents(Model model) {
         List<Permanent> list = permanentService.getAll();

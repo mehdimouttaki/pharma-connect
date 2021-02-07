@@ -1,18 +1,19 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
-import ma.pharmaconnect.app.pharmaconnect.model.Chat;
-import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
+
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Product;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
-    @Autowired
-    private ProductRepository productRepository;
+
+    private final ProductRepository productRepository;
 
     public Product save(Product product) {
         return productRepository.save(product);

@@ -1,14 +1,15 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.service.DeliveryManService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class DeliveryManRestController {
-    @Autowired
-    private DeliveryManService deliveryManService;
+
+    private final DeliveryManService deliveryManService;
 
 
     @PutMapping("/api/delivery-men")

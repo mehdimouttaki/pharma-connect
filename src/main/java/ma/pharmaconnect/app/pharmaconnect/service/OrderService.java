@@ -1,23 +1,25 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.*;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.OrderRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private ClientRepository clientRepository;
-    @Autowired
-    private ProductRepository productRepository;
+
+    private final OrderRepository orderRepository;
+
+    private final ClientRepository clientRepository;
+
+    private final ProductRepository productRepository;
 
 
     public Order save(Order order) {

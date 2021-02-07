@@ -1,8 +1,8 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ClientController {
-    @Autowired
-    private ClientService clientService;
+
+    private final ClientService clientService;
 
     @GetMapping("/clients")
     public String allClient(Model model) {

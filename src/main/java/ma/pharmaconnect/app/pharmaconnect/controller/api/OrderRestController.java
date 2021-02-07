@@ -1,16 +1,17 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Order;
 import ma.pharmaconnect.app.pharmaconnect.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class OrderRestController {
-    @Autowired
-    private OrderService orderService;
+
+    private final OrderService orderService;
 
 
 

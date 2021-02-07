@@ -1,17 +1,18 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
 import ma.pharmaconnect.app.pharmaconnect.repository.PermanentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PermanentService {
 
-    @Autowired
-    private PermanentRepository permanentRepository;
+
+    private final PermanentRepository permanentRepository;
 
     public List<Permanent> getAll() {
 

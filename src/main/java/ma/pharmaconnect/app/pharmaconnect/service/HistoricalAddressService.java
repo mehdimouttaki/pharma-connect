@@ -1,16 +1,18 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.HistoricalAddress;
 import ma.pharmaconnect.app.pharmaconnect.repository.HistoricalAddressRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class HistoricalAddressService {
-    @Autowired
-    private HistoricalAddressRepository historicalAddressRepository;
+
+    private final HistoricalAddressRepository historicalAddressRepository;
 
     public List<HistoricalAddress> getAll() {
 

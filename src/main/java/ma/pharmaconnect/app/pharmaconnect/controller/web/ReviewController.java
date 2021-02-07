@@ -1,5 +1,6 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Review;
 import ma.pharmaconnect.app.pharmaconnect.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ReviewController {
-    @Autowired
-    ReviewService reviewService;
+
+    private final ReviewService reviewService;
 
     @GetMapping("/reviews")
     public String allReview(Model model) {

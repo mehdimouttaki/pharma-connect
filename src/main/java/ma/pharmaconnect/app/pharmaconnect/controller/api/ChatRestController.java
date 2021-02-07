@@ -1,17 +1,18 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Chat;
 import ma.pharmaconnect.app.pharmaconnect.service.ChatService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class ChatRestController {
 
-    @Autowired
-    public ChatService chatService;
+
+    public final ChatService chatService;
 
     @PostMapping("/api/chats")
     public Chat createChat(@RequestBody Chat chat) {

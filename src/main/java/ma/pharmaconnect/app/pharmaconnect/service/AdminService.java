@@ -1,16 +1,17 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Admin;
 import ma.pharmaconnect.app.pharmaconnect.repository.AdminRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AdminService {
-    @Autowired
-    private AdminRepository adminRepository;
+
+    private final AdminRepository adminRepository;
 
     public Admin save(Admin admin) {
 

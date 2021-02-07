@@ -1,17 +1,16 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
-import ma.pharmaconnect.app.pharmaconnect.model.Chat;
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Review;
 import ma.pharmaconnect.app.pharmaconnect.repository.ReviewRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
-    @Autowired
-    private ReviewRepository reviewRepository;
+
+    private  final ReviewRepository reviewRepository;
 
     public Review save(Review review) {
         return reviewRepository.save(review);

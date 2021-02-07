@@ -1,16 +1,17 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Payment;
 import ma.pharmaconnect.app.pharmaconnect.repository.PaymentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PaymentService {
-    @Autowired
-    private PaymentRepository paymentRepository;
+
+    private final PaymentRepository paymentRepository;
 
     public Payment add(Payment payment) {
         return paymentRepository.save(payment);

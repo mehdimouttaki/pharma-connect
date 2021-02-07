@@ -1,16 +1,17 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
+import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Chat;
 import ma.pharmaconnect.app.pharmaconnect.repository.ChatRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ChatService {
-    @Autowired
-    private ChatRepository chatRepository;
+
+    private final ChatRepository chatRepository;
 
     public Chat save(Chat chat) {
 
