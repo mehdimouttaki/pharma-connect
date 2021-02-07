@@ -15,7 +15,9 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JoinColumn(nullable = true)
     private String review;
+    @JoinColumn(nullable = true)
     private Integer rate;
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
@@ -24,6 +26,7 @@ public class Review {
     @JoinColumn(name = "delivery_id",nullable = false)
     private DeliveryMan deliveryMan;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Order order;
 
 }

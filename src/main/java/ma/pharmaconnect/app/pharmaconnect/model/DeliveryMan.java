@@ -14,7 +14,7 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 public class DeliveryMan extends User {
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String phone;
 
 }

@@ -15,9 +15,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(nullable = false)
     private Integer nbrProduct;
-
+    @JoinColumn(nullable = false)
     private Double price;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

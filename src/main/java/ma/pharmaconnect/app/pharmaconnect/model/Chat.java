@@ -16,7 +16,9 @@ public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JoinColumn(nullable = true)
     private String message;
+    @JoinColumn(nullable = true)
     private Date createdAt;
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)

@@ -17,10 +17,15 @@ public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JoinColumn(nullable = false)
     private String name;
+    @JoinColumn(nullable = false)
     private String address;
+    @JoinColumn(nullable = true)
     private String pharmacist;
+    @JoinColumn(nullable = true)
     private Double lat;
+    @JoinColumn(nullable = true)
     private Double lng;
 
     @ManyToMany
@@ -30,6 +35,7 @@ public class Pharmacy {
             inverseJoinColumns = { @JoinColumn(name = "permanent_id") }
     )
     @JsonIgnore
+    @JoinColumn(nullable = true)
     private List<Permanent> permanents;
 
 }

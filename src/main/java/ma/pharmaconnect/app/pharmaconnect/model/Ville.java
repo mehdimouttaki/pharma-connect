@@ -15,6 +15,7 @@ public class Ville {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JoinColumn(nullable = false)
     private String ville;
 
 }

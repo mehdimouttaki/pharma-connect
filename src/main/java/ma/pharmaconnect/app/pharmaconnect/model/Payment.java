@@ -16,8 +16,10 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Enumerated(EnumType.STRING)
+    @JoinColumn(nullable = false)
     private PaymentStatus status;
     @Enumerated(EnumType.STRING)
+    @JoinColumn(nullable = false)
     private PaymentMethod method;
 
 

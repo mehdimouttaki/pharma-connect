@@ -16,11 +16,12 @@ public class HistoricalAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JoinColumn(nullable = false)
     private String address;
+    @JoinColumn(nullable = true)
     private Date lastModifiedDate;
     @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    @JoinColumn(name = "client_id", referencedColumnName = "id",nullable = false)
     private Client client;
-
 }
 
