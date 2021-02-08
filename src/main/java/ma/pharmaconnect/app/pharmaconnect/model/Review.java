@@ -16,9 +16,9 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(nullable = true)
-    private String review;
+    private Integer review;
     @JoinColumn(nullable = true)
-    private Integer rate;
+    private String rate;
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
