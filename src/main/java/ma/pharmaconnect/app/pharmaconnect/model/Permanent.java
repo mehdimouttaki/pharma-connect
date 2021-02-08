@@ -27,7 +27,7 @@ public class Permanent {
     private PermanentType type;
 
     @ManyToMany(mappedBy = "permanents")
-    @JoinColumn(nullable = false)
+
     private List<Pharmacy> pharmacies;
 
 }
