@@ -45,6 +45,7 @@
                                     <td th:text="${#dates.format(permanent.startDate, 'dd-MM-yyyy HH:mm')}"></td>
                                     <td th:text="${#dates.format(permanent.endDate, 'dd-MM-yyyy HH:mm')}"></td>
 
+
                                     <td>
                                         <a th:href="@{'/permanents'+${permanent.id}}">
                                             <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw permanent"></i>
