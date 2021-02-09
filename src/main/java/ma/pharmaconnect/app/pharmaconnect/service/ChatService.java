@@ -18,8 +18,6 @@ public class ChatService {
         return chatRepository.save(chat);
     }
 
-
-
     public List<Chat> getAll() {
 
         return (List<Chat>) chatRepository.findAll();

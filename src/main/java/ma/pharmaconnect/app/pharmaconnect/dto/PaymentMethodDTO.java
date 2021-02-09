@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.DTO;
+package ma.pharmaconnect.app.pharmaconnect.dto;
 
 public enum PaymentMethodDTO {
     NOTHING,

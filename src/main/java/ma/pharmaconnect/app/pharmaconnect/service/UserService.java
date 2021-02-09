@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
 
-
     private final UserRepository userRepository;
 
     public User getByUsername(String username) {

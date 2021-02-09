@@ -11,7 +11,6 @@ public class DeliveryManRestController {
 
     private final DeliveryManService deliveryManService;
 
-
     @PutMapping("/api/delivery-men")
     public  DeliveryMan updateDeliveryMan(@RequestBody DeliveryMan deliveryMan) {
         return deliveryManService.update(deliveryMan);

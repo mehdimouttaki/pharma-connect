@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class AdminRestController {
 
-
     private final AdminService adminService;
 
     private final  PasswordEncoder passwordEncoder;

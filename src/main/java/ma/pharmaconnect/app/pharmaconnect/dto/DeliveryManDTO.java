@@ -1,17 +1,14 @@
-package ma.pharmaconnect.app.pharmaconnect.DTO;
+package ma.pharmaconnect.app.pharmaconnect.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
-
 @Setter
 @Getter
 @ToString
 
-public class ClientDTO extends UserDTO {
+public class DeliveryManDTO extends UserDTO {
 
 
     private String phone;

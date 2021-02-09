@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PharmacyRestController {
 
-
     private final PharmacyService pharmacyService;
 
     @GetMapping("/api/pharmacies")

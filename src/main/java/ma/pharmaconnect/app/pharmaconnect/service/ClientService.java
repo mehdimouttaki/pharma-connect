@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientService {
 
-
     private final ClientRepository clientRepository;
 
     private final PasswordEncoder passwordEncoder;

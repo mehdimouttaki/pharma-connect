@@ -1,20 +1,20 @@
-package ma.pharmaconnect.app.pharmaconnect.DTO;
+package ma.pharmaconnect.app.pharmaconnect.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
+import java.util.Date;
 
 
 @Setter
 @Getter
 @ToString
-public class ReviewDTO {
+public class ChatDTO {
 
     private Integer id;
-    private String review;
-    private Integer rate;
+    private String message;
+    private Date createdAt;
     private ClientDTO clientDTO;
     private DeliveryManDTO deliveryManDTO;
     private OrderDTO orderDTO;

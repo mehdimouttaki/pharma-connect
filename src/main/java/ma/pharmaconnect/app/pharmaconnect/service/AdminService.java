@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AdminService {
-
     private final AdminRepository adminRepository;
 
     public Admin save(Admin admin) {

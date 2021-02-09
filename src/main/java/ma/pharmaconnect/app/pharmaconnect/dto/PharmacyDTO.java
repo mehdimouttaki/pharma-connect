@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.DTO;
+package ma.pharmaconnect.app.pharmaconnect.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -7,8 +7,6 @@ import lombok.ToString;
 
 
 import java.util.List;
-
-
 @Setter
 @Getter
 @ToString

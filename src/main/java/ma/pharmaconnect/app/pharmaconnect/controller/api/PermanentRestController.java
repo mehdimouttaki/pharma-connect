@@ -11,10 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PermanentRestController {
 
-
     private final PermanentService permanentService;
-
-
 
     @GetMapping("/api/permanents")
     public List<Permanent> getAll() {
