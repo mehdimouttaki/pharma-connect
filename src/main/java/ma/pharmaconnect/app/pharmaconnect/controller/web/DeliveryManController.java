@@ -45,5 +45,9 @@ public class DeliveryManController {
         deliveryManService.delete(id);
         return "redirect:/delivery-men";
     }
+    @GetMapping("delivery-men/review/{id}")
+    public String OneDeliveryMan() {
+        return "/delivery_men/view_delivery_men";
+    }
 
 }

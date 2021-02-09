@@ -27,6 +27,10 @@ public class ClientController {
         clientService.delete(id);
         return "redirect:/clients";
     }
+    @GetMapping("/clients/view/{id}")
+    public String oneClient() {
+        return "/clients/view_clients";
+    }
 
 
 }

@@ -34,7 +34,7 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Username</th>
+                  <th>Email</th>
                   <th>Name</th>
                   <th>Phone</th>
                   <th>Date Creation</th>
@@ -54,8 +54,8 @@
 
 
 
-                  <a th:href="@{'/delivery-men'+${deliveryMan.id}}">
-                    <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw delivery"></i>
+                  <a th:href="@{'/delivery-men/review/'+${deliveryMan.id}}">
+                    <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="view delivery"></i>
                   </a>
 
                     <a th:href="@{'/delivery-men/edit/'+${deliveryMan.id}}">

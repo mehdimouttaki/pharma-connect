@@ -17,6 +17,7 @@ public class ClientService {
 
     private final PasswordEncoder passwordEncoder;
 
+
     public Client save(Client client) {
         client.setRole(UserRole.CLIENT);
         String normalPassword = client.getPassword();
@@ -38,6 +39,10 @@ public class ClientService {
 
     public List<Client> getAll() {
         return (List<Client>) clientRepository.findAll();
+    }
+
+    public Client  view(Integer id) {
+        return  clientRepository.findById(id).get();
     }
 
     public Client getByUsername(String username) {

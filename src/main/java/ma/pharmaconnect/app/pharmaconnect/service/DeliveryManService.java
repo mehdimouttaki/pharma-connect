@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
@@ -40,6 +41,9 @@ public class DeliveryManService {
 
     public List<DeliveryMan> getAll() {
         return (List<DeliveryMan>) deliveryManRepository.findAll();
+    }
+    public DeliveryMan view(Integer id) {
+        return  deliveryManRepository.findById(id).get();
     }
 
 }

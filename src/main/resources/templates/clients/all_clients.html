@@ -20,8 +20,6 @@
                     <div class="card" th:if="${not #lists.isEmpty(clients)}">
                         <div class="card-header">
                             <h3 class="card-title">List of Clients</h3>
-
-
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -29,7 +27,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Username</th>
+                                    <th>Email</th>
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Date Creation</th>
@@ -48,8 +46,8 @@
 
                                     <td>
 
-                                        <a th:href="@{'/clients'+${client.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw client"></i>
+                                        <a th:href="@{'/clients/view/'+${client.id}}">
+                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="view client"></i>
                                         </a>
                                         <a th:href="@{'/clients/delete/'+${client.id}}">
                                             <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove client"></i>
