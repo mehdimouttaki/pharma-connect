@@ -18,12 +18,12 @@ public class Permanent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Date startDate;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Date endDate;
     @Enumerated(EnumType.STRING)
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private PermanentType type;
 
     @ManyToMany(mappedBy = "permanents")

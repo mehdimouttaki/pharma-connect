@@ -16,9 +16,9 @@ public class HistoricalAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private String address;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private Date lastModifiedDate;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id",nullable = false)

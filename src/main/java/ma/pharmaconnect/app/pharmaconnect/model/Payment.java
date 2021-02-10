@@ -16,10 +16,10 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Enumerated(EnumType.STRING)
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private PaymentStatus status;
     @Enumerated(EnumType.STRING)
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private PaymentMethod method;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn( name = "order_id")

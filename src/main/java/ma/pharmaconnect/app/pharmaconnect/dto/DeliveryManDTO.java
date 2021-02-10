@@ -10,7 +10,6 @@ import lombok.ToString;
 
 public class DeliveryManDTO extends UserDTO {
 
-
     private String phone;
 
 }

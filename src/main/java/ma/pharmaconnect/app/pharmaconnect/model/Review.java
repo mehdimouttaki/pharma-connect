@@ -15,9 +15,9 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private String review;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private Integer rate;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

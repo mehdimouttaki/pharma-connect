@@ -18,16 +18,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     protected String lastName;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     protected String firstName;
     @Column(unique = true, nullable = false)
     protected String username;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     protected String password;
     @Enumerated(EnumType.STRING)
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     protected UserRole role;
     @Column(name = "created_at", nullable = false)
     protected Date createdAt;

@@ -16,7 +16,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Double price;
 
     @Column(name = "address", nullable = false)

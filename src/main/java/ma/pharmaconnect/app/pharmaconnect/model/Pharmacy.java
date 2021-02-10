@@ -18,15 +18,15 @@ public class Pharmacy implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private String name;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private String address;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private String pharmacist;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private Double lat;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private Double lng;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "city", referencedColumnName = "city", nullable = false)

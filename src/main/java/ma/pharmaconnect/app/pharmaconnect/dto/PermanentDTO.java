@@ -17,7 +17,6 @@ public class PermanentDTO {
     private Date endDate;
     private PermanentTypeDTO type;
 
-
     private List<PharmacyDTO> pharmacies;
 
 }

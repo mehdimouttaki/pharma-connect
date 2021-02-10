@@ -15,13 +15,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private String name;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Double price;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private String code;
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Boolean prescription;
 
 

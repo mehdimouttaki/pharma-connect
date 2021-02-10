@@ -16,9 +16,9 @@ public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private String message;
-    @JoinColumn(nullable = true)
+    @Column(nullable = true)
     private Date createdAt;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
