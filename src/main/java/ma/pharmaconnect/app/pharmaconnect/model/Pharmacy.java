@@ -27,6 +27,9 @@ public class Pharmacy {
     private Double lat;
     @JoinColumn(nullable = true)
     private Double lng;
+    @ManyToOne
+    @JoinColumn(name = "ville_id", nullable = false)
+    private Ville ville;
 
     @ManyToMany
     @JoinTable(

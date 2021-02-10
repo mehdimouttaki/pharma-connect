@@ -27,10 +27,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "delivery_id", nullable = true)
     private DeliveryMan deliveryMan;
-
-
-
-
     @ManyToOne
     @JoinColumn(name = "pharmacy_id", nullable = true)
     private Pharmacy pharmacy;
