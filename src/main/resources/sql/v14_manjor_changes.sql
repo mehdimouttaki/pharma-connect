@@ -17,10 +17,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
                                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.admin: ~2 rows (approximately)
+-- Dumping data for table pharma_connect.admin: ~1 rows (approximately)
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`id`) VALUES
-(6),
 (18);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
@@ -39,15 +38,10 @@ CREATE TABLE IF NOT EXISTS `chat` (
                                       CONSTRAINT `fk_chat_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE,
                                       CONSTRAINT `fk_chat_delivery` FOREIGN KEY (`delivery_id`) REFERENCES `delivery_man` (`id`) ON DELETE CASCADE,
                                       CONSTRAINT `fk_chat_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.chat: ~4 rows (approximately)
+-- Dumping data for table pharma_connect.chat: ~0 rows (approximately)
 /*!40000 ALTER TABLE `chat` DISABLE KEYS */;
-INSERT INTO `chat` (`id`, `created_at`, `message`, `client_id`, `delivery_id`, `order_id`) VALUES
-(3, '2021-02-08 14:53:11', 'Merci', 12, 15, NULL),
-(5, '2020-10-08 14:54:08', 'thanks', 43, 61, 10),
-(6, '2019-09-08 14:55:30', 'bizarre', 50, 58, 7),
-(7, '2020-11-08 14:56:49', 'good man ', 48, 58, 9);
 /*!40000 ALTER TABLE `chat` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.city
@@ -462,21 +456,10 @@ CREATE TABLE IF NOT EXISTS `client` (
                                         `phone` varchar(255) NOT NULL,
                                         PRIMARY KEY (`id`),
                                         UNIQUE KEY `uk_client_phone` (`phone`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.client: ~11 rows (approximately)
+-- Dumping data for table pharma_connect.client: ~0 rows (approximately)
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` (`id`, `phone`) VALUES
-(12, '0603060804'),
-(43, '061111111'),
-(53, '0612121212'),
-(45, '06333333333'),
-(46, '06444444444'),
-(47, '06555555555'),
-(48, '0666666666'),
-(49, '067777777'),
-(50, '068888888'),
-(51, '069999999');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.delivery_man
@@ -485,35 +468,29 @@ CREATE TABLE IF NOT EXISTS `delivery_man` (
                                               `phone` varchar(255) NOT NULL,
                                               PRIMARY KEY (`id`),
                                               UNIQUE KEY `uk_delivery_man_phone` (`phone`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.delivery_man: ~10 rows (approximately)
+-- Dumping data for table pharma_connect.delivery_man: ~0 rows (approximately)
 /*!40000 ALTER TABLE `delivery_man` DISABLE KEYS */;
-INSERT INTO `delivery_man` (`id`, `phone`) VALUES
-(15, '0000000000000'),
-(61, '0001090208'),
-(62, '0102060805'),
-(60, '010900706'),
-(14, '0111111111111'),
-(59, '0309080706'),
-(58, '0609080705'),
-(57, '0709080605'),
-(56, '08090706050403'),
-(55, '0908070605');
 /*!40000 ALTER TABLE `delivery_man` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.detail_order
 CREATE TABLE IF NOT EXISTS `detail_order` (
                                               `id` int(11) NOT NULL AUTO_INCREMENT,
                                               `product_code` varchar(255) NOT NULL,
-                                              `order_id` int(11) NOT NULL,
+                                              `order_id` int(11) DEFAULT NULL,
+                                              `nbr_product` int(11) DEFAULT NULL,
                                               PRIMARY KEY (`id`),
                                               KEY `pk_detail_order_order` (`order_id`) USING BTREE,
-                                              CONSTRAINT `fk_detail_order_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                              KEY `fk_detail_order_product` (`product_code`),
+                                              CONSTRAINT `fk_detail_order_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE SET NULL,
+                                              CONSTRAINT `fk_detail_order_product` FOREIGN KEY (`product_code`) REFERENCES `product` (`code`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.detail_order: ~0 rows (approximately)
+-- Dumping data for table pharma_connect.detail_order: ~1 rows (approximately)
 /*!40000 ALTER TABLE `detail_order` DISABLE KEYS */;
+INSERT INTO `detail_order` (`id`, `product_code`, `order_id`, `nbr_product`) VALUES
+(1, 'HJKL', NULL, 0);
 /*!40000 ALTER TABLE `detail_order` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.historical_address
@@ -521,14 +498,16 @@ CREATE TABLE IF NOT EXISTS `historical_address` (
                                                     `id` int(11) NOT NULL AUTO_INCREMENT,
                                                     `address` varchar(255) NOT NULL,
                                                     `last_modified_date` datetime DEFAULT NULL,
-                                                    `client_id` int(11) NOT NULL,
+                                                    `client_id` int(11) DEFAULT NULL,
                                                     PRIMARY KEY (`id`),
                                                     KEY `pk_historical_address_client` (`client_id`) USING BTREE,
-                                                    CONSTRAINT `fk_historical_adress_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                                    CONSTRAINT `fk_historical_adress_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.historical_address: ~0 rows (approximately)
+-- Dumping data for table pharma_connect.historical_address: ~1 rows (approximately)
 /*!40000 ALTER TABLE `historical_address` DISABLE KEYS */;
+INSERT INTO `historical_address` (`id`, `address`, `last_modified_date`, `client_id`) VALUES
+(1, 'hY NASER', '2021-02-10 18:45:43', NULL);
 /*!40000 ALTER TABLE `historical_address` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.lk_pharmacy_permanent
@@ -537,39 +516,35 @@ CREATE TABLE IF NOT EXISTS `lk_pharmacy_permanent` (
                                                        `permanent_id` int(11) NOT NULL,
                                                        KEY `pk_pharmacy_permanent_permanent` (`permanent_id`) USING BTREE,
                                                        KEY `pk_pharmacy_permanent_pharmacy` (`pharmacy_id`) USING BTREE,
-                                                       CONSTRAINT `fk_pharmacy_permanent_permanent` FOREIGN KEY (`permanent_id`) REFERENCES `permanent` (`id`),
-                                                       CONSTRAINT `fk_pharmacy_permanent_pharmacy` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`id`)
+                                                       CONSTRAINT `Ffk_pharmacy_permanent_permanent` FOREIGN KEY (`permanent_id`) REFERENCES `permanent` (`id`) ON DELETE CASCADE,
+                                                       CONSTRAINT `Ffk_pharmacy_permanent_pharmacy` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.lk_pharmacy_permanent: ~0 rows (approximately)
+-- Dumping data for table pharma_connect.lk_pharmacy_permanent: ~1 rows (approximately)
 /*!40000 ALTER TABLE `lk_pharmacy_permanent` DISABLE KEYS */;
+INSERT INTO `lk_pharmacy_permanent` (`pharmacy_id`, `permanent_id`) VALUES
+(16, 3);
 /*!40000 ALTER TABLE `lk_pharmacy_permanent` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.orders
 CREATE TABLE IF NOT EXISTS `orders` (
                                         `id` int(11) NOT NULL AUTO_INCREMENT,
-                                        `nbr_product` int(11) NOT NULL,
                                         `price` double NOT NULL,
                                         `client_id` int(11) NOT NULL,
                                         `delivery_id` int(11) DEFAULT NULL,
                                         `pharmacy_id` int(11) DEFAULT NULL,
+                                        `address` varchar(200) NOT NULL,
                                         PRIMARY KEY (`id`),
                                         KEY `pk_orders_client` (`client_id`) USING BTREE,
                                         KEY `pk_orders_delivery` (`delivery_id`) USING BTREE,
                                         KEY `pk_orders_pharmacy` (`pharmacy_id`) USING BTREE,
                                         CONSTRAINT `fk_orders_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
                                         CONSTRAINT `fk_orders_delivery` FOREIGN KEY (`delivery_id`) REFERENCES `delivery_man` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                                        CONSTRAINT `fk_orders_pharmacy` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+                                        CONSTRAINT `fk_orders_pharmacy` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.orders: ~5 rows (approximately)
+-- Dumping data for table pharma_connect.orders: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` (`id`, `nbr_product`, `price`, `client_id`, `delivery_id`, `pharmacy_id`) VALUES
-(7, 8, 390.76, 12, 15, 6),
-(9, 5, 156.84, 45, 14, 9),
-(10, 7, 245, 47, 59, 8),
-(11, 3, 88.67, 51, 60, 11),
-(12, 8, 56.78, 49, 14, 10);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.payment
@@ -577,14 +552,11 @@ CREATE TABLE IF NOT EXISTS `payment` (
                                          `id` int(11) NOT NULL AUTO_INCREMENT,
                                          `method` varchar(20) NOT NULL,
                                          `status` varchar(20) NOT NULL,
-                                         `client_id` int(11) NOT NULL,
-                                         `order_id` int(11) NOT NULL,
+                                         `order_id` int(11) DEFAULT NULL,
                                          PRIMARY KEY (`id`),
-                                         KEY `pk_payment_client` (`client_id`) USING BTREE,
                                          KEY `pk_payment_order` (`order_id`) USING BTREE,
-                                         CONSTRAINT `fk_payment_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
-                                         CONSTRAINT `fk_payment_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                                         CONSTRAINT `fk_payment_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table pharma_connect.payment: ~0 rows (approximately)
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
@@ -599,12 +571,10 @@ CREATE TABLE IF NOT EXISTS `permanent` (
                                            PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.permanent: ~3 rows (approximately)
+-- Dumping data for table pharma_connect.permanent: ~1 rows (approximately)
 /*!40000 ALTER TABLE `permanent` DISABLE KEYS */;
 INSERT INTO `permanent` (`id`, `end_date`, `start_date`, `type`) VALUES
-(3, '2021-02-08 14:57:53', '2021-02-24 14:57:56', 'DAY'),
-(4, '2021-03-08 14:58:18', '2021-04-08 14:58:26', 'NIGHT'),
-(5, '2020-02-08 14:58:43', '2020-02-16 14:58:49', 'DAY');
+(3, '2021-02-08 14:57:53', '2021-02-24 14:57:56', 'DAY');
 /*!40000 ALTER TABLE `permanent` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.pharmacy
@@ -643,7 +613,8 @@ CREATE TABLE IF NOT EXISTS `product` (
                                          `name` varchar(255) NOT NULL,
                                          `prescription` bit(1) NOT NULL,
                                          `price` double NOT NULL,
-                                         PRIMARY KEY (`id`)
+                                         PRIMARY KEY (`id`),
+                                         UNIQUE KEY `uk_product_code` (`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table pharma_connect.product: ~9 rows (approximately)
@@ -675,14 +646,10 @@ CREATE TABLE IF NOT EXISTS `review` (
                                         CONSTRAINT `fk_review_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE,
                                         CONSTRAINT `fk_review_delivery` FOREIGN KEY (`delivery_id`) REFERENCES `delivery_man` (`id`) ON DELETE CASCADE,
                                         CONSTRAINT `fk_review_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.review: ~3 rows (approximately)
+-- Dumping data for table pharma_connect.review: ~0 rows (approximately)
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
-INSERT INTO `review` (`id`, `rate`, `review`, `client_id`, `delivery_id`, `order_id`) VALUES
-(8, 0, '5', 12, 15, NULL),
-(12, 0, '1', 53, 60, 11),
-(14, 0, '5', 51, 56, 9);
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 
 -- Dumping structure for table pharma_connect.user
@@ -693,31 +660,16 @@ CREATE TABLE IF NOT EXISTS `user` (
                                       `role` varchar(20) NOT NULL DEFAULT 'CLIENT',
                                       `first_name` varchar(200) NOT NULL,
                                       `last_name` varchar(200) NOT NULL,
+                                      `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+                                      `status` varchar(20) NOT NULL DEFAULT 'ACTIVE',
                                       PRIMARY KEY (`id`),
                                       UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table pharma_connect.user: ~18 rows (approximately)
+-- Dumping data for table pharma_connect.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `first_name`, `last_name`) VALUES
-(18, 'admin', '$2a$10$.tRRcd7IPTbKvO.KRwb0.Ot1Yg3gSUfm3RdPVEHJeCNv2tsFRghuy', 'ADMIN', 'Mehdi', 'Mouttaki'),
-(43, 'mehdimouttaki99@gmail.com', '$2a$10$l9Npvq1ENjpIpyH5XM7KI.XR6ogtkzBApy.uZ.dB3X1jgvO.G0cLW', 'CLIENT', 'mehdi', 'mouttaki'),
-(45, 'moughitmoustain@gmail.com', '$2a$10$wXMiagEA.6JAraWdrFCuZOszzJFJ3w6TYje.4fJGvBrr6am0n2HYq', 'CLIENT', 'moughit', 'mostain'),
-(46, 'youssefnajeh@gmail.com', '$2a$10$6Wb0Lq6sVjfbCUmXWFt5x.FaOipQGFBdRxTQmptbXFhRxcXbvnu6.', 'CLIENT', 'youssef', 'najeh'),
-(47, 'abdomostain@gmail.com', '$2a$10$yot121GaXDlN1KjqljyJt.85wEhF4GneeRARIXaj3jdKPB8aVknGm', 'CLIENT', 'abdejlil', 'moustain'),
-(48, 'youssefelkaoumi@gmail.com', '$2a$10$Fp6F/tCQg7HjtmT9g3zILegHlwYxMaz5QxNGscCVhEM37CmmNlj.e', 'CLIENT', 'youssef', 'elkaoumi'),
-(49, 'omarelkaoumi@gmail.com', '$2a$10$1CQPsKzvaJ8kezk1xR/2L.6ZgpCYFtPMHKGBf6TXYV/NJn0I/ByMe', 'CLIENT', 'omar', 'elkaoumi'),
-(50, 'saidelgarch@gmail.com', '$2a$10$WjHcmvdgdC80BubSwmAR5uoFrHQvYCiH1Mjp1EY/fe4TC.KFoXh3u', 'CLIENT', 'said', 'elgerch'),
-(51, 'mouadbaso@gmail.com', '$2a$10$wp6QKntLUzA1.qMeY36f6.IDgRgtDx5KAG5rSeoorX0CM82T0XC3G', 'CLIENT', 'mouad', 'baso'),
-(53, 'saadnajeh@gmail.com', '$2a$10$fUr9B95qg/CNROf3mzfWaeIbDOIXb3MIdbsj4od7AVCocJpz0VztG', 'CLIENT', 'saad', 'najeh'),
-(55, 'ahmedmoustain@gmail.com', '$2a$10$T5h4EWlhKWyyaye6sfc/U.nZYVH1DolAMoJSiaAj1ZxOe5k3OW3cq', 'DELIVERY', 'ahmed', 'moustain'),
-(56, 'oussamachahet@gmail.com', '$2a$10$8N6gyawT0Wr/tfXkySnlzOUo0Lzjmb7TiihocqRHsfxGsaD0z7YgW', 'DELIVERY', 'oussama', 'chahet'),
-(57, 'imadbouchala@gmail.com', '$2a$10$2jESfI4ZUEa2yhnpYFAhDe.p7E54wk9enrUrV9e8scHfNxD1xf1re', 'DELIVERY', 'imad', 'bouchalaa'),
-(58, 'zakariabouchala@gmail.com', '$2a$10$8e1MvX7d39qmVQ7Z9sqDNO1ginOF8soCqxPPcsesKmWy.TLIl015W', 'DELIVERY', 'zakaria', 'bouchala'),
-(59, 'walidhsika@gmail.com', '$2a$10$hcpN2WrYHcbifi6aHGA61.KyDvu6fZfJwCRN0.P3kP/EaAUETEbnq', 'DELIVERY', 'walid', 'hsika'),
-(60, 'omaranjar@gmail.com', '$2a$10$uHOi4ni57ZOBj2NCNQyj0.YeY292081wZAJVQ/s47yCEfzqvt.jJG', 'DELIVERY', 'omar', 'anjar'),
-(61, 'azizchajiaa@gmail.com', '$2a$10$CtNHHs4LR.oYXMt4tCrPDuqOX2OZ7.JPKHwaKuT4TMSGUnW2fQHAC', 'DELIVERY', 'aziz', 'chajiaa'),
-(62, 'najibroby@gmail.com', '$2a$10$cEOjd9MAxc/SNOGGbO/3Nu7z4/s3nTIT3pZeCydL8.zekXgJVckHq', 'DELIVERY', 'najib', 'roby');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `first_name`, `last_name`, `created_at`, `status`) VALUES
+(18, 'admin', '$2a$10$.tRRcd7IPTbKvO.KRwb0.Ot1Yg3gSUfm3RdPVEHJeCNv2tsFRghuy', 'ADMIN', 'Mehdi', 'Mouttaki', '2021-02-10 18:03:20', 'ACTIVE');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
