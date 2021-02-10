@@ -1,7 +1,9 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.model.City;
 import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
+import ma.pharmaconnect.app.pharmaconnect.service.CityService;
 import ma.pharmaconnect.app.pharmaconnect.service.PharmacyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +18,20 @@ import java.util.List;
 public class PharmacyController {
 
     private final PharmacyService pharmacyService;
+    private final CityService cityService;
 
     @GetMapping("/pharmacies/add")
-    public String addPharmacy() {
+    public String addPharmacy(Model model) {
+        List<City> list = cityService.getAll();
+        model.addAttribute("cities", list);
         return "/pharmacies/add_pharmacies";
+    }
+
+    @PostMapping("/pharmacies/add")
+    public String savePharmacy(Pharmacy pharmacy) {
+
+        pharmacyService.save(pharmacy);
+        return "redirect:/pharmacies";
     }
 
     @GetMapping("/pharmacies")
@@ -34,11 +46,6 @@ public class PharmacyController {
         return "/pharmacies/edit_pharmacies";
     }
 
-    @PostMapping("/pharmacies/add")
-    public String savePharmacy(Pharmacy pharmacy) {
-        pharmacyService.save(pharmacy);
-        return "redirect:/pharmacies";
-    }
 
     @GetMapping("/pharmacies/delete/{id}")
     public String deletePharmacy(@PathVariable Integer id){

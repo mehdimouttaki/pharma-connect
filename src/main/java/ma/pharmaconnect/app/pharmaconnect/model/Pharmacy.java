@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.List;
 @Getter
 @ToString
 @Table(name = "pharmacy")
-public class Pharmacy {
+public class Pharmacy implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -27,7 +28,7 @@ public class Pharmacy {
     private Double lat;
     @JoinColumn(nullable = true)
     private Double lng;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city", referencedColumnName = "city", nullable = false)
     private City city;
 
