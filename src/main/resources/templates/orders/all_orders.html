@@ -3,75 +3,72 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Pharma Connect - All Orders</title>
+    <title>Pharma Connect - All Orders</title>
 </head>
 <body>
 
 <div layout:fragment="content">
-  <section class="my-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="callout callout-warning" th:if="${#lists.isEmpty(orders)}">
-            <h5>No Oreder found!</h5>
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="callout callout-warning" th:if="${#lists.isEmpty(orders)}">
+                        <h5>No Oreder found!</h5>
 
-            <p>There is no Order in our database</p>
-          </div>
-          <div class="card" th:if="${not #lists.isEmpty(orders)}">
-            <div class="card-header">
-              <h3 class="card-title">List of Orders</h3>
+                        <p>There is no Order in our database</p>
+                    </div>
+                    <div class="card" th:if="${not #lists.isEmpty(orders)}">
+                        <div class="card-header">
+                            <h3 class="card-title">List of Orders</h3>
 
 
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap text-center">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Price</th>
+                                    <th>Client</th>
+                                    <th>DeliveryMan</th>
+                                    <th>Pharmacy</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="order: ${orders}">
+                                    <td th:text="${order.id}"></td>
+                                    <td th:text="${order.price}"></td>
+                                    <td th:text="${order.client.username}"></td>
+                                    <td th:text="${(order.deliveryMan==null)?'':order.deliveryMan.username}"></td>
+                                    <td th:text="${(order.pharmacy==null)?'':order.pharmacy.name}"></td>
+
+
+                                    <td>
+                                        <a th:href="@{'/orders'+${order.id}}">
+                                            <i style="color: darkred; margin: 0 5px" class="fas fa-eye"
+                                               title="veiw order"></i>
+                                        </a>
+                                        <a th:href="@{'/orders/delete/'+${order.id}}">
+                                            <i style="color: darkred; margin: 0 5px" class="far fa-trash-alt"
+                                               title="Remove order"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <!-- /.card -->
+                    </div>
+
+                </div>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap text-center">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nbr-Products</th>
-                  <th>Price</th>
-                  <th>Client</th>
-                  <th>DeliveryMan</th>
-
-                  <th>Pharmacy</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="order: ${orders}">
-                  <td th:text="${order.id}"></td>
-                  <td th:text="${order.nbrProduct}"></td>
-                  <td th:text="${order.price}"></td>
-                  <td th:text="${order.client.username}"></td>
-                  <td th:text="${order.deliveryMan.username}"></td>
-
-                       <td th:text="${order.pharmacy.name}"></td>
-
-
-
-                       <td>
-                         <a th:href="@{'/orders'+${order.id}}">
-                           <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw order"></i>
-                         </a>
-                         <a th:href="@{'/orders/delete/'+${order.id}}">
-                           <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove order"></i>
-                         </a>
-
-                       </td>
-                     </tr>
-                     </tbody>
-                   </table>
-                 </div>
-                 <!-- /.card-body -->
-
-          <!-- /.card -->
         </div>
-
-      </div>
-    </div>
-    </div>
-  </section>
+    </section>
 
 </div>
 
