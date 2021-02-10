@@ -19,13 +19,13 @@ public class Review {
     private String review;
     @JoinColumn(nullable = true)
     private Integer rate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id",nullable = false)
     private DeliveryMan deliveryMan;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)
     private Order order;
 

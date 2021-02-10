@@ -24,7 +24,7 @@ public class Order {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id", nullable = true)
     private DeliveryMan deliveryMan;
     @ManyToOne

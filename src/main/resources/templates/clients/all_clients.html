@@ -41,8 +41,8 @@
                                     <td th:text="${client.username}"></td>
                                     <td th:text="${client.firstName + ' ' + client.lastName}"></td>
                                     <td th:text="${client.phone}"></td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
+                                    <td th:text="${#dates.format(client.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                                    <td th:text="${client.status}"></td>
 
                                     <td>
 

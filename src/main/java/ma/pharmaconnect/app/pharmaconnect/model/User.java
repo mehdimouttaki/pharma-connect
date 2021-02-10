@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -21,12 +22,22 @@ public class User {
     protected String lastName;
     @JoinColumn(nullable = false)
     protected String firstName;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     protected String username;
     @JoinColumn(nullable = false)
     protected String password;
     @Enumerated(EnumType.STRING)
     @JoinColumn(nullable = false)
     protected UserRole role;
+    @Column(name = "created_at", nullable = false)
+    protected Date createdAt;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    protected UserStatus status;
 
+    @PrePersist
+    private void init() {
+        if (createdAt == null) createdAt = new Date();
+        if (status == null) status = UserStatus.ACTIVE;
+    }
 }

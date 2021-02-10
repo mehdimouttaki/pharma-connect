@@ -48,8 +48,8 @@
                   <td th:text="${deliveryMan.username}"></td>
                   <td th:text="${deliveryMan.firstName + ' ' + deliveryMan.lastName}"></td>
                   <td th:text="${deliveryMan.phone}"></td>
-                  <td>11-7-2014</td>
-                  <td>Approved</td>
+                  <td th:text="${#dates.format(deliveryMan.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                  <td th:text="${deliveryMan.status}"></td>
                   <td>
 
 
