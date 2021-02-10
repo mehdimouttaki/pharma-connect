@@ -28,7 +28,7 @@ public class Pharmacy {
     @JoinColumn(nullable = true)
     private Double lng;
     @ManyToOne
-    @JoinColumn(name = "ville_id", nullable = false)
+    @JoinColumn(name = "ville", nullable = false)
     private Ville ville;
 
     @ManyToMany
