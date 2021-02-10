@@ -43,7 +43,7 @@
                   <td th:text="${chat.createdAt}"></td>
                   <td th:text="${chat.client.username}"></td>
                   <td th:text="${chat.deliveryMan.username}"></td>
-                  <td th:text="${chat.order.id}"></td>
+                  <td th:text="${(chat.order==null)?'':chat.order.id}"></td>
                   <td>
 
 

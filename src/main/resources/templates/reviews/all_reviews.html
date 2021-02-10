@@ -45,7 +45,7 @@
                   <td th:text="${review.review}"></td>
                   <td th:text="${review.client.username}"></td>
                   <td th:text="${review.deliveryMan.username}"></td>
-                  <td th:text="${review.order.id}"></td>
+                  <td th:text="${(review.order==null)?'':review.order.id}"></td>
 
 
                   <td>
