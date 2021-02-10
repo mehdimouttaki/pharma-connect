@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class PermanentController {
@@ -21,7 +22,7 @@ public class PermanentController {
     public String addPermanent() {
         return "/permanents/add_permanents";
     }
-    @ModelAttribute
+
     @GetMapping("/permanents")
     public String allPermanents(Model model) {
         List<Permanent> list = permanentService.getAll();
@@ -33,13 +34,15 @@ public class PermanentController {
     public String editPermanent() {
         return "/permanents/edit_permanents";
     }
+
     @PostMapping("/permanents/add")
     public String savePermanent(Permanent permanent) {
         permanentService.save(permanent);
         return "redirect:/permanents";
     }
+
     @GetMapping("/permanents/delete/{id}")
-    public String deletePermanent(@PathVariable Integer id){
+    public String deletePermanent(@PathVariable Integer id) {
         permanentService.delete(id);
         return "redirect:/permanents";
     }
