@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class VilleDTO {
+public class CityDTO {
 
     private Integer id;
     private String ville;

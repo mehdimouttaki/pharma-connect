@@ -10,12 +10,12 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
-@Table(name = "ville")
-public class Ville {
+@Table(name = "city")
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @JoinColumn(nullable = false)
-    private String ville;
+    @JoinColumn(nullable = false, unique = true)
+    private String city;
 
 }

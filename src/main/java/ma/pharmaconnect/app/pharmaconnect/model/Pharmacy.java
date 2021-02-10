@@ -28,14 +28,14 @@ public class Pharmacy {
     @JoinColumn(nullable = true)
     private Double lng;
     @ManyToOne
-    @JoinColumn(name = "ville", nullable = false)
-    private Ville ville;
+    @JoinColumn(name = "city", referencedColumnName = "city", nullable = false)
+    private City city;
 
     @ManyToMany
     @JoinTable(
             name = "lk_pharmacy_permanent",
-            joinColumns = { @JoinColumn(name = "pharmacy_id") },
-            inverseJoinColumns = { @JoinColumn(name = "permanent_id") }
+            joinColumns = {@JoinColumn(name = "pharmacy_id")},
+            inverseJoinColumns = {@JoinColumn(name = "permanent_id")}
     )
     @JsonIgnore
     @JoinColumn(nullable = true)
