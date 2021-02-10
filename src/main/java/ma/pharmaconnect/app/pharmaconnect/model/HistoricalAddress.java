@@ -20,8 +20,7 @@ public class HistoricalAddress {
     private String address;
     @JoinColumn(nullable = true)
     private Date lastModifiedDate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id",nullable = false)
     private Client client;
 }
-

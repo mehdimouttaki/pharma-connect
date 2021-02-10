@@ -17,7 +17,7 @@ public class DetailOrder {
     private Integer id;
     @JoinColumn(nullable = false)
     private String productCode;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 

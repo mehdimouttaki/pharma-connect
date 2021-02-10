@@ -21,6 +21,8 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     @JoinColumn(nullable = false)
     private PaymentMethod method;
-
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn( name = "order_id")
+    private Order order;
 
 }
