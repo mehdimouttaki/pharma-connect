@@ -1,16 +1,12 @@
 package ma.pharmaconnect.app.pharmaconnect.config;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.User;
-import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
-import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
 import ma.pharmaconnect.app.pharmaconnect.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +14,12 @@ import java.io.IOException;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
+    private final UserService userService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws IOException {
@@ -51,14 +48,6 @@ public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
             httpServletResponse.getWriter().flush();
             return false;
         }
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
-    }
-
-    @Override
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
     }
 
 }

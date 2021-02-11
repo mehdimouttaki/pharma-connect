@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Setter
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @ToString
 @Table(name = "admin")
 @PrimaryKeyJoinColumn(name = "id")
-public class Admin extends User{
+public class Admin extends User implements Serializable {
 
 
 }
