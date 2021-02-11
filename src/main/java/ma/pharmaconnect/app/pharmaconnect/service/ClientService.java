@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
@@ -42,7 +43,9 @@ public class ClientService {
     }
 
     public Client  view(Integer id) {
-        return  clientRepository.findById(id).get();
+        return clientRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Client",id);
+        });
     }
 
     public Client getByUsername(String username) {

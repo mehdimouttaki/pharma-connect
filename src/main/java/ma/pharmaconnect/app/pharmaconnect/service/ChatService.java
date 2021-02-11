@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Chat;
 import ma.pharmaconnect.app.pharmaconnect.repository.ChatRepository;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,9 @@ public class ChatService {
 
     public Chat getOne(Integer id) {
 
-        return chatRepository.findById(id).get();
+        return chatRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Chat",id);
+        });
     }
 }
 

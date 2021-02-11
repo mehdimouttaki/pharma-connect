@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
@@ -43,7 +44,9 @@ public class DeliveryManService {
     }
 
     public DeliveryMan view(Integer id) {
-        return deliveryManRepository.findById(id).get();
+        return deliveryManRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("DeliveryMan",id);
+        });
     }
 
 }

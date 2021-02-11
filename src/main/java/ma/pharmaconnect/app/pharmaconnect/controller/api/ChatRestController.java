@@ -18,8 +18,6 @@ public class ChatRestController {
         return chatService.save(chat);
     }
 
-
-
     @GetMapping("/api/chats")
     public List<Chat> getAll() {
         return chatService.getAll();
