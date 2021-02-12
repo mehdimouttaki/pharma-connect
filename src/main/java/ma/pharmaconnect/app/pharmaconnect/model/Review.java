@@ -17,7 +17,7 @@ public class Review implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = true)
-    private String review;
+    private String label;
     @Column(nullable = true)
     private Integer rate;
 
