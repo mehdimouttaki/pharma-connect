@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Product;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +22,8 @@ public class ProductService {
     public void delete(Integer id) {
         productRepository.deleteById(id);
     }
-    public Product update(Product product){
+
+    public Product update(Product product) {
         return productRepository.save(product);
     }
 
@@ -33,9 +33,7 @@ public class ProductService {
     }
 
     public Product getOne(Integer id) {
-
-        return productRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Product",id);
-        });
+        return productRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Product", id));
     }
 }

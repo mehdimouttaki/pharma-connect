@@ -41,9 +41,9 @@ public class OrderService {
     }
 
     public Order getOne(Integer id) {
-        return orderRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Order",id);
-        });
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Order", id));
+
     }
 
     public Client update(Client client) {

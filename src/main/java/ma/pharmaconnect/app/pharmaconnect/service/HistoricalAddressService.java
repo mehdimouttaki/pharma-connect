@@ -22,8 +22,7 @@ public class HistoricalAddressService {
 
     public HistoricalAddress getOne(Integer id) {
 
-        return historicalAddressRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("HistoricalAddress",id);
-        });
+        return historicalAddressRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("HistoricalAddress", id));
     }
 }

@@ -28,8 +28,8 @@ public class PaymentService {
     }
 
     public Payment getOne(Integer id) {
-        return paymentRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Payment",id);
-        });
+        return paymentRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Payment", id));
+
     }
 }

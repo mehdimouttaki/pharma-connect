@@ -26,9 +26,7 @@ public class ChatService {
 
     public Chat getOne(Integer id) {
 
-        return chatRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Chat",id);
-        });
+        return chatRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Chat", id));
     }
 }
-

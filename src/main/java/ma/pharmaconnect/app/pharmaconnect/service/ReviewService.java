@@ -24,8 +24,8 @@ public class ReviewService {
 
     public Review getOne(Integer id) {
 
-        return reviewRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Review",id);
-        });
+        return reviewRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Review", id));
+
     }
 }

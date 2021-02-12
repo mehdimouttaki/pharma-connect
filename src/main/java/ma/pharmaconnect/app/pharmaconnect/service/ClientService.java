@@ -43,9 +43,8 @@ public class ClientService {
     }
 
     public Client  view(Integer id) {
-        return clientRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Client",id);
-        });
+        return clientRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Client", id));
     }
 
     public Client getByUsername(String username) {

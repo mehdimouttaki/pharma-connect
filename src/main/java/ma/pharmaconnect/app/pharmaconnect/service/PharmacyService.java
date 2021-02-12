@@ -23,9 +23,8 @@ public class PharmacyService {
 
     public Pharmacy getOne(Integer id) {
 
-        return pharmacyRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("Pharmacy",id);
-        });
+        return pharmacyRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Pharmacy", id));
     }
 
     public Pharmacy save(Pharmacy pharmacy) {

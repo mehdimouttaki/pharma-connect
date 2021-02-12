@@ -44,9 +44,8 @@ public class DeliveryManService {
     }
 
     public DeliveryMan view(Integer id) {
-        return deliveryManRepository.findById(id).orElseThrow(() -> {
-            throw new EntityNotFoundException("DeliveryMan",id);
-        });
+        return deliveryManRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("DeliveryMan", id));
     }
 
 }
