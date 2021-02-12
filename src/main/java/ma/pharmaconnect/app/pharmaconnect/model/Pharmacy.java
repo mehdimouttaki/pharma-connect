@@ -28,7 +28,7 @@ public class Pharmacy implements Serializable {
     private Double lat;
     @Column(nullable = true)
     private Double lng;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city", referencedColumnName = "city", nullable = false)
     private City city;
 
