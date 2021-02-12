@@ -12,7 +12,7 @@ public class OrderDTO {
     private Integer id;
     private Integer nbrProduct;
     private Double price;
-    private ClientDTO clientDTO;
+    private ClientCreationDTO clientDTO;
     private DeliveryManDTO deliveryManDTO;
     private PharmacyDTO pharmacyDTO;
 

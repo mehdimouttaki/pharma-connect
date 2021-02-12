@@ -6,17 +6,16 @@ import lombok.ToString;
 
 import java.util.Date;
 
-
 @Setter
 @Getter
 @ToString
-public class ChatDTO {
-
+public class ClientShowDTO {
     private Integer id;
-    private String message;
+    private String lastName;
+    private String firstName;
+    private String username;
+    private String phone;
+    private UserRoleDTO role;
     private Date createdAt;
-    private ClientCreationDTO clientDTO;
-    private DeliveryManDTO deliveryManDTO;
-    private OrderDTO orderDTO;
-
+    private String status;
 }

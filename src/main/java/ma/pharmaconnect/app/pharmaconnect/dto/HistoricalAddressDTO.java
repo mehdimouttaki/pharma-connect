@@ -15,7 +15,6 @@ public class HistoricalAddressDTO {
     private Integer id;
     private String address;
     private Date lastModifiedDate;
-    private ClientDTO clientDTO;
+    private ClientCreationDTO clientDTO;
 
 }
-

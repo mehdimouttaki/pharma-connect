@@ -7,8 +7,10 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-
-public class ClientDTO extends UserDTO {
+public class ClientCreationDTO {
+    private String lastName;
+    private String firstName;
+    private String username;
     private String phone;
-
+    private String password;
 }

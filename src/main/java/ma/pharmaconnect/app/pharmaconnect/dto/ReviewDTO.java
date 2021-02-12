@@ -12,7 +12,7 @@ public class ReviewDTO {
     private Integer id;
     private String review;
     private Integer rate;
-    private ClientDTO clientDTO;
+    private ClientCreationDTO clientDTO;
     private DeliveryManDTO deliveryManDTO;
     private OrderDTO orderDTO;
 

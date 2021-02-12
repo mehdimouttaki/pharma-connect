@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.dto.CityDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.City;
 import ma.pharmaconnect.app.pharmaconnect.service.CityService;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,13 +25,7 @@ public class CityRestController {
 
     @PostMapping("/api/cities")
     public City save(@RequestBody CityDTO cityDTO) {
-
-
-        City city = new City();
-
-        city.setLabel(cityDTO.getLabel());
-
-
+        City city = new ModelMapper().map(cityDTO, City.class);
         return cityService.save(city);
     }
 }
