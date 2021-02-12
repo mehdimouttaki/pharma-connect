@@ -47,7 +47,7 @@
                   <td th:text="${pharmacy.lng}"></td>
                   <td th:text="${pharmacy.name}"></td>
                   <td th:text="${pharmacy.pharmacist}"></td>
-                  <td th:text="${pharmacy.city.city}"></td>
+                  <td th:text="${pharmacy.city.label}"></td>
                   <td>
                     <a th:href="@{'/pharmacies/view/'+${pharmacy.id}}">
                       <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw pharmacy"></i>

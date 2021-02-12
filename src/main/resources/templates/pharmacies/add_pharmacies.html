@@ -44,7 +44,7 @@
                 <div class="form-group">
                   <label>Select Ville</label>
                   <select class="form-control" name="city.id">
-                    <option th:each="city: ${cities}" th:text="${city.city}" th:value="${city.id}"></option>
+                    <option th:each="city: ${cities}" th:text="${city.label}" th:value="${city.id}"></option>
                   </select>
                 </div>
               </div>

@@ -30,7 +30,10 @@ public class PharmacyService {
     public Pharmacy save(Pharmacy pharmacy) {
         //take the id coming from html select box
         Integer cityId = pharmacy.getCity().getId();
-        pharmacy.setCity(cityRepository.findById(cityId).get());
+        pharmacy.setCity(
+                cityRepository.findById(cityId)
+                        .orElseThrow(() -> new EntityNotFoundException("City", cityId))
+        );
         return pharmacyRepository.save(pharmacy);
     }
 
