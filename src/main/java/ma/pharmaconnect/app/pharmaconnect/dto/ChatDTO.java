@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManUpdateDTO;
 
 import java.util.Date;
 
@@ -17,7 +18,7 @@ public class ChatDTO {
     private String message;
     private Date createdAt;
     private ClientCreationDTO clientDTO;
-    private DeliveryManDTO deliveryManDTO;
+    private DeliveryManUpdateDTO deliveryManDTO;
     private OrderDTO orderDTO;
 
 }

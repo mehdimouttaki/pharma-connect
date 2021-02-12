@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManUpdateDTO;
 
 @Setter
 @Getter
@@ -14,7 +15,7 @@ public class OrderDTO {
     private Integer nbrProduct;
     private Double price;
     private ClientCreationDTO clientDTO;
-    private DeliveryManDTO deliveryManDTO;
+    private DeliveryManUpdateDTO deliveryManDTO;
     private PharmacyDTO pharmacyDTO;
 
 }
