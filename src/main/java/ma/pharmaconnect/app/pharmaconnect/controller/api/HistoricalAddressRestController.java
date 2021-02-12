@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HistoricalAddressRestController {
 
-    private HistoricalAddressService historicalAddressService;
+    private final HistoricalAddressService historicalAddressService;
 
     @GetMapping("/api/historical-address")
     public List<HistoricalAddress> getAll() {

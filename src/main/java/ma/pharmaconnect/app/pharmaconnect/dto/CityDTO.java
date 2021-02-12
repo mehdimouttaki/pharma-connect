@@ -9,7 +9,6 @@ import lombok.ToString;
 @ToString
 public class CityDTO {
 
-    private Integer id;
-    private String ville;
+    private String label;
 
 }

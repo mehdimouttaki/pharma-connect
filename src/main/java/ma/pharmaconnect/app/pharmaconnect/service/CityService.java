@@ -15,4 +15,8 @@ public class CityService {
     public List<City> getAll() {
         return (List<City>) cityRepository.findAll();
     }
+
+    public City save(City city) {
+        return cityRepository.save(city);
+    }
 }
