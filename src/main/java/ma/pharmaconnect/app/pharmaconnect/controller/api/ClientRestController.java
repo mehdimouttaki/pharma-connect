@@ -1,9 +1,9 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
 import lombok.RequiredArgsConstructor;
-import ma.pharmaconnect.app.pharmaconnect.dto.ClientCreationDTO;
-import ma.pharmaconnect.app.pharmaconnect.dto.ClientShowDTO;
-import ma.pharmaconnect.app.pharmaconnect.dto.ClientUpdateDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientShowDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
 import org.modelmapper.ModelMapper;
