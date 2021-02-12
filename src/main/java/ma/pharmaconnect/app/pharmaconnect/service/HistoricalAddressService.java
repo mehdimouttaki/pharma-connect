@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.HistoricalAddress;
 import ma.pharmaconnect.app.pharmaconnect.repository.HistoricalAddressRepository;
 
@@ -21,6 +22,8 @@ public class HistoricalAddressService {
 
     public HistoricalAddress getOne(Integer id) {
 
-        return historicalAddressRepository.findById(id).get();
+        return historicalAddressRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("HistoricalAddress",id);
+        });
     }
 }

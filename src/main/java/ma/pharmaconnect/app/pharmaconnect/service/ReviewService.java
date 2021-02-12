@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Review;
 import ma.pharmaconnect.app.pharmaconnect.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,8 @@ public class ReviewService {
 
     public Review getOne(Integer id) {
 
-        return reviewRepository.findById(id).get();
+        return reviewRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Review",id);
+        });
     }
 }

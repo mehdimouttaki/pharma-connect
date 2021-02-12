@@ -2,6 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Product;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
 
@@ -33,6 +34,8 @@ public class ProductService {
 
     public Product getOne(Integer id) {
 
-        return productRepository.findById(id).get();
+        return productRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Product",id);
+        });
     }
 }

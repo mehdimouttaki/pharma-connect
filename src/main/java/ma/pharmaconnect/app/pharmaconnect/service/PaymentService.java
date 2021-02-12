@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Payment;
 import ma.pharmaconnect.app.pharmaconnect.repository.PaymentRepository;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,8 @@ public class PaymentService {
     }
 
     public Payment getOne(Integer id) {
-        return paymentRepository.findById(id).get();
+        return paymentRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Payment",id);
+        });
     }
 }

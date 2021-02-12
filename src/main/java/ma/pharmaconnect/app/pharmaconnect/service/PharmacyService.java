@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.repository.CityRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.PharmacyRepository;
@@ -22,7 +23,9 @@ public class PharmacyService {
 
     public Pharmacy getOne(Integer id) {
 
-        return pharmacyRepository.findById(id).get();
+        return pharmacyRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Pharmacy",id);
+        });
     }
 
     public Pharmacy save(Pharmacy pharmacy) {
