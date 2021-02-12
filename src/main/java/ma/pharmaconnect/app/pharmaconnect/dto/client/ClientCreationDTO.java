@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.dto;
+package ma.pharmaconnect.app.pharmaconnect.dto.client;
 
 import lombok.Getter;
 import lombok.Setter;
