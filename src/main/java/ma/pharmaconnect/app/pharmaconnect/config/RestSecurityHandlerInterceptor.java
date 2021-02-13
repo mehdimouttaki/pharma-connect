@@ -11,6 +11,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -24,7 +27,14 @@ public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws IOException {
 
-        if (httpServletRequest.getRequestURL().toString().contains("/clients")) {
+        List<String> authorizedUrls = new ArrayList<>(
+                Arrays.asList(
+                        "/api/clients",
+                        "/api/login"
+                )
+        );
+
+        if (authorizedUrls.contains(httpServletRequest.getRequestURI())) {
             return true;
         }
 

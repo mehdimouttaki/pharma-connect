@@ -2,6 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
+import ma.pharmaconnect.app.pharmaconnect.exception.InvalidPasswordException;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
@@ -42,12 +43,23 @@ public class ClientService {
         return (List<Client>) clientRepository.findAll();
     }
 
-    public Client  view(Integer id) {
+    public Client view(Integer id) {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Client", id));
     }
 
     public Client getByUsername(String username) {
-        return clientRepository.findByUsername(username);
+        return clientRepository.findByUsername(username)
+                .orElseThrow(() -> new EntityNotFoundException("Entity Client with username '" + username + "' not found"));
+    }
+
+    public Client login(String username, String password) {
+        Client client = getByUsername(username);
+        // password verification
+        boolean passwordMatched = passwordEncoder.matches(password, client.getPassword());
+        if (!passwordMatched) {
+            throw new InvalidPasswordException("Invalid password for the Client '" + username + "'");
+        }
+        return client;
     }
 }
