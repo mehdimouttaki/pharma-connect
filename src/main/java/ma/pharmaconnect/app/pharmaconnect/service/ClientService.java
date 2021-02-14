@@ -43,7 +43,7 @@ public class ClientService {
         return (List<Client>) clientRepository.findAll();
     }
 
-    public Client view(Integer id) {
+    public Client getById(Integer id) {
         return clientRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Client", id));
     }
