@@ -47,13 +47,13 @@
 
                                     <td>
                                         <a th:href="@{'/orders'+${order.id}}">
-                                            <i style="color: darkred; margin: 0 5px" class="fas fa-eye"
+                                            <i class="fas fa-eye" style="color: darkred; margin: 0 5px"
                                                title="veiw order"></i>
                                         </a>
-                                        <a th:href="@{'/orders/delete/'+${order.id}}">
-                                            <i style="color: darkred; margin: 0 5px" class="far fa-trash-alt"
-                                               title="Remove order"></i>
-                                        </a>
+
+                                        <i th:attr="data-url='/orders/delete/'+${order.id}"
+                                           class="far fa-trash-alt" style="color: darkred; margin: 0 5px; cursor: pointer"
+                                           title="Remove order"></i>
 
                                     </td>
                                 </tr>

@@ -47,11 +47,14 @@
                                     <td>
 
                                         <a th:href="@{'/clients/view/'+${client.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="view client"></i>
+                                            <i style="color: darkred; margin: 0 5px" class="fas fa-eye"
+                                               title="view client"></i>
                                         </a>
-                                        <a th:href="@{'/clients/delete/'+${client.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove client"></i>
-                                        </a>
+
+                                        <i th:attr="data-url='/clients/delete/'+${client.id}"
+                                           style="color: darkred; margin: 0 5px; cursor: pointer"
+                                           class="far fa-trash-alt"
+                                           title="Remove client"></i>
 
                                     </td>
                                 </tr>
@@ -60,14 +63,14 @@
                         </div>
                         <!-- /.card-body -->
 
-                    <!-- /.card -->
-                </div>
+                        <!-- /.card -->
+                    </div>
 
+                </div>
             </div>
         </div>
-        </div>
     </section>
-</div>
 
+</div>
 </body>
 </html>
