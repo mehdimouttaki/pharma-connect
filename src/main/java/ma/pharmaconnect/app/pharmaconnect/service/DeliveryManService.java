@@ -43,7 +43,7 @@ public class DeliveryManService {
         return (List<DeliveryMan>) deliveryManRepository.findAll();
     }
 
-    public DeliveryMan view(Integer id) {
+    public DeliveryMan getById(Integer id) {
         return deliveryManRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("DeliveryMan", id));
     }

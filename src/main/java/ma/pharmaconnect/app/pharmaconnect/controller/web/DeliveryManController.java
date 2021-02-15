@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DeliveryManController {
 
-    private final  DeliveryManService deliveryManService;
+    private final DeliveryManService deliveryManService;
 
     @GetMapping("/delivery-men/add")
     public String addDeliveryMan() {
@@ -45,8 +45,11 @@ public class DeliveryManController {
         deliveryManService.delete(id);
         return "redirect:/delivery-men";
     }
-    @GetMapping("delivery-men/review/{id}")
-    public String oneDeliveryMan() {
+
+    @GetMapping("delivery-men/view/{id}")
+    public String oneDeliveryMan(@PathVariable Integer id, Model model) {
+        DeliveryMan deliveryMan = deliveryManService.getById(id);
+        model.addAttribute("deliveryMan", deliveryMan);
         return "/delivery_men/view_delivery_men";
     }
 

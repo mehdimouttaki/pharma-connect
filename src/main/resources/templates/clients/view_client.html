@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharma Connect - View Client</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Personal Information</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <h3 th:text="${client.firstName+' '+client.lastName}"></h3>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="row" th:if="${not #lists.isEmpty(client.addresses)}">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Client Addresses</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6" th:each="addr: ${client.addresses}">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <i class="fas fa-text-width"></i>
+                                            </h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body clearfix">
+                                            <blockquote class="quote-secondary">
+                                                <p th:text="${addr.address}"></p>
+                                                <small th:text="${addr.lastModifiedDate}"></small>
+                                            </blockquote>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="row" th:if="${not #lists.isEmpty(client.orders)}">
+                <div class="col-md-12">
+
+
+                </div>
+
+            </div>
+            <div class="row" th:if="${not #lists.isEmpty(client.reviews)}">
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <h3 class="card-title">List of Reviews</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover text-nowrap text-center">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Rate</th>
+                                    <th>Review</th>
+                                    <th>Delivery</th>
+                                    <th>Order-Id</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="review: ${client.reviews}">
+                                    <td th:text="${review.id}"></td>
+                                    <td th:text="${review.rate}"></td>
+                                    <td th:text="${review.label}"></td>
+                                    <td><a th:href="@{'/delivery-men/view/'+${review.deliveryMan.id}}"
+                                           th:text="${review.deliveryMan.firstName+' '+review.deliveryMan.lastName}"></a>
+                                    </td>
+                                    <td th:text="${(review.order==null)?'':review.order.id}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>

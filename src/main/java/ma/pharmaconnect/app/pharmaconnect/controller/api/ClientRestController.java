@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.dto.LoginDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientShowDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientUpdateDTO;
@@ -27,6 +28,13 @@ public class ClientRestController {
         //transform from client to clientShowDto
         return new ModelMapper().map(clientSaved, ClientShowDTO.class);
 
+    }
+
+    @PostMapping("/api/login")
+    public ClientShowDTO login(@RequestBody LoginDTO loginDTO) {
+        Client client = clientService.login(loginDTO.getUsername(), loginDTO.getPassword());
+        //transform from client to clientShowDto
+        return new ModelMapper().map(client, ClientShowDTO.class);
     }
 
     @DeleteMapping("/api/clients/{id}")

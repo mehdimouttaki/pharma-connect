@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - View  DeliveryMan</title>
+    <title>Pharma Connect - View Client</title>
 </head>
 <body>
 
@@ -14,35 +14,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">View DeliveryMan</h3>
+                            <h3 class="card-title">Personal Information</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Role</th>
-                                    <th>Name</th>
-                                    <th>Order</th>
-                                    <th>Date Order</th>
-                                    <th>Review</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Role</th>
-                                    <th>Name</th>
-                                    <th>Order</th>
-                                    <th>Date Order</th>
-                                    <th>Review</th>
-                                    <th></th>
-                                </tr>
-                                </tfoot>
-                            </table>
+                            <h3 th:text="${deliveryMan.firstName+' '+deliveryMan.lastName}"></h3>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -52,11 +28,50 @@
 
             </div>
 
+            <div class="row" th:if="${not #lists.isEmpty(deliveryMan.orders)}">
+                <div class="col-md-12">
+
+
+                </div>
+
+            </div>
+            <div class="row" th:if="${not #lists.isEmpty(deliveryMan.reviews)}">
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <h3 class="card-title">List of Reviews</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover text-nowrap text-center">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Rate</th>
+                                    <th>Review</th>
+                                    <th>Client</th>
+                                    <th>Order-Id</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="review: ${deliveryMan.reviews}">
+                                    <td th:text="${review.id}"></td>
+                                    <td th:text="${review.rate}"></td>
+                                    <td th:text="${review.label}"></td>
+                                    <td><a th:href="@{'/clients/view/'+${review.client.id}}"
+                                           th:text="${review.client.firstName+' '+review.client.lastName}"></a>
+                                    </td>
+                                    <td th:text="${(review.order==null)?'':review.order.id}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
-
-
-
 
     </section>
 </div>

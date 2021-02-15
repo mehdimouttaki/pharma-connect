@@ -22,14 +22,18 @@ public class ClientController {
         model.addAttribute("clients", list);
         return "/clients/all_clients";
     }
+
     @GetMapping("/clients/delete/{id}")
     public String deleteClient(@PathVariable Integer id) {
         clientService.delete(id);
         return "redirect:/clients";
     }
+
     @GetMapping("/clients/view/{id}")
-    public String oneClient() {
-        return "/clients/view_clients";
+    public String oneClient(@PathVariable Integer id, Model model) {
+        Client client = clientService.getById(id);
+        model.addAttribute("client", client);
+        return "/clients/view_client";
     }
 
 
