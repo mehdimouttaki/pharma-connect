@@ -58,12 +58,13 @@
                       <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit product"></i>
                     </a>
 
-                    <a th:href="@{'/products/delete/'+${product.id}}">
-                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove product"></i>
-                    </a>
-
-                  </td>
+                    <i th:attr="data-url='/products/delete/'+${product.id}"
+                       style="color: darkred; margin: 0 5px; cursor: pointer"
+                       class="far fa-trash-alt"
+                       title="Remove Product"></i>
                 </tr>
+                  </td>
+
                 </body>
               </table>
             </div>

@@ -56,9 +56,10 @@
                       <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit pharmacy"></i>
                     </a>
 
-                    <a th:href="@{'/pharmacies/delete/'+${pharmacy.id}}">
-                      <i style="color: darkred; margin: 0 5px"  class="far fa-trash-alt" title="Remove pharmacy"></i>
-                    </a>
+                    <i th:attr="data-url='/pharmacies/delete/'+${pharmacy.id}"
+                       style="color: darkred; margin: 0 5px; cursor: pointer"
+                       class="far fa-trash-alt"
+                       title="Remove Pharmacy"></i>
 
 
                   </td>
