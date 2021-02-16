@@ -18,11 +18,15 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div class="text-left">
+                                <img class="profile-user-img img-fluid img-circle" th:src="@{/img/avatar.png}"
+                                     alt="User profile picture">
                             <div th:text="${'Full Name  :'+deliveryMan.firstName+' '+deliveryMan.lastName}"></div>
                             <div th:text="${'Phone  :'+deliveryMan.phone}"></div>
                             <div th:text="${'Status  :'+deliveryMan.status}"></div>
                             <div th:text="${'Created At  :'+deliveryMan.createdAt}"></div>
-                        </div>
+                            </div>
+                            </div>
                         <!-- /.card-body -->
                     </div>
 
