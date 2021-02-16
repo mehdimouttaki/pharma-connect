@@ -29,10 +29,8 @@ public class OrderRestController {
         orderService.delete(id);
     }
 
-    @PutMapping("/api/orders")
-    public Order updateOrder(@RequestBody Order order) {
-        return orderService.update(order);
-    }
+
+
 
     @GetMapping("/api/orders")
     public List<Order> getAll() {
