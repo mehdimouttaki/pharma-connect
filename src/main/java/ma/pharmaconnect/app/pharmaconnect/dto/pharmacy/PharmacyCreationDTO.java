@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.dto;
+package ma.pharmaconnect.app.pharmaconnect.dto.pharmacy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -11,15 +11,12 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-public class PharmacyDTO {
-    private Integer id;
+public class PharmacyCreationDTO {
     private String name;
     private String address;
     private String pharmacist;
     private Double lat;
     private Double lng;
-
-
     @JsonIgnore
     private List<PermanentCreationDTO> permanentCreationDTOS;
 
