@@ -16,14 +16,27 @@
                         <div class="card-header">
                             <h3 class="card-title">Personal Information</h3>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div th:text="${'Full Name  :'+deliveryMan.firstName+' '+deliveryMan.lastName}"></div>
-                            <div th:text="${'Phone  :'+deliveryMan.phone}"></div>
-                            <div th:text="${'Status  :'+deliveryMan.status}"></div>
-                            <div th:text="${'Created At  :'+deliveryMan.createdAt}"></div>
+                        <div class="card bg-light">
+
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b th:text="${deliveryMan.firstName+' '+deliveryMan.lastName}"></b></h2>
+                                        <p class="text-muted text-sm" ><b>About: </b> <p style="color: green" th:text="${deliveryMan.status}"></p>  </p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <p th:text="${'Phone  :'+deliveryMan.phone}"></p></li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span><p th:text="${'Created AT  :'+deliveryMan.createdAt}"></p> </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img th:src="@{/img/avatar.png}"
+                                             alt="User profile picture" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <!-- /.card-body -->
                     </div>
 
                 </div>
