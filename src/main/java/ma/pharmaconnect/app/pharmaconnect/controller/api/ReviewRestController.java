@@ -1,8 +1,8 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
 import lombok.RequiredArgsConstructor;
-import ma.pharmaconnect.app.pharmaconnect.dto.Review.ReviewCreationDTO;
-import ma.pharmaconnect.app.pharmaconnect.dto.Review.ReviewShowDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.review.ReviewCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.review.ReviewShowDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.Review;
 import ma.pharmaconnect.app.pharmaconnect.service.ReviewService;
 import org.modelmapper.ModelMapper;
