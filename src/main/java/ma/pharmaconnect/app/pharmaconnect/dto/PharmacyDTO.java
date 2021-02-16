@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentCreationDTO;
 
 
 import java.util.List;
@@ -20,6 +21,6 @@ public class PharmacyDTO {
 
 
     @JsonIgnore
-    private List<PermanentDTO> permanentDTOS;
+    private List<PermanentCreationDTO> permanentCreationDTOS;
 
 }

@@ -7,9 +7,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class PaymentDTO {
+public class PaymentCreationDTO {
 
-    private Integer id;
     private PaymentStatusDTO status;
     private PaymentMethodDTO method;
 
