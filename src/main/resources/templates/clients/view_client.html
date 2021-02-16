@@ -18,7 +18,10 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <h3 th:text="${client.firstName+' '+client.lastName}"></h3>
+                            <div th:text="${'Full Name  :'+client.firstName+' '+client.lastName}"></div>
+                            <div th:text="${'Phone  :'+client.phone}"></div>
+                            <div th:text="${'Status  :'+client.status}"></div>
+                            <div th:text="${'Creatd At  :'+client.createdAt}"></div>
                         </div>
                         <!-- /.card-body -->
                     </div>
