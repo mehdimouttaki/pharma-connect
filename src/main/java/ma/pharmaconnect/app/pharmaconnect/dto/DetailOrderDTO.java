@@ -3,6 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderCreationDTO;
 
 @Setter
 @Getter
@@ -11,6 +12,6 @@ public class DetailOrderDTO {
 
     private Integer id;
     private String productCode;
-    private OrderDTO orderDTO;
+    private OrderCreationDTO orderCreationDTO;
 
 }

@@ -3,7 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.dto.chat;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ma.pharmaconnect.app.pharmaconnect.dto.OrderDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManUpdateDTO;
 
@@ -20,6 +20,6 @@ public class ChatCreationDTO {
     private Date createdAt;
     private ClientCreationDTO clientDTO;
     private DeliveryManUpdateDTO deliveryManDTO;
-    private OrderDTO orderDTO;
+    private OrderCreationDTO orderCreationDTO;
 
 }
