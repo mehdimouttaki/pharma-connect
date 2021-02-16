@@ -1,8 +1,10 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.service.DeliveryManService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +37,8 @@ public class DeliveryManController {
     }
 
     @PostMapping("/delivery-men/add")
-    public String saveDeliveryMan(DeliveryMan deliveryMan) {
+    public String saveDeliveryMan(DeliveryManCreationDTO deliveryManDTO) {
+        DeliveryMan deliveryMan = new ModelMapper().map(deliveryManDTO, DeliveryMan.class);
         deliveryManService.save(deliveryMan);
         return "redirect:/delivery-men";
     }

@@ -1,10 +1,12 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.City;
 import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.service.CityService;
 import ma.pharmaconnect.app.pharmaconnect.service.PharmacyService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +30,8 @@ public class PharmacyController {
     }
 
     @PostMapping("/pharmacies/add")
-    public String savePharmacy(Pharmacy pharmacy) {
+    public String savePharmacy(PharmacyCreationDTO pharmacyDTO) {
+        Pharmacy pharmacy=new ModelMapper().map(pharmacyDTO,Pharmacy.class);
 
         pharmacyService.save(pharmacy);
         return "redirect:/pharmacies";

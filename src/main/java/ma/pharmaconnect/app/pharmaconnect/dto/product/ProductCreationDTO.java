@@ -1,4 +1,4 @@
-package ma.pharmaconnect.app.pharmaconnect.dto;
+package ma.pharmaconnect.app.pharmaconnect.dto.product;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,13 +7,9 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class ProductDTO {
-
-    private Integer id;
+public class ProductCreationDTO {
     private String name;
-    private Double price;
     private String code;
     private Boolean prescription;
-
-
+    private Double price;
 }
