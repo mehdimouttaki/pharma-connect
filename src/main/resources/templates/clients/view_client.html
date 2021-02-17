@@ -17,13 +17,31 @@
                             <h3 class="card-title">Personal Information</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                            <div th:text="${'Full Name  :'+client.firstName+' '+client.lastName}"></div>
-                            <div th:text="${'Phone  :'+client.phone}"></div>
-                            <div th:text="${'Status  :'+client.status}"></div>
-                            <div th:text="${'Creatd At  :'+client.createdAt}"></div>
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><p th:text="${client.firstName+' '+client.lastName}"></p></h2>
+                                        <p class="far fa-user"><b>About: </b> <b style="color: green"
+                                                                                 th:text="${client.status}"></b></p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                                                <p th:text="${'Status  :'+client.role}"></p></li>
+                                            <li class="small"><span class="fa-li"><i
+                                                    class="fas fa-lg fa-phone"></i></span>
+                                                <p th:text="${'Phone :'+client.phone}"></p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img th:src="@{/img/avatar.png}" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <!-- /.card-body -->
                     </div>
 
                 </div>
