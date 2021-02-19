@@ -8,7 +8,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class ClientUpdateDTO {
-    private Integer id;
     private String lastName;
     private String firstName;
     private String username;

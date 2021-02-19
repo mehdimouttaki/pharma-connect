@@ -10,7 +10,6 @@ import ma.pharmaconnect.app.pharmaconnect.dto.UserRoleDTO;
 @ToString
 
 public class DeliveryManUpdateDTO {
-    private Integer id;
     private String lastName;
     private String firstName;
     private String username;

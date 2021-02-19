@@ -15,7 +15,6 @@ import java.util.Date;
 @ToString
 public class ChatCreationDTO {
 
-    private Integer id;
     private String message;
     private Date createdAt;
     private ClientCreationDTO clientDTO;
