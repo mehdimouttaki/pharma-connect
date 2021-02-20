@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @Slf4j
@@ -33,8 +34,12 @@ public class RestSecurityHandlerInterceptor implements HandlerInterceptor {
                         "/api/login"
                 )
         );
+        String toCheck = httpServletRequest.getRequestURI();
+        Optional<String> isExist = authorizedUrls.stream()
+                .filter(toCheck::endsWith)
+                .findFirst();
 
-        if (authorizedUrls.contains(httpServletRequest.getRequestURI())) {
+        if (isExist.isPresent()) {
             return true;
         }
 
