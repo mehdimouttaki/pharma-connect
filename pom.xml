@@ -97,6 +97,15 @@
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
+    <profiles>
+        <profile>
+            <id>jenkins</id>
+            <properties>
+                <active.profile>jenkins</active.profile>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
