@@ -1,7 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
 import lombok.RequiredArgsConstructor;
-import ma.pharmaconnect.app.pharmaconnect.dto.CityDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.city.CityDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.City;
 import ma.pharmaconnect.app.pharmaconnect.service.CityService;
 import org.modelmapper.ModelMapper;
