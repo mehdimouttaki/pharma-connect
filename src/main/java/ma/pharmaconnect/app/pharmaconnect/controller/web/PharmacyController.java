@@ -46,16 +46,17 @@ public class PharmacyController {
     }
 
     @GetMapping("/pharmacies/edit/{id}")
-    public String editPharmacy(Model model) {
+    public String editPharmacy(Model model, @PathVariable Integer id) {
         List<City> list = cityService.getAll();
         model.addAttribute("cities", list);
+        Pharmacy pharmacy = pharmacyService.getOne(id);
+        model.addAttribute("pharmacy", pharmacy);
         return "/pharmacies/edit_pharmacies";
     }
 
     @PostMapping("/pharmacies/edit")
     public String updatePharmacy(PharmacyUpdateDTO pharmacyDTO) {
         Pharmacy pharmacy = new ModelMapper().map(pharmacyDTO, Pharmacy.class);
-
         pharmacyService.save(pharmacy);
         return "redirect:/pharmacies";
     }
