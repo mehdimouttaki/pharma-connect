@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{layout}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <title>Pharma Connect - Edit Pharmacies</title>
+  <title>Pharma Connect - Add Pharmacies</title>
 </head>
 <body>
 
@@ -12,13 +13,55 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Welcome to Our Site</h1>
-          <p>Edit Pharmacies</p>
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Add Pharmacy</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form" method="post" th:action="@{/pharmacies/add}">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="name">Pharmacy Name</label>
+                  <input name="name" required="required" type="text" class="form-control" id="name" placeholder="Pharmacy Name">
+                </div>
+                <div class="form-group">
+                  <label for="address">Pharmacy Address</label>
+                  <input name="address" required="required" type="text" class="form-control" id="address" placeholder="Pharmacy Address">
+                </div>
+                <div class="form-group">
+                  <label for="pharmacist">Pharmacist</label>
+                  <input name="pharmacist" required="required" type="text" class="form-control" id="pharmacist" placeholder="Pharmacist">
+                </div>
+                <div class="form-group">
+                  <label for="latitude">Latitude</label>
+                  <input name="lat" type="text" class="form-control" id="latitude" placeholder="Latitude (Lat ex: 5.66)">
+                </div>
+                <div class="form-group">
+                  <label for="longitude">Longitude</label>
+                  <input name="lng" type="text" class="form-control" id="longitude" placeholder="Longitude (Lng ex: -8.15) ">
+                </div>
+                <div class="form-group">
+                  <label>Select Ville</label>
+                  <select class="form-control" name="city.id">
+                    <option th:each="city: ${cities}" th:text="${city.label}" th:value="${city.id}"></option>
+                  </select>
+                </div>
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Add</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
-</div>
 
+
+</div>
 </body>
+
 </html>

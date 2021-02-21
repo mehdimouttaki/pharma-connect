@@ -7,7 +7,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class PharmacyCreationDTO {
+public class PharmacyUpdateDTO {
+    private Integer id;
     private String name;
     private String address;
     private String pharmacist;

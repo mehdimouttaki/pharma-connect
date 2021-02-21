@@ -2,6 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.City;
 import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.service.CityService;
@@ -31,7 +32,7 @@ public class PharmacyController {
 
     @PostMapping("/pharmacies/add")
     public String savePharmacy(PharmacyCreationDTO pharmacyDTO) {
-        Pharmacy pharmacy=new ModelMapper().map(pharmacyDTO,Pharmacy.class);
+        Pharmacy pharmacy = new ModelMapper().map(pharmacyDTO, Pharmacy.class);
 
         pharmacyService.save(pharmacy);
         return "redirect:/pharmacies";
@@ -44,14 +45,24 @@ public class PharmacyController {
         return "/pharmacies/all_pharmacies";
     }
 
-    @GetMapping("/pharmacies/edit")
-    public String editPharmacy() {
+    @GetMapping("/pharmacies/edit/{id}")
+    public String editPharmacy(Model model) {
+        List<City> list = cityService.getAll();
+        model.addAttribute("cities", list);
         return "/pharmacies/edit_pharmacies";
+    }
+
+    @PostMapping("/pharmacies/edit")
+    public String updatePharmacy(PharmacyUpdateDTO pharmacyDTO) {
+        Pharmacy pharmacy = new ModelMapper().map(pharmacyDTO, Pharmacy.class);
+
+        pharmacyService.save(pharmacy);
+        return "redirect:/pharmacies";
     }
 
 
     @GetMapping("/pharmacies/delete/{id}")
-    public String deletePharmacy(@PathVariable Integer id){
+    public String deletePharmacy(@PathVariable Integer id) {
         pharmacyService.delete(id);
         return "redirect:/pharmacies";
     }
