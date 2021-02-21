@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,6 @@ public class Permanent implements Serializable {
 
     @ManyToMany(mappedBy = "permanents")
 
-    private List<Pharmacy> pharmacies;
+    private List<Pharmacy> pharmacies = new ArrayList<>();
 
 }

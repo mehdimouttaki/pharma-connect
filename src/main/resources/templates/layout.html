@@ -370,9 +370,10 @@ to get the desired effect
   $('#reservationtime').daterangepicker({
     timePicker: true,
     minDate: moment(),
-    timePickerIncrement: 15,
+    timePickerIncrement: 30,
+    timePicker24Hour: true,
     locale: {
-      format: 'MM/DD/YYYY hh:mm A'
+      format: 'MM/DD/YYYY H:mm'
     }
   })
 
