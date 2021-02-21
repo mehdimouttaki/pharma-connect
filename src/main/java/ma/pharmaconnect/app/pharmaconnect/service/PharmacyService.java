@@ -40,4 +40,8 @@ public class PharmacyService {
     public void delete(Integer id) {
         pharmacyRepository.deleteById(id);
     }
+
+    public List<Pharmacy> getAllByCity(String city) {
+        return pharmacyRepository.findAllByCityLabel(city);
+    }
 }
