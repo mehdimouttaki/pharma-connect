@@ -3,7 +3,6 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
-import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.repository.PermanentRepository;
 import org.springframework.stereotype.Service;
 

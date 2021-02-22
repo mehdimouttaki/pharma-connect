@@ -17,8 +17,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Add Permanent</h3>
                         </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
+
                         <form role="form" method="post" th:action="@{/permanents/add}">
                             <div class="card-body">
                                 <div class="form-group">
@@ -70,35 +69,48 @@
 
 
                     </div>
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Add Pharmacy</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form" method="post" th:action="@{/pharmacies/add}">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label>Select Pharmacy</label>
-                                    <select class="form-control" name="city.id">
-                                        <option th:each="pharmacy: ${pharmacy}" th:text="${pharmacy.name}" th:value="${pharmacy.id}"></option>
-                                    </select>
-                                </div>
-
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Add</button>
-                            </div>
-
-                        </form>
-
-
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="row">
+        <div class="col-5">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add Pharmacy IN Permanents</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                class="fas fa-minus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <form role="form" method="post" th:action="@{/permanents/add}">
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="form-group">
+                            <label>Select Pharmacy</label>
+                            <select class="form-control" name="city.id">
+                                <option th:each="pharmacy: ${pharmacy}" th:text="${pharmacy.name}" th:value="${pharmacy.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.col -->
+    </div>
 </div>
 
 </body>

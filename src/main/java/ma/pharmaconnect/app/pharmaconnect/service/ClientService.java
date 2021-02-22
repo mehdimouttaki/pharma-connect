@@ -2,7 +2,6 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
-import ma.pharmaconnect.app.pharmaconnect.exception.InvalidPasswordException;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
