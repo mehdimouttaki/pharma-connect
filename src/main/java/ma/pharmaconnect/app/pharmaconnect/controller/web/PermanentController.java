@@ -1,10 +1,14 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.mapper.PermanentMapper;
+import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
 import ma.pharmaconnect.app.pharmaconnect.service.PermanentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +35,18 @@ public class PermanentController {
         return "/permanents/all_permanents";
     }
 
-    @GetMapping("/permanents/edit")
-    public String editPermanent() {
+    @GetMapping("/permanents/edit/{id}")
+    public String editPermanents(Model model, @PathVariable Integer id) {
+
+        Permanent permanent = permanentService.getOne(id);
+        model.addAttribute("permanents", permanent);
         return "/permanents/edit_permanents";
+    }
+    @PostMapping("/permanents/edit")
+    public String updatePermanents(PermanentUpdateDTO permanentsDTO) {
+        Permanent permanent = new ModelMapper().map(permanentsDTO, Permanent.class);
+        permanentService.save(permanent);
+        return "redirect:/permanents";
     }
 
     @PostMapping("/permanents/add")

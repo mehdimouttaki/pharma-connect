@@ -1,7 +1,9 @@
 package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
+import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.repository.PermanentRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,15 +29,18 @@ public class PermanentService {
 
         permanentRepository.deleteById(id);
     }
-    public Permanent update(Permanent permanent){
 
-        return permanentRepository.save(permanent);
-    }
 
 
 
     public List<Permanent> getCurrentPermanent()
     {
         return permanentRepository.getCurrentPermanent();
+    }
+
+    public Permanent getOne(Integer id) {
+
+        return permanentRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Permanents", id));
     }
 }

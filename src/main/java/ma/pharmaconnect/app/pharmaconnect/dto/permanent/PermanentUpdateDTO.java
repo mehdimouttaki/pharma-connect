@@ -3,13 +3,12 @@ package ma.pharmaconnect.app.pharmaconnect.dto.permanent;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyNameDTO;
 
 @Getter
 @Setter
 @ToString
-public class PermanentCreationDTO {
+public class PermanentUpdateDTO {
 
     private String rangeDate;
     private String type;
