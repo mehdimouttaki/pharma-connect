@@ -25,9 +25,9 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <h2 class="lead"><p th:text="${deliveryMan.firstName+' '+deliveryMan.lastName}"></p></h2>
-                                        <p  class="far fa-user"><b>About: </b> <b style="color: green" th:text="${deliveryMan.status}"></b></p>
+                                        <p  class="far fa-user"><b>Status: </b> <b style="color: green" th:text="${deliveryMan.status}"></b></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span><p th:text="${'Status  :'+deliveryMan.role}"></p></li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span><p th:text="${'Role  :'+deliveryMan.role}"></p></li>
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span><p th:text="${'Phone :'+deliveryMan.phone}"></p></li>
                                         </ul>
                                     </div>

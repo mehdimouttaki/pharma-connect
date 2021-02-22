@@ -25,11 +25,11 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <h2 class="lead"><p th:text="${client.firstName+' '+client.lastName}"></p></h2>
-                                        <p class="far fa-user"><b>About: </b> <b style="color: green"
+                                        <p class="far fa-user"><b>Status: </b> <b style="color: green"
                                                                                  th:text="${client.status}"></b></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Status  :'+client.role}"></p></li>
+                                                <p th:text="${'Role  :'+client.role}"></p></li>
                                             <li class="small"><span class="fa-li"><i
                                                     class="fas fa-lg fa-phone"></i></span>
                                                 <p th:text="${'Phone :'+client.phone}"></p></li>
