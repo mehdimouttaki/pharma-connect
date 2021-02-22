@@ -5,8 +5,11 @@ import ma.pharmaconnect.app.pharmaconnect.dto.LoginDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientShowDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientUpdateDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.user.UserShowDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
+import ma.pharmaconnect.app.pharmaconnect.model.User;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
+import ma.pharmaconnect.app.pharmaconnect.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class ClientRestController {
 
     private final ClientService clientService;
+    private final UserService userService;
 
     @PostMapping("/api/clients")
     public ClientShowDTO createClient(@RequestBody ClientCreationDTO clientDTO) {
@@ -31,10 +35,10 @@ public class ClientRestController {
     }
 
     @PostMapping("/api/login")
-    public ClientShowDTO login(@RequestBody LoginDTO loginDTO) {
-        Client client = clientService.login(loginDTO.getUsername(), loginDTO.getPassword());
+    public UserShowDTO login(@RequestBody LoginDTO loginDTO) {
+        User user = userService.login(loginDTO.getUsername(), loginDTO.getPassword());
         //transform from client to clientShowDto
-        return new ModelMapper().map(client, ClientShowDTO.class);
+        return new ModelMapper().map(user, UserShowDTO.class);
     }
 
     @DeleteMapping("/api/clients/{id}")

@@ -53,13 +53,5 @@ public class ClientService {
                 .orElseThrow(() -> new EntityNotFoundException("Entity Client with username '" + username + "' not found"));
     }
 
-    public Client login(String username, String password) {
-        Client client = getByUsername(username);
-        // password verification
-        boolean passwordMatched = passwordEncoder.matches(password, client.getPassword());
-        if (!passwordMatched) {
-            throw new InvalidPasswordException("Invalid password for the Client '" + username + "'");
-        }
-        return client;
-    }
+
 }
