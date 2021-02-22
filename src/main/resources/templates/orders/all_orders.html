@@ -46,9 +46,9 @@
 
 
                                     <td>
-                                        <a th:href="@{'/orders'+${order.id}}">
-                                            <i class="fas fa-eye" style="color: darkred; margin: 0 5px"
-                                               title="veiw order"></i>
+                                        <a th:href="@{'/orders/view/'+${order.id}}">
+                                            <i style="color: darkred; margin: 0 5px" class="fas fa-eye"
+                                               title="view Order"></i>
                                         </a>
 
                                         <i th:attr="data-url='/orders/delete/'+${order.id}"
