@@ -3,6 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,8 @@ import java.io.Serializable;
 @Getter
 @ToString
 @Table(name = "payment")
+@Accessors(chain = true)
+
 public class Payment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

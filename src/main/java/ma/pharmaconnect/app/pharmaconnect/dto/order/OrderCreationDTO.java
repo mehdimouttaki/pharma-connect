@@ -4,13 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @ToString
 public class OrderCreationDTO {
 
-    private String nameProduct;
-    private Integer nbrProduct;
-    private Double price;
+    private List<String> codes = new ArrayList<>();
+    private String deliveryAddress;
 
 }

@@ -23,8 +23,6 @@ public class OrderService {
     private final ProductRepository productRepository;
 
     public Order save(Order order) {
-        Client client = clientRepository.findById(order.getClient().getId()).orElseThrow(NoSuchElementException::new);
-        order.setClient(client);
         return orderRepository.save(order);
     }
 

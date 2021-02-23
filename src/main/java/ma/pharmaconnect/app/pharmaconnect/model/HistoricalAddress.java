@@ -3,6 +3,7 @@ package ma.pharmaconnect.app.pharmaconnect.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Getter
 @ToString
 @Table(name = "historical_address")
+@Accessors(chain = true)
 public class HistoricalAddress implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
