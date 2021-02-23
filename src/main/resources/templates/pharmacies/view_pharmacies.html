@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - View  Pharmacy</title>
+    <title>Pharma Connect - View Client</title>
 </head>
 <body>
 
@@ -14,44 +14,81 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">View Pharmacy</h3>
+                            <h3 class="card-title">Pharmacy Information</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Address</th>
-                                    <th>Nombre order</th>
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><p th:text="${pharmacy.name}"></p></h2>
+                                        <p class="far fa-user"><b>Status: </b> <b style="color: green"
+                                                                                  th:text="${pharmacy.address}"></b></p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                                                <p th:text="${'Role  :'+pharmacy.pharmacist}"></p></li>
+                                            <li class="small"><span class="fa-li"><i
+                                                    class="fas fa-lg fa-phone"></i></span>
+                                                <p th:text="${'Phone :'+pharmacy.lng+''+pharmacy.lat}"></p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img th:src="@{/img/avatar.png}" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Address</th>
-                                    <th>Nombre order</th>
-
-                                    <th></th>
-                                </tr>
-                                </tfoot>
-                            </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
 
                 </div>
 
 
             </div>
+            <div class="row" th:if="${not #lists.isEmpty(pharmacy.permanents)}">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pharmacy Permanenet</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6" th:each="perm: ${pharmacy.permanents}">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">
+                                                <i class="fas fa-text-width"></i>
+                                            </h3>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body clearfix">
+                                            <blockquote class="quote-secondary">
+                                                <p th:text="${perm.startDate}"></p>
+                                                <small th:text="${perm.endDate}"></small>
+                                                <small th:text="${perm.type}"></small>
+                                            </blockquote>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
 
-        </div>
+                    </div>
 
 
+                </div>
 
+            </div>
+
+
+            </div>
 
 
     </section>
