@@ -24,22 +24,22 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><p th:text="${order.deliveryMan.firstName+' '+order.deliveryMan.lastName+' ===> '+order.client.firstName+' '+order.client.lastName}"></p></h2>
+                                        <h2 class="lead"><p th:text="${' '+order.deliveryMan.role+':  '+order.deliveryMan.firstName+' '+order.deliveryMan.lastName+' ===> '+order.client.role+':  '+order.client.firstName+' '+order.client.lastName}"></p></h2>
                                         <p class="fas fa-euro-sign"><b>  Price: </b> <b style="color: black "
                                                                                   th:text="${order.price+'Dh'}"></b></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Address:'+order.address}"></p></li>
+                                                <p th:text="${'Address Client  :'+order.address}"></p></li>
                                             <li class="small"><span class="fa-li"><i
                                                     class="fas fa-clinic-medical"></i></span>
-                                                <p th:text="${'Pharmacy :'+order.pharmacy.name}"></p></li>
+                                                <p th:text="${'Pharmacy  :'+order.pharmacy.name}"></p></li>
                                             <li class="small"><span class="fa-li"><i
                                                     class="fas fa-clinic-medical"></i></span>
                                                 <p th:text="${' Address Pharmacy :'+order.pharmacy.address+' '+order.pharmacy.city.label}"></p></li>
                                         </ul>
                                     </div>
                                     <div class="col-5 text-center">
-                                        <img th:src="@{/img/avatar.png}" alt="" class="img-circle img-fluid">
+                                        <img th:src="@{/img/shopping.png}" alt="" class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>
