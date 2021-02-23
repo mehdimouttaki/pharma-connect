@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - View  Product</title>
+    <title>Pharma Connect - View Product</title>
 </head>
 <body>
 
@@ -14,33 +14,32 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">View Product</h3>
+                            <h3 class="card-title">Product Information</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Price</th>
-                                    <th>Date</th>
-                                    <th>Stock</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <p class="fas fa-upload" th:text="${product.name}"> <p></p>
+                                        <p class="fas fa-download" th:text="${product.prescription}"><p></p>
 
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Price</th>
-                                    <th>Date</th>
-                                    <th>Stock</th>
-                                    <th></th>
-                                </tr>
-                                </tfoot>
-                            </table>
+                                        <p class="fas fa-euro-sign" th:text="${'Price'+product.price+'Dh'}"></p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
+                                                <p th:text="${'Code Product  :'+product.code}"></p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img th:src="@{/img/medication.png}" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <!-- /.card-body -->
                     </div>
 
                 </div>
@@ -48,11 +47,8 @@
 
             </div>
 
+
         </div>
-
-
-
-
 
     </section>
 </div>

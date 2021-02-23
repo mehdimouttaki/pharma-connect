@@ -58,4 +58,10 @@ public class ProductController {
         productService.save(product);
         return "redirect:/products";
     }
+    @GetMapping("/products/view/{id}")
+    public String oneProduct(@PathVariable Integer id, Model model) {
+        Product product = productService.getOne(id);
+        model.addAttribute("product", product);
+        return "/products/view_products";
+    }
 }

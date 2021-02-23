@@ -67,4 +67,11 @@ public class PharmacyController {
         pharmacyService.delete(id);
         return "redirect:/pharmacies";
     }
+
+    @GetMapping("/pharmacies/view/{id}")
+    public String onePharmacy(@PathVariable Integer id, Model model) {
+        Pharmacy pharmacy = pharmacyService.getOne(id);
+        model.addAttribute("pharmacy", pharmacy);
+        return "/pharmacies/view_pharmacies";
+    }
 }
