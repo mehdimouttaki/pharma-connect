@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Setter
 @Getter
-@ToString
+
 @Table(name = "orders")
 public class Order implements Serializable {
     @Id

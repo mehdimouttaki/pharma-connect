@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.Order;
 import ma.pharmaconnect.app.pharmaconnect.service.OrderService;
 import org.springframework.stereotype.Controller;
@@ -26,5 +27,11 @@ public class OrderController {
     public String deleteOrder(@PathVariable Integer id) {
         orderService.delete(id);
         return "redirect:/orders";
+    }
+    @GetMapping("/orders/view/{id}")
+    public String oneOrder(@PathVariable Integer id, Model model) {
+        Order order = orderService.getOne(id);
+        model.addAttribute("order",order);
+        return "/orders/view_orders";
     }
 }

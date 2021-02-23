@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@ToString
+
 @Table(name = "client")
 @PrimaryKeyJoinColumn(name = "id")
 public class Client extends User implements Serializable {
