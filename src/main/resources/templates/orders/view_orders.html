@@ -4,6 +4,9 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Pharma Connect - View Order</title>
+    <style>
+
+    </style>
 </head>
 <body>
 
@@ -24,19 +27,19 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <p class="fas fa-upload" th:text="${' :'+order.deliveryMan.role+':  '+order.deliveryMan.firstName+' '+order.deliveryMan.lastName}"> <p></p>
-                                        <p class="fas fa-download" th:text="${' :'+order.client.role+':  '+order.client.firstName+' '+order.client.lastName}"><p></p>
+                                        <p th:text="${order.deliveryMan.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.deliveryMan.firstName+' '+order.deliveryMan.lastName}"> <p></p>
+                                        <p th:text="${order.client.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.client.firstName+' '+order.client.lastName}"><p></p>
 
-                                        <p class="fas fa-euro-sign" th:text="${'Price'+order.price+'Dh'}"></p>
+                                        <p th:text="${'Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.price+'Dh'}"></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Address Client  :'+order.address}"></p></li>
+                                                <p th:text="${'Address Client:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.address}"></p></li>
                                             <li class="small"><span class="fa-li"><i
                                                     class="fas fa-clinic-medical"></i></span>
-                                                <p th:text="${'Pharmacy  :'+order.pharmacy.name}"></p></li>
+                                                <p th:text="${'Pharmacy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.pharmacy.name}"></p></li>
                                             <li class="small"><span class="fa-li"><i
                                                     class="fas fa-clinic-medical"></i></span>
-                                                <p th:text="${' Address Pharmacy :'+order.pharmacy.address+' '+order.pharmacy.city.label}"></p></li>
+                                                <p th:text="${' Address Pharmacy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.pharmacy.address+' '+order.pharmacy.city.label}"></p></li>
                                         </ul>
                                     </div>
                                     <div class="col-5 text-center">
