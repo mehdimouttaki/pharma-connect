@@ -24,19 +24,14 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><p th:text="${product.name+}"></p></h2>
-                                        <p class="far fa-user"><b>Status: </b> <b style="color: green"
-                                                                                  th:text="${product.code}"></b></p>
-                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Role  :'+product.price}"></p></li>
-                                            <li class="small"><span class="fa-li"><i
-                                                    class="fas fa-lg fa-phone"></i></span>
-                                                <p th:text="${'Phone :'+product.prescription}"></p></li>
-                                        </ul>
+                                        <p class="lead"><p th:text="${'Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+product.name}"></p></p>
+                                        <p  th:text="${'Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+product.code}"></p>
+                                        <p th:text="${'Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+product.price}"></p>
+                                        <p th:text="${'Prescription:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+product.prescription}"></p></li>
+
                                     </div>
                                     <div class="col-5 text-center">
-                                        <img th:src="@{/img/avatar.png}" alt="" class="img-circle img-fluid">
+                                        <img th:src="@{/img/medication.png}" alt="" class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -48,34 +43,11 @@
 
 
             </div>
-            <div class="row" th:if="${not #lists.isEmpty(product.code)}">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Client Addresses</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6" th:each="addr: ${product.orders}">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3 class="card-title">
-                                                <i class="fas fa-text-width"></i>
-                                            </h3>
-                                        </div>
-                                        <!-- /.card-header -->
-                                        <div class="card-body clearfix">
-                                            <blockquote class="quote-secondary">
-                                                <p th:text="${addr.}"></p>
-                                                <small th:text="${addr.lastModifiedDate}"></small>
-                                            </blockquote>
-                                        </div>
-                                        <!-- /.card-body -->
-                                    </div>
-                                    <!-- /.card -->
-                                </div>
-                            </div>
+
+
+        </div>
+
+</div>
                             <!-- /.card-body -->
                         </div>
 
@@ -85,50 +57,10 @@
                 </div>
 
             </div>
-            <div class="row" th:if="${not #lists.isEmpty(client.orders)}">
-                <div class="col-md-12">
 
-
-                </div>
 
             </div>
-            <div class="row" th:if="${not #lists.isEmpty(client.reviews)}">
-                <div class="col-md-12">
-                    <div class="card">
 
-                        <div class="card-header">
-                            <h3 class="card-title">List of Reviews</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-hover text-nowrap text-center">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Rate</th>
-                                    <th>Review</th>
-                                    <th>Delivery</th>
-                                    <th>Order-Id</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="review: ${client.reviews}">
-                                    <td th:text="${review.id}"></td>
-                                    <td th:text="${review.rate}"></td>
-                                    <td th:text="${review.label}"></td>
-                                    <td><a th:href="@{'/delivery-men/view/'+${review.deliveryMan.id}}"
-                                           th:text="${review.deliveryMan.firstName+' '+review.deliveryMan.lastName}"></a>
-                                    </td>
-                                    <td th:text="${(review.order==null)?'':review.order.id}"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
     </section>
 </div>
