@@ -10,7 +10,6 @@ import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
