@@ -27,8 +27,9 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <p th:text="${order.deliveryMan.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.deliveryMan.firstName+' '+order.deliveryMan.lastName}"> <p></p>
-                                        <p th:text="${order.client.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.client.firstName+' '+order.client.lastName}"><p></p>
+                                        <p th:text="${order.deliveryMan.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.deliveryMan.username}"> <p></p>
+
+                                        <p th:text="${order.client.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.client.username}"><p></p>
 
                                         <p th:text="${'Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.price+'Dh'}"></p>
                                         <hr  size="8" width="90%" color="grey" >

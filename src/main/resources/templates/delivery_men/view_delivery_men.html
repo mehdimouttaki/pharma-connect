@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - View Client</title>
+    <title>Pharma Connect - View DeliveryMan</title>
 </head>
 <body>
 
@@ -27,6 +27,7 @@
                                         <h2 class="lead"><p th:text="${deliveryMan.firstName+' '+deliveryMan.lastName}"></p></h2>
                                         <p  class="far fa-user"><b>Status: </b> <b style="color: green" th:text="${deliveryMan.status}"></b></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <hr  size="6" width="90%" color="grey" >
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span><p th:text="${'Role  :'+deliveryMan.role}"></p></li>
                                             <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span><p th:text="${'Phone :'+deliveryMan.phone}"></p></li>
                                         </ul>
