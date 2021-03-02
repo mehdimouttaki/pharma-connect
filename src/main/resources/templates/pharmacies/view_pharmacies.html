@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pharma Connect - View Client</title>
+    <title>Pharma Connect - View Pharmacy</title>
 </head>
 <body>
 
@@ -24,19 +24,20 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><p th:text="${pharmacy.name}"></p></h2>
-                                        <p class="far fa-user"><b>Status: </b> <b style="color: green"
-                                                                                  th:text="${pharmacy.address}"></b></p>
+                                        <p class="lead"><p th:text="${'Name Pharmacy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.name}"></p></p>
+                                        <p th:text="${'Adderss:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.address}"></p>
+                                        <p th:text="${'City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.city}"></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Role  :'+pharmacy.pharmacist}"></p></li>
-                                            <li class="small"><span class="fa-li"><i
-                                                    class="fas fa-lg fa-phone"></i></span>
-                                                <p th:text="${'Phone :'+pharmacy.lng+''+pharmacy.lat}"></p></li>
+                                            <hr  size="6" width="90%" color="grey" >
+                                            <li class="small"><span class="fa-li"><i class="far fa-user"></i></span>
+                                                <p th:text="${'Pharmacist:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.pharmacist}"></p></li>
+                                            <li class="small"><span class="fa-li"></span>
+                                                <p th:text="${'Lat:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.lat}"></p></li>
+                                                <p th:text="${'Lng:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+pharmacy.lng}"></p></li>
                                         </ul>
                                     </div>
                                     <div class="col-5 text-center">
-                                        <img th:src="@{/img/avatar.png}" alt="" class="img-circle img-fluid">
+                                        <img th:src="@{/img/pharmacy.png}" alt="" class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +65,7 @@
                                                 <i class="fas fa-text-width"></i>
                                             </h3>
                                         </div>
+                                        <hr  size="8" width="90%" color="grey" >
                                         <!-- /.card-header -->
                                         <div class="card-body clearfix">
                                             <blockquote class="quote-secondary">
