@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString
+
 @Table(name = "permanent")
 public class Permanent implements Serializable {
 
@@ -36,6 +36,10 @@ public class Permanent implements Serializable {
     public String show() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
         return type.name() + " [" + simpleDateFormat.format(startDate) + " - " + simpleDateFormat.format(endDate) + "]";
+    }
+    public String showDate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        return  " [" + simpleDateFormat.format(startDate) + " - " + simpleDateFormat.format(endDate) + "]";
     }
 
 }

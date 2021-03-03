@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@ToString
+
 @Table(name = "pharmacy")
 public class Pharmacy implements Serializable {
     @Id

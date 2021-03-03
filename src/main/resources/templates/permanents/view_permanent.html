@@ -24,15 +24,14 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><p th:text="${'Pharmacies:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.pharmacies}"></p></h2>
+                                        <hr  size="6" width="90%" color="grey" >
+                                        <p  class="fas fa-cloud-moon"  th:text="${':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+'Permanent Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.type}"></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <hr  size="6" width="90%" color="grey" >
+
                                             <li class="small"><span class="fa-li"><i class="fas fa-business-time"></i></span>
-                                                <p th:text="${'Star Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.startDate}"></p></li>
-                                            <li class="small"><span class="fa-li"><i class="fas fa-business-time"></i></span>
-                                                <p th:text="${'End Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.endDate}"></p></li>
-                                            <li class="small"><span class="fa-li"><i class="fas fa-cloud-moon"></i></span>
-                                            <p  th:text="${'Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.type}"></p>
+                                                <p th:text="${'Star Date And End Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.showDate()}"></p></li>
+
+
 
                                         </ul>
                                     </div>
@@ -72,7 +71,8 @@
                                     <th>City</th>
                                     <th>Address</th>
                                     <th>Pharmacist</th>
-                                    <th>Lng , Lat</th>
+                                    <th>Lng</th>
+                                    <th>Lat</th>
 
                                 </tr>
                                 </thead>
@@ -82,10 +82,11 @@
                                     <td><a th:href="@{'/pharmacies/view/'+${pharmacy.id}}"
                                            th:text="${pharmacy.name}"></a>
                                     </td>
-                                    <td th:text="${pharmacy.city}"></td>
+                                    <td th:text="${pharmacy.city.label}"></td>
                                     <td th:text="${pharmacy.address}"></td>
                                     <td th:text="${pharmacy.pharmacist}"></td>
-                                    <td th:text="${pharmacy.lng+' '+pharmacy.lat}"></td>
+                                    <td th:text="${pharmacy.lng}"></td>
+                                    <td th:text="${pharmacy.lat}"></td>
 
 
 
