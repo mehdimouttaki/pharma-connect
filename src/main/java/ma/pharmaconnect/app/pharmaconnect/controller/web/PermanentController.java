@@ -43,9 +43,10 @@ public class PermanentController {
 
     @GetMapping("/permanents/edit/{id}")
     public String editPermanents(Model model, @PathVariable Integer id) {
-
+        List<Pharmacy> list = pharmacyService.getAll();
+        model.addAttribute("pharmacies", list);
         Permanent permanent = permanentService.getOne(id);
-        model.addAttribute("permanents", permanent);
+        model.addAttribute("permanent", permanent);
         return "/permanents/edit_permanents";
     }
 

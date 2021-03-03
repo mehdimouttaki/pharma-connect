@@ -2,10 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.config;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.model.Admin;
-import ma.pharmaconnect.app.pharmaconnect.model.User;
-import ma.pharmaconnect.app.pharmaconnect.model.UserRole;
 import ma.pharmaconnect.app.pharmaconnect.repository.AdminRepository;
-import ma.pharmaconnect.app.pharmaconnect.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
