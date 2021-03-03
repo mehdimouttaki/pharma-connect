@@ -52,7 +52,7 @@ public class ProductController {
         return "/products/edit_products";
     }
 
-    @PostMapping("/product/edit")
+    @PostMapping("/products/edit")
     public String updateProduct(ProductUpdateDTO productDTO) {
         Product product = new ModelMapper().map(productDTO, Product.class);
         productService.save(product);
