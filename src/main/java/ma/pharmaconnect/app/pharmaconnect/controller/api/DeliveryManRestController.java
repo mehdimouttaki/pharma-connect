@@ -20,9 +20,9 @@ public class DeliveryManRestController {
     public DeliveryManShowDTO updateDeliveryMan(@RequestBody DeliveryManUpdateDTO deliveryManDTO) {
         DeliveryMan deliveryMan = new ModelMapper().map(deliveryManDTO, DeliveryMan.class);
 
-        DeliveryMan deliveryManUpdated = deliveryManService.update(deliveryMan);
+        deliveryManService.update(deliveryMan);
 
-        return new ModelMapper().map(deliveryManUpdated, DeliveryManShowDTO.class);
+        return new ModelMapper().map(deliveryMan, DeliveryManShowDTO.class);
     }
 
 }

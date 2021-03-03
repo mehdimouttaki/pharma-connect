@@ -8,6 +8,7 @@ import ma.pharmaconnect.app.pharmaconnect.repository.DeliveryManRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -34,9 +35,20 @@ public class DeliveryManService {
         deliveryManRepository.deleteById(id);
     }
 
-    public DeliveryMan update(DeliveryMan deliveryMan) {
+    @Transactional
+    public void update(DeliveryMan deliveryMan) {
+        if (deliveryManRepository.existsById(deliveryMan.getId())) {
+            deliveryManRepository.update(
+                    deliveryMan.getId(),
+                    deliveryMan.getPhone(),
+                    deliveryMan.getFirstName(),
+                    deliveryMan.getLastName(),
+                    deliveryMan.getUsername());
+        }else{
+            throw new EntityNotFoundException("DeliveryMan", deliveryMan.getId());
+        }
 
-        return deliveryManRepository.save(deliveryMan);
+
     }
 
     public List<DeliveryMan> getAll() {

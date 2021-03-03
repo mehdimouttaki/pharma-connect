@@ -58,11 +58,11 @@
                     <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="view delivery"></i>
                   </a>
 
-                    <a th:href="@{'/delivery_men/edit/'+${deliveryMan.id}}">
+                    <a th:href="@{'/delivery-men/edit/'+${deliveryMan.id}}">
                       <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit DeliveryMan"></i>
                     </a>
 
-                    <i th:attr="data-url='/delivery_men/delete/'+${deliveryMan.id}"
+                    <i th:attr="data-url='/delivery-men/delete/'+${deliveryMan.id}"
                        style="color: darkred; margin: 0 5px; cursor: pointer"
                        class="far fa-trash-alt"
                        title="Remove deliveryMan"></i>

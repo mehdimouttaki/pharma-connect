@@ -31,6 +31,7 @@ public class DeliveryManController {
         deliveryManService.save(deliveryMan);
         return "redirect:/delivery-men";
     }
+
     @GetMapping("/delivery-men")
     public String allDeliveryMan(Model model) {
         List<DeliveryMan> list = deliveryManService.getAll();
@@ -38,23 +39,22 @@ public class DeliveryManController {
         return "/delivery_men/all_delivery_men";
     }
 
-    @GetMapping("/delivery_men/edit/{id}")
+    @GetMapping("/delivery-men/edit/{id}")
     public String editDeliveryMan(Model model, @PathVariable Integer id) {
 
         DeliveryMan deliveryMan = deliveryManService.getById(id);
         model.addAttribute("delivery", deliveryMan);
         return "/delivery_men/edit_delivery_men";
     }
-    @PostMapping("/delivery_men/edit")
+
+    @PostMapping("/delivery-men/edit")
     public String updateDeliveryMan(DeliveryManUpdateDTO deliverManDTO) {
         DeliveryMan deliveryMan = new ModelMapper().map(deliverManDTO, DeliveryMan.class);
-        deliveryManService.save(deliveryMan);
-        return "redirect:/delivery_men";
+        deliveryManService.update(deliveryMan);
+        return "redirect:/delivery-men";
     }
 
-
-
-    @GetMapping("/delivery_men/delete/{id}")
+    @GetMapping("/delivery-men/delete/{id}")
     public String deleteDeliveryMan(@PathVariable Integer id) {
         deliveryManService.delete(id);
         return "redirect:/delivery-men";
