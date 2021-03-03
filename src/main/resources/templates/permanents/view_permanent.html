@@ -19,19 +19,17 @@
                         <!-- /.card-header -->
                         <div class="card bg-light">
                             <div class="card-header text-muted border-bottom-0">
-                                Digital Strategist
+                                Permanent
                             </div>
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
                                         <hr  size="6" width="90%" color="grey" >
-                                        <p  class="fas fa-cloud-moon"  th:text="${':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+'Permanent Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.type}"></p>
+                                        <p class="fas fa-cloud-moon" th:text="${'Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.type}"></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
 
-                                            <li class="small"><span class="fa-li"><i class="fas fa-business-time"></i></span>
-                                                <p th:text="${'Star Date And End Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.showDate()}"></p></li>
-
-
+                                            <li><span class="fa-li"><i class="fas fa-business-time"></i></span>
+                                                <p th:text="${'Star Date && End Date :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.showDate()}"></p></li>
 
                                         </ul>
                                     </div>
@@ -82,11 +80,12 @@
                                     <td><a th:href="@{'/pharmacies/view/'+${pharmacy.id}}"
                                            th:text="${pharmacy.name}"></a>
                                     </td>
-                                    <td th:text="${pharmacy.city.label}"></td>
+                                    <td th:text="${pharmacy.city}"></td>
                                     <td th:text="${pharmacy.address}"></td>
                                     <td th:text="${pharmacy.pharmacist}"></td>
                                     <td th:text="${pharmacy.lng}"></td>
                                     <td th:text="${pharmacy.lat}"></td>
+
 
 
 
@@ -103,7 +102,7 @@
         </div>
 
 
-</div>
+
 
 </body>
 </html>
