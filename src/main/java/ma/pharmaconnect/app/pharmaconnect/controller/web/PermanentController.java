@@ -1,6 +1,7 @@
 package ma.pharmaconnect.app.pharmaconnect.controller.web;
 
 import lombok.RequiredArgsConstructor;
+import ma.pharmaconnect.app.pharmaconnect.dto.PermanentPharmacyLinkDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.mapper.PermanentMapper;
@@ -26,8 +27,10 @@ public class PermanentController {
 
     @GetMapping("/permanents/add")
     public String addPermanent(Model model) {
-        List<Pharmacy> list= pharmacyService.getAll();
-        model.addAttribute("pharmacies",list);
+        List<Pharmacy> pharmacies = pharmacyService.getAll();
+        model.addAttribute("pharmacies", pharmacies);
+        List<Permanent> permanents = permanentService.getAll();
+        model.addAttribute("permanents", permanents);
         return "/permanents/add_permanents";
     }
 
@@ -45,6 +48,7 @@ public class PermanentController {
         model.addAttribute("permanents", permanent);
         return "/permanents/edit_permanents";
     }
+
     @PostMapping("/permanents/edit")
     public String updatePermanents(PermanentUpdateDTO permanentsDTO) {
         Permanent permanent = new ModelMapper().map(permanentsDTO, Permanent.class);
@@ -66,11 +70,18 @@ public class PermanentController {
         permanentService.delete(id);
         return "redirect:/permanents";
     }
+
     @GetMapping("/permanents/view/{id}")
     public String onePermanent(@PathVariable Integer id, Model model) {
         Permanent permanent = permanentService.getOne(id);
-        model.addAttribute("permanent",permanent);
+        model.addAttribute("permanent", permanent);
         return "/permanents/view_permanent";
+    }
+
+    @PostMapping("/permanents/link-pharmacy")
+    public String linkPharmacy(PermanentPharmacyLinkDTO pharmacyLinkDTO) {
+        permanentService.link(pharmacyLinkDTO.getPermanentId(), pharmacyLinkDTO.getPharmacyId());
+        return "redirect:/permanents";
     }
 
 
