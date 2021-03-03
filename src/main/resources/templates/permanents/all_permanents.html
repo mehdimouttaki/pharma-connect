@@ -47,8 +47,9 @@
 
 
                                     <td>
-                                        <a th:href="@{'/permanents'+${permanent.id}}">
-                                            <i style="color: darkred; margin: 0 5px"  class="fas fa-eye" title="veiw permanent"></i>
+                                        <a th:href="@{'/permanents/view/'+${permanent.id}}">
+                                            <i style="color: darkred; margin: 0 5px" class="fas fa-eye"
+                                               title="view permanent"></i>
                                         </a>
                                         <a th:href="@{'/permanents/edit/'+${permanent.id}}">
                                             <i style="color: coral; margin: 0 5px" class="far fa-edit" title="Edit permanent"></i>

@@ -66,6 +66,12 @@ public class PermanentController {
         permanentService.delete(id);
         return "redirect:/permanents";
     }
+    @GetMapping("/permanents/view/{id}")
+    public String onePermanent(@PathVariable Integer id, Model model) {
+        Permanent permanent = permanentService.getOne(id);
+        model.addAttribute("permanent",permanent);
+        return "/permanents/view_permanent";
+    }
 
 
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharma Connect - View Permanent</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Permanent Information</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+                                Digital Strategist
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><p th:text="${'Pharmacies:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.pharmacies}"></p></h2>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <hr  size="6" width="90%" color="grey" >
+                                            <li class="small"><span class="fa-li"><i class="fas fa-business-time"></i></span>
+                                                <p th:text="${'Star Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.startDate}"></p></li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-business-time"></i></span>
+                                                <p th:text="${'End Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.endDate}"></p></li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-cloud-moon"></i></span>
+                                            <p  th:text="${'Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+permanent.type}"></p>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img th:src="@{/img/pharmacy.png}" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+                <div class="col-md-12">
+
+
+                </div>
+
+            </div>
+            <div class="row" th:if="${not #lists.isEmpty(permanent.pharmacies)}">
+                <div class="col-md-12">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <h3 class="card-title">List of Pharmacy in Permanents</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover text-nowrap text-center">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name Pharmacy</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                    <th>Pharmacist</th>
+                                    <th>Lng , Lat</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="pharmacy: ${permanent.pharmacies}">
+                                    <td th:text="${pharmacy.id}"></td>
+                                    <td><a th:href="@{'/pharmacies/view/'+${pharmacy.id}}"
+                                           th:text="${pharmacy.name}"></a>
+                                    </td>
+                                    <td th:text="${pharmacy.city}"></td>
+                                    <td th:text="${pharmacy.address}"></td>
+                                    <td th:text="${pharmacy.pharmacist}"></td>
+                                    <td th:text="${pharmacy.lng+' '+pharmacy.lat}"></td>
+
+
+
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+</body>
+</html>
