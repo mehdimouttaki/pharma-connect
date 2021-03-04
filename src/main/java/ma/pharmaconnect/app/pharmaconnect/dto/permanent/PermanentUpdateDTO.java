@@ -10,8 +10,8 @@ import ma.pharmaconnect.app.pharmaconnect.dto.pharmacy.PharmacyNameDTO;
 @ToString
 public class PermanentUpdateDTO {
 
+    private Integer id;
     private String rangeDate;
     private String type;
-    private PharmacyNameDTO pharmacy;
 
 }

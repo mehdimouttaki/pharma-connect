@@ -21,9 +21,8 @@
                         <form role="form" method="post" th:action="@{/permanents/add}">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label>Permanent Type</label>
                                     <div class="form-check">
-                                        <label>Permanent Type</label>
-                                        <p></p>
                                         <input class="form-check-input"
                                                type="radio"
                                                th:value="${T(ma.pharmaconnect.app.pharmaconnect.model.PermanentType).DAY}"

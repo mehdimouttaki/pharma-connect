@@ -6,17 +6,13 @@ import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.mapper.PermanentMapper;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
-import ma.pharmaconnect.app.pharmaconnect.model.Pharmacy;
 import ma.pharmaconnect.app.pharmaconnect.service.PermanentService;
 import ma.pharmaconnect.app.pharmaconnect.service.PharmacyService;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -27,33 +23,27 @@ public class PermanentController {
 
     @GetMapping("/permanents/add")
     public String addPermanent(Model model) {
-        List<Pharmacy> pharmacies = pharmacyService.getAll();
-        model.addAttribute("pharmacies", pharmacies);
-        List<Permanent> permanents = permanentService.getAll();
-        model.addAttribute("permanents", permanents);
+        model.addAttribute("pharmacies", pharmacyService.getAll());
+        model.addAttribute("permanents", permanentService.getAll());
         return "/permanents/add_permanents";
     }
 
     @GetMapping("/permanents")
     public String allPermanents(Model model) {
-        List<Permanent> list = permanentService.getAll();
-        model.addAttribute("permanents", list);
+        model.addAttribute("permanents", permanentService.getAll());
         return "/permanents/all_permanents";
     }
 
     @GetMapping("/permanents/edit/{id}")
     public String editPermanents(Model model, @PathVariable Integer id) {
-        List<Pharmacy> list = pharmacyService.getAll();
-        model.addAttribute("pharmacies", list);
-        Permanent permanent = permanentService.getOne(id);
-        model.addAttribute("permanent", permanent);
+        model.addAttribute("permanent", permanentService.getOne(id));
         return "/permanents/edit_permanents";
     }
 
     @PostMapping("/permanents/edit")
     public String updatePermanents(PermanentUpdateDTO permanentsDTO) {
-        Permanent permanent = new ModelMapper().map(permanentsDTO, Permanent.class);
-        permanentService.save(permanent);
+        Permanent permanent = PermanentMapper.map(permanentsDTO);
+        permanentService.update(permanentsDTO.getId(), permanent);
         return "redirect:/permanents";
     }
 

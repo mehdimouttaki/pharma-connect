@@ -56,4 +56,15 @@ public class PermanentService {
             pharmacyRepository.save(pharmacy);
         }
     }
+
+    public void update(Integer id, Permanent permanent) {
+        Permanent permanentToUpdate = permanentRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Permanents", id));
+
+        permanentToUpdate.setEndDate(permanent.getEndDate());
+        permanentToUpdate.setStartDate(permanent.getStartDate());
+        permanentToUpdate.setType(permanent.getType());
+
+        permanentRepository.save(permanentToUpdate);
+    }
 }

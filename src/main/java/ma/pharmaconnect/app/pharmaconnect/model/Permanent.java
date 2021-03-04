@@ -41,4 +41,9 @@ public class Permanent implements Serializable {
         return  " [" + simpleDateFormat.format(startDate) + " - " + simpleDateFormat.format(endDate) + "]";
     }
 
+    public String showDateForUpdate() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        return  simpleDateFormat.format(startDate) + " - " + simpleDateFormat.format(endDate);
+    }
+
 }

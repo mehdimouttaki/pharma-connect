@@ -2,6 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.mapper;
 
 import lombok.extern.slf4j.Slf4j;
 import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.permanent.PermanentUpdateDTO;
 import ma.pharmaconnect.app.pharmaconnect.model.Permanent;
 import ma.pharmaconnect.app.pharmaconnect.model.PermanentType;
 
@@ -17,12 +18,19 @@ public class PermanentMapper {
 
 
     public static Permanent map(PermanentCreationDTO permanentDTO) {
+        return map(permanentDTO.getType(), permanentDTO.getRangeDate());
+    }
+
+    public static Permanent map(PermanentUpdateDTO permanentDTO) {
+        return map(permanentDTO.getType(), permanentDTO.getRangeDate());
+    }
+
+    private static Permanent map(String type, String rangeDate) {
         Permanent permanent = new Permanent();
         // map String to PermanentType(enum)
-        PermanentType permanentType = PermanentType.valueOf(permanentDTO.getType());
+        PermanentType permanentType = PermanentType.valueOf(type);
         permanent.setType(permanentType);
         // map rangeDate{startDate,endDate} String ---> 2 Dates (startDate, endDate)
-        String rangeDate = permanentDTO.getRangeDate();
         String[] parts = rangeDate.split("-");
         if (parts.length == 2) {
             String part1 = parts[0];
