@@ -15,4 +15,8 @@ public class DetailOrderService {
     public void saveAll(List<DetailOrder> detailOrders) {
         detailOrderRepository.saveAll(detailOrders);
     }
+
+    public List<DetailOrder> getByOrder(Integer id) {
+        return detailOrderRepository.findAllByOrderId(id);
+    }
 }

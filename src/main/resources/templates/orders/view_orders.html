@@ -19,37 +19,32 @@
                         <div class="card-header">
                             <h3 class="card-title">Order Information</h3>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card bg-light">
-                            <div class="card-header text-muted border-bottom-0">
-                                Digital Strategist
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <p th:text="${order.deliveryMan.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.deliveryMan.username}"> <p></p>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <p th:text="${'ID: '+order.id}"></p>
+                                    <p th:text="${'Client: '+order.getClient().getUsername()}"></p>
+                                    <th:block th:if="${order.getDeliveryMan()==null}">
+                                        <p>Delivery : No assigned</p>
+                                    </th:block>
+                                    <th:block th:if="${order.getDeliveryMan()!=null}">
+                                        <p th:text="${'Delivery: '+order.getDeliveryMan().getUsername()}"></p>
+                                    </th:block>
+                                    <p th:text="${'Price: '+order.price}"></p>
+                                    <p th:text="${'Address: '+order.address}"></p>
+                                    <hr/>
+                                    <p>Details: </p>
+                                    <ul th:if="${not #lists.isEmpty(orderDetails)}">
+                                        <li th:each="orderDetail: ${orderDetails}"
+                                            th:text="${orderDetail.productCode + ' X '+ orderDetail.nbrProduct}">
 
-                                        <p th:text="${order.client.role+':&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.client.username}"><p></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
 
-                                        <p th:text="${'Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.price+'Dh'}"></p>
-                                        <hr  size="8" width="90%" color="grey" >
-                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>
-                                                <p th:text="${'Address Client:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.address}"></p></li>
-                                            <li class="small"><span class="fa-li"><i
-                                                    class="fas fa-clinic-medical"></i></span>
-                                                <p th:text="${'Pharmacy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.pharmacy.name}"></p></li>
-                                            <li class="small"><span class="fa-li"><i
-                                                    class="fas fa-clinic-medical"></i></span>
-                                                <p th:text="${' Address Pharmacy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+order.pharmacy.address+' '+order.pharmacy.city.label}"></p></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-5 text-center">
-                                        <img th:src="@{/img/shopping.png}" alt="" class="img-circle img-fluid">
-                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
