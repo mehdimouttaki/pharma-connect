@@ -2,11 +2,18 @@ package ma.pharmaconnect.app.pharmaconnect.dto.client;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class AddressCreationDTO {
-    private String address;
+    private String number;
+    private String street;
+    private String detail;
+    private String city;
+    private String zip;
+
+    @Override
+    public String toString() {
+        return number + ", " + street + '\n' + detail + '\n' + zip + " " + city;
+    }
 }

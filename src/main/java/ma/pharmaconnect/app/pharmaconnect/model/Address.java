@@ -15,7 +15,7 @@ import java.util.Date;
 @ToString
 @Table(name = "historical_address")
 @Accessors(chain = true)
-public class HistoricalAddress implements Serializable {
+public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,6 +24,13 @@ public class HistoricalAddress implements Serializable {
     @Column(nullable = true)
     private Date lastModifiedDate;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
     private Client client;
+
+    @PrePersist
+    public void init() {
+        if (lastModifiedDate == null) {
+            lastModifiedDate = new Date();
+        }
+    }
 }

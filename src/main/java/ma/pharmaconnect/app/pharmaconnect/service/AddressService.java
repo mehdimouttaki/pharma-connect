@@ -2,7 +2,7 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
-import ma.pharmaconnect.app.pharmaconnect.model.HistoricalAddress;
+import ma.pharmaconnect.app.pharmaconnect.model.Address;
 import ma.pharmaconnect.app.pharmaconnect.repository.AddressRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,20 +14,24 @@ public class AddressService {
 
     private final AddressRepository addressRepository;
 
-    public List<HistoricalAddress> getAll() {
-        return (List<HistoricalAddress>) addressRepository.findAll();
+    public List<Address> getAll() {
+        return (List<Address>) addressRepository.findAll();
     }
 
-    public HistoricalAddress getOne(Integer id) {
+    public Address getOne(Integer id) {
         return addressRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("ClientAddress", id));
     }
 
-    public HistoricalAddress add(String address) {
-        return addressRepository.save(new HistoricalAddress().setAddress(address));
+    public Address add(Address address) {
+        return addressRepository.save(address);
     }
 
     public void delete(Integer id) {
         addressRepository.deleteById(id);
+    }
+
+    public List<Address> getAllByClientId(Integer id) {
+        return addressRepository.findAllByClientId(id);
     }
 }

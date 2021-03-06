@@ -21,7 +21,7 @@ public class Client extends User implements Serializable {
     private String phone;
 
     @OneToMany(mappedBy = "client")
-    private List<HistoricalAddress> addresses = new ArrayList<>();
+    private List<Address> addresses = new ArrayList<>();
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
     @OneToMany(mappedBy = "client")

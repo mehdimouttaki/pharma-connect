@@ -2,8 +2,11 @@ package ma.pharmaconnect.app.pharmaconnect.controller.api;
 
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.AddressCreationDTO;
-import ma.pharmaconnect.app.pharmaconnect.model.HistoricalAddress;
+import ma.pharmaconnect.app.pharmaconnect.model.Address;
+import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.service.AddressService;
+import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,19 +16,32 @@ import java.util.List;
 public class AddressRestController {
 
     private final AddressService addressService;
+    private final ClientService clientService;
 
     @GetMapping("/api/address")
-    public List<HistoricalAddress> getAll() {
+    public List<Address> getAll() {
         return addressService.getAll();
     }
 
+
+    @GetMapping("/api/my-address")
+    public List<Address> getAllForClient(@RequestHeader("username") String username) {
+        Client client = clientService.getByUsername(username);
+        return addressService.getAllByClientId(client.getId());
+    }
+
     @PostMapping("/api/address")
-    public HistoricalAddress add(@RequestBody AddressCreationDTO addressCreationDTO) {
-        return addressService.add(addressCreationDTO.getAddress());
+    public ResponseEntity<String> add(@RequestBody AddressCreationDTO addressCreationDTO, @RequestHeader("username") String username) {
+        Client client = clientService.getByUsername(username);
+        Address address = new Address();
+        address.setAddress(addressCreationDTO.toString());
+        address.setClient(client);
+        addressService.add(address);
+        return ResponseEntity.ok(address.toString());
     }
 
     @GetMapping("/api/address/{id}")
-    public HistoricalAddress getOne(@PathVariable Integer id) {
+    public Address getOne(@PathVariable Integer id) {
         return addressService.getOne(id);
     }
 
