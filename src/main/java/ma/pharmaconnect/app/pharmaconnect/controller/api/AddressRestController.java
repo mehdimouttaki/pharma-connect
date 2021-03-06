@@ -6,10 +6,12 @@ import ma.pharmaconnect.app.pharmaconnect.model.Address;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.service.AddressService;
 import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,19 +27,24 @@ public class AddressRestController {
 
 
     @GetMapping("/api/my-address")
-    public List<Address> getAllForClient(@RequestHeader("username") String username) {
+    public List<String> getAllForClient(@RequestHeader("username") String username) {
         Client client = clientService.getByUsername(username);
-        return addressService.getAllByClientId(client.getId());
+        List<Address> addresses = addressService.getAllByClientId(client.getId());
+        return addresses
+                .stream()
+                .map(Address::getAddress)
+                .collect(Collectors.toList());
+
     }
 
     @PostMapping("/api/address")
-    public ResponseEntity<String> add(@RequestBody AddressCreationDTO addressCreationDTO, @RequestHeader("username") String username) {
+    public Map<String, String> add(@RequestBody AddressCreationDTO addressCreationDTO, @RequestHeader("username") String username) {
         Client client = clientService.getByUsername(username);
         Address address = new Address();
         address.setAddress(addressCreationDTO.toString());
         address.setClient(client);
         addressService.add(address);
-        return ResponseEntity.ok(address.toString());
+        return Collections.singletonMap("address", address.getAddress());
     }
 
     @GetMapping("/api/address/{id}")
