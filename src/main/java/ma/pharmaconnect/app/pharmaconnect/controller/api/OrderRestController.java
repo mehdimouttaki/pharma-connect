@@ -60,7 +60,7 @@ public class OrderRestController {
 
 
     @GetMapping("/api/orders")
-    public List<Order> getAll(@RequestHeader("username") String username) {
+    public List<OrderShowDTO> getAll(@RequestHeader("username") String username) {
         User user = userService.getByUsername(username);
         List<Order> orders = new ArrayList<>();
         if (user.getRole().equals(UserRole.DELIVERY)) {
@@ -68,7 +68,13 @@ public class OrderRestController {
         } else if (user.getRole().equals(UserRole.CLIENT)) {
             orders = orderService.getAllByClientId(user.getId());
         }
-        return orders;
+
+        List<OrderShowDTO> dtoList = orders
+                .stream()
+                .map(order -> new ModelMapper().map(order, OrderShowDTO.class))
+                .collect(Collectors.toList());
+
+        return dtoList;
     }
 
     @GetMapping("/api/orders/{id}")
