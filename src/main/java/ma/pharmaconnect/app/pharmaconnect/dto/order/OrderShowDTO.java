@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientShowDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManShowDTO;
 
 @Getter
 @Setter
@@ -13,5 +14,6 @@ public class OrderShowDTO {
     private Double price;
     private String address;
     private ClientShowDTO client;
+    private DeliveryManShowDTO deliveryMan;
 
 }
