@@ -36,4 +36,8 @@ public class ProductService {
         return productRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Product", id));
     }
+
+    public List<Product> search(String q) {
+        return productRepository.search(q);
+    }
 }
