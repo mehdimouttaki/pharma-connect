@@ -19,8 +19,6 @@ public class OrderService {
 
     private final ClientRepository clientRepository;
 
-    private final ProductRepository productRepository;
-
     public Order save(Order order) {
         return orderRepository.save(order);
     }
@@ -45,5 +43,13 @@ public class OrderService {
 
     public Client update(Client client) {
         return clientRepository.save(client);
+    }
+
+    public List<Order> getAllByClientId(Integer clientId) {
+        return orderRepository.getAllByClientId(clientId);
+    }
+
+    public List<Order> getAllByDeliveryId(Integer deliveryId) {
+        return orderRepository.getAllByDeliveryId(deliveryId);
     }
 }

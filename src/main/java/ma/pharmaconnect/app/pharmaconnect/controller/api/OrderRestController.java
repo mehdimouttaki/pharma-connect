@@ -3,17 +3,12 @@ package ma.pharmaconnect.app.pharmaconnect.controller.api;
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderCreationDTO;
 import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderShowDTO;
-import ma.pharmaconnect.app.pharmaconnect.model.Client;
-import ma.pharmaconnect.app.pharmaconnect.model.DetailOrder;
-import ma.pharmaconnect.app.pharmaconnect.model.Order;
-import ma.pharmaconnect.app.pharmaconnect.model.Payment;
-import ma.pharmaconnect.app.pharmaconnect.service.ClientService;
-import ma.pharmaconnect.app.pharmaconnect.service.DetailOrderService;
-import ma.pharmaconnect.app.pharmaconnect.service.OrderService;
-import ma.pharmaconnect.app.pharmaconnect.service.PaymentService;
+import ma.pharmaconnect.app.pharmaconnect.model.*;
+import ma.pharmaconnect.app.pharmaconnect.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +23,7 @@ public class OrderRestController {
     private final ClientService clientService;
     private final DetailOrderService detailOrderService;
     private final PaymentService paymentService;
+    private final UserService userService;
 
     @PostMapping("/api/orders")
     public OrderShowDTO addOrder(@RequestBody OrderCreationDTO orderDto, @RequestHeader("username") String username) {
@@ -64,8 +60,15 @@ public class OrderRestController {
 
 
     @GetMapping("/api/orders")
-    public List<Order> getAll() {
-        return orderService.getAll();
+    public List<Order> getAll(@RequestHeader("username") String username) {
+        User user = userService.getByUsername(username);
+        List<Order> orders = new ArrayList<>();
+        if (user.getRole().equals(UserRole.DELIVERY)) {
+            orders = orderService.getAllByDeliveryId(user.getId());
+        } else if (user.getRole().equals(UserRole.CLIENT)) {
+            orders = orderService.getAllByClientId(user.getId());
+        }
+        return orders;
     }
 
     @GetMapping("/api/orders/{id}")
