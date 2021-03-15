@@ -9,7 +9,10 @@ import ma.pharmaconnect.app.pharmaconnect.repository.OrderRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+
+import static ma.pharmaconnect.app.pharmaconnect.model.OrderStatus.ATTACHED_TO_DELIVERY;
 
 @Service
 @RequiredArgsConstructor
@@ -51,5 +54,10 @@ public class OrderService {
 
     public List<Order> getAllByDeliveryId(Integer deliveryId) {
         return orderRepository.getAllByDeliveryId(deliveryId);
+    }
+
+    @Transactional
+    public void deliveryTakeOrder(Integer deliveryId, Integer orderId) {
+        orderRepository.deliveryTakeOrder(deliveryId, ATTACHED_TO_DELIVERY , orderId);
     }
 }

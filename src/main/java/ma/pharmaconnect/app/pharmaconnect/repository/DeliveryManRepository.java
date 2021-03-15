@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface DeliveryManRepository extends CrudRepository<DeliveryMan, Integer> {
     @Modifying
@@ -17,4 +19,6 @@ public interface DeliveryManRepository extends CrudRepository<DeliveryMan, Integ
                        @Param("firstName") String firstName,
                        @Param("lastName") String lastName,
                        @Param("username") String username);
+
+    Optional<DeliveryMan> findByUsername(String username);
 }
