@@ -3,10 +3,10 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
+import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.Order;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.OrderRepository;
-import ma.pharmaconnect.app.pharmaconnect.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,8 +19,8 @@ import static ma.pharmaconnect.app.pharmaconnect.model.OrderStatus.ATTACHED_TO_D
 public class OrderService {
 
     private final OrderRepository orderRepository;
-
     private final ClientRepository clientRepository;
+    private final ChatService chatService;
 
     public Order save(Order order) {
         return orderRepository.save(order);
@@ -57,7 +57,9 @@ public class OrderService {
     }
 
     @Transactional
-    public void deliveryTakeOrder(Integer deliveryId, Integer orderId) {
-        orderRepository.deliveryTakeOrder(deliveryId, ATTACHED_TO_DELIVERY , orderId);
+    public void deliveryTakeOrder(DeliveryMan deliveryMan, Integer orderId) {
+        Order order = getOne(orderId);
+        orderRepository.deliveryTakeOrder(deliveryMan.getId(), ATTACHED_TO_DELIVERY, orderId);
+        chatService.createChat(order, deliveryMan, String.format("Order '#%s' is taken by '%s'", order.getId(), deliveryMan.getFirstName()));
     }
 }

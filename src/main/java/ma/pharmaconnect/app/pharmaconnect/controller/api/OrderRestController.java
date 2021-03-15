@@ -87,6 +87,6 @@ public class OrderRestController {
     public void deliveryTakeOrder(@PathVariable Integer orderId, @RequestHeader("username") String username) {
         DeliveryMan deliveryMan = deliveryManService.getByUsername(username);
 
-        orderService.deliveryTakeOrder(deliveryMan.getId(), orderId);
+        orderService.deliveryTakeOrder(deliveryMan, orderId);
     }
 }

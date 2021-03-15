@@ -31,4 +31,8 @@ public class Chat implements Serializable {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    @PrePersist
+    private void init() {
+        if (createdAt == null) createdAt = new Date();
+    }
 }
