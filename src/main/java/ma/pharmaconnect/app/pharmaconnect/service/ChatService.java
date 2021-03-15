@@ -3,6 +3,8 @@ package ma.pharmaconnect.app.pharmaconnect.service;
 import lombok.RequiredArgsConstructor;
 import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Chat;
+import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
+import ma.pharmaconnect.app.pharmaconnect.model.Order;
 import ma.pharmaconnect.app.pharmaconnect.repository.ChatRepository;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +30,15 @@ public class ChatService {
 
         return chatRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Chat", id));
+    }
+
+    public void createChat(Order order, DeliveryMan deliveryMan, String message) {
+        Chat chat = new Chat();
+        chat.setClient(order.getClient());
+        chat.setOrder(order);
+        chat.setDeliveryMan(deliveryMan);
+        chat.setMessage(message);
+
+        save(chat);
     }
 }

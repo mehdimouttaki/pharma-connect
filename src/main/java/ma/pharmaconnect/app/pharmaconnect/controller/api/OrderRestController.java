@@ -21,6 +21,7 @@ public class OrderRestController {
 
     private final OrderService orderService;
     private final ClientService clientService;
+    private final DeliveryManService deliveryManService;
     private final DetailOrderService detailOrderService;
     private final PaymentService paymentService;
     private final UserService userService;
@@ -80,5 +81,12 @@ public class OrderRestController {
     @GetMapping("/api/orders/{id}")
     public Order getOne(@PathVariable Integer id) {
         return orderService.getOne(id);
+    }
+
+    @GetMapping("/api/orders/take-it/{orderId}")
+    public void deliveryTakeOrder(@PathVariable Integer orderId, @RequestHeader("username") String username) {
+        DeliveryMan deliveryMan = deliveryManService.getByUsername(username);
+
+        orderService.deliveryTakeOrder(deliveryMan, orderId);
     }
 }

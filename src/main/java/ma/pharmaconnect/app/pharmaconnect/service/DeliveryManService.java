@@ -44,7 +44,7 @@ public class DeliveryManService {
                     deliveryMan.getFirstName(),
                     deliveryMan.getLastName(),
                     deliveryMan.getUsername());
-        }else{
+        } else {
             throw new EntityNotFoundException("DeliveryMan", deliveryMan.getId());
         }
 
@@ -60,5 +60,8 @@ public class DeliveryManService {
                 .orElseThrow(() -> new EntityNotFoundException("DeliveryMan", id));
     }
 
-
+    public DeliveryMan getByUsername(String username) {
+        return deliveryManRepository.findByUsername(username)
+                .orElseThrow(() -> new EntityNotFoundException("Entity DeliveryMan with username '" + username + "' not found"));
+    }
 }

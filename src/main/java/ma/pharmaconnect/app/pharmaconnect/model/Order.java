@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Setter
@@ -23,6 +24,10 @@ public class Order implements Serializable {
     @Column(name = "address", nullable = false)
     private String address;
 
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
@@ -34,5 +39,10 @@ public class Order implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "pharmacy_id", nullable = true)
     private Pharmacy pharmacy;
+
+    @PrePersist
+    private void init() {
+        if (orderStatus == null) orderStatus = OrderStatus.INIT;
+    }
 
 }
