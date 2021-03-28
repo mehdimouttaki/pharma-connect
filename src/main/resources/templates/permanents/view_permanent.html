@@ -80,7 +80,7 @@
                                     <td><a th:href="@{'/pharmacies/view/'+${pharmacy.id}}"
                                            th:text="${pharmacy.name}"></a>
                                     </td>
-                                    <td th:text="${pharmacy.city}"></td>
+                                    <td th:text="${pharmacy.city.label}"></td>
                                     <td th:text="${pharmacy.address}"></td>
                                     <td th:text="${pharmacy.pharmacist}"></td>
                                     <td th:text="${pharmacy.lng}"></td>
