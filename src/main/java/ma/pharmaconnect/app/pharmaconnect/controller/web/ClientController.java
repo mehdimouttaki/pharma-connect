@@ -26,7 +26,7 @@ public class ClientController {
     @GetMapping("/clients/delete/{id}")
     public String deleteClient(@PathVariable Integer id) {
         clientService.delete(id);
-        return "redirect:/clients";
+        return "redirect:t";
     }
 
     @GetMapping("/clients/view/{id}")

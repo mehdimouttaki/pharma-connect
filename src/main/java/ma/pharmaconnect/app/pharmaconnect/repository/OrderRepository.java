@@ -20,4 +20,8 @@ public interface OrderRepository extends CrudRepository<Order, Integer> {
     @Modifying
     @Query("update Order o set o.deliveryMan.id=:deliveryId, o.orderStatus=:status where o.id=:orderId")
     void deliveryTakeOrder(@Param("deliveryId") Integer deliveryId, @Param("status") OrderStatus status, @Param("orderId") Integer orderId);
+
+    @Modifying
+    @Query("update Order o set o.orderStatus=:status where o.id=:orderId")
+    void changeStatus(@Param("status") OrderStatus status, @Param("orderId") Integer orderId);
 }

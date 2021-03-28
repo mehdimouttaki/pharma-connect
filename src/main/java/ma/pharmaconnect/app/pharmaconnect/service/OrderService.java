@@ -5,6 +5,7 @@ import ma.pharmaconnect.app.pharmaconnect.exception.EntityNotFoundException;
 import ma.pharmaconnect.app.pharmaconnect.model.Client;
 import ma.pharmaconnect.app.pharmaconnect.model.DeliveryMan;
 import ma.pharmaconnect.app.pharmaconnect.model.Order;
+import ma.pharmaconnect.app.pharmaconnect.model.User;
 import ma.pharmaconnect.app.pharmaconnect.repository.ClientRepository;
 import ma.pharmaconnect.app.pharmaconnect.repository.OrderRepository;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import static ma.pharmaconnect.app.pharmaconnect.model.OrderStatus.ATTACHED_TO_DELIVERY;
+import static ma.pharmaconnect.app.pharmaconnect.model.OrderStatus.*;
 
 @Service
 @RequiredArgsConstructor
@@ -61,5 +62,19 @@ public class OrderService {
         Order order = getOne(orderId);
         orderRepository.deliveryTakeOrder(deliveryMan.getId(), ATTACHED_TO_DELIVERY, orderId);
         chatService.createChat(order, deliveryMan, String.format("Order '#%s' is taken by '%s'", order.getId(), deliveryMan.getFirstName()));
+    }
+
+    @Transactional
+    public void deliveryIsDelivering(DeliveryMan deliveryMan, Integer orderId) {
+        Order order = getOne(orderId);
+        orderRepository.changeStatus(DELIVERING, orderId);
+        chatService.createChat(order, deliveryMan, String.format("Order '#%s' is now delivering by '%s'", order.getId(), deliveryMan.getFirstName()));
+    }
+
+    @Transactional
+    public void orderIsDelivered(User user, Integer orderId) {
+        Order order = getOne(orderId);
+        orderRepository.changeStatus(DONE, orderId);
+        chatService.createChat(order, order.getDeliveryMan(), String.format("Order '#%s' is now delivered by '%s'", order.getId(), order.getDeliveryMan().getFirstName()));
     }
 }

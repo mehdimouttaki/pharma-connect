@@ -89,4 +89,18 @@ public class OrderRestController {
 
         orderService.deliveryTakeOrder(deliveryMan, orderId);
     }
+
+    @GetMapping("/api/orders/delivering-it/{orderId}")
+    public void deliveryIsDelivering(@PathVariable Integer orderId, @RequestHeader("username") String username) {
+        DeliveryMan deliveryMan = deliveryManService.getByUsername(username);
+
+        orderService.deliveryIsDelivering(deliveryMan, orderId);
+    }
+
+    @GetMapping("/api/orders/delivered-it/{orderId}")
+    public void orderIsDelivered(@PathVariable Integer orderId, @RequestHeader("username") String username) {
+        User user = userService.getByUsername(username);
+
+        orderService.orderIsDelivered(user, orderId);
+    }
 }
