@@ -46,4 +46,12 @@ public class ReviewService {
                 .orElseThrow(() -> new EntityNotFoundException("Review", id));
 
     }
+
+    public List<Review> getAllByClientId(Integer clientId) {
+        return reviewRepository.findAllByClientId(clientId);
+    }
+
+    public List<Review> getAllByDeliveryManId(Integer deliveryManId) {
+        return reviewRepository.findAllByDeliveryManId(deliveryManId);
+    }
 }

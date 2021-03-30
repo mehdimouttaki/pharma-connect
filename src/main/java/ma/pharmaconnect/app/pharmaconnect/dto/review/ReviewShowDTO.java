@@ -1,19 +1,20 @@
 package ma.pharmaconnect.app.pharmaconnect.dto.review;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientCreationDTO;
-import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManUpdateDTO;
-import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderCreationDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.client.ClientShowDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.delivery.DeliveryManShowDTO;
+import ma.pharmaconnect.app.pharmaconnect.dto.order.OrderShowDTO;
 
 @Getter
 @Setter
 @ToString
 public class ReviewShowDTO {
     private Integer id;
-    private String review;
+    private String label;
     private Integer rate;
-    private ClientCreationDTO clientDTO;
-    private DeliveryManUpdateDTO deliveryManDTO;
-    private OrderCreationDTO orderCreationDTO;
+    private ClientShowDTO client;
+    private DeliveryManShowDTO deliveryMan;
+    private OrderShowDTO order;
 }
