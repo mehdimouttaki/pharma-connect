@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class ProductShowDTO {
-    private  Integer id;
+    private Integer id;
     private String name;
     private String code;
     private Boolean prescription;
