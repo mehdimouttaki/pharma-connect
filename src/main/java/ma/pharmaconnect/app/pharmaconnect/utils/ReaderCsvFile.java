@@ -1,0 +1,31 @@
+package ma.pharmaconnect.app.pharmaconnect.utils;
+
+import com.opencsv.bean.ColumnPositionMappingStrategy;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.CsvToBeanBuilder;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+public class ReaderCsvFile<T> {
+
+  public static <T> List<T> readCsv(Path path, Class<T> clazz) {
+    ColumnPositionMappingStrategy<T> ms = new ColumnPositionMappingStrategy<T>();
+    ms.setType(clazz);
+    Reader reader = null;
+    try {
+      reader = Files.newBufferedReader(path);
+    } catch (IOException e) {
+      throw new RuntimeException("cannot read the file");
+    }
+    CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
+        .withType(clazz)
+        .withMappingStrategy(ms)
+        .build();
+    return cb.parse();
+  }
+
+
+}
