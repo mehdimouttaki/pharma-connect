@@ -40,4 +40,8 @@ public class ProductService {
     public List<Product> search(String q) {
         return productRepository.search(q);
     }
+
+    public  void saveAll(List<Product> products){
+        productRepository.saveAll(products);
+    }
 }
