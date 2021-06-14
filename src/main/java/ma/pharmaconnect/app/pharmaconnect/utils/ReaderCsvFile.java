@@ -24,6 +24,7 @@ public class ReaderCsvFile {
     CsvToBean<T> cb = new CsvToBeanBuilder<T>(reader)
         .withType(clazz)
         .withMappingStrategy(ms)
+            .withSeparator(',')
         .withSkipLines(1)
         .build();
     return cb.parse();
