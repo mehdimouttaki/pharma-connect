@@ -30,8 +30,8 @@ public class ProcessCsvProductToDb {
     showInvalidateProducts(inValidProductCsvDtos);
     List<Product> products = validProductCsvDtos.stream().map(this::map).collect(toList());
 
-   // products.forEach(product -> log.info(product.toString()));
-    productService.saveAll(products);
+   products.forEach(product -> log.info(product.toString()));
+    //productService.saveAll(products);
     log.info("end processing csv file to DB");
   }
 
